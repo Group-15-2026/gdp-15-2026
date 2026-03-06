@@ -1,0 +1,22 @@
+{
+    "event" : "%event%",
+    
+    "controversy" : 0.0,
+
+    "economic_impact" : {
+        "severity" : "%low%",
+        "justification" : "%single sentence justification%"
+    },
+    "financial_market_impact" : {
+        "severity" : "%medium%",
+        "justification" : "%single sentence justification%"
+    },
+    "security_impact" : {
+        "severity" : "%high%",
+        "justification" : "%single sentence justification%"
+    },
+    "diplomatic_impact" : {
+        "severity" : "%low%",
+        "justification" : "%single sentence justification%"
+    }
+}

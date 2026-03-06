@@ -1,0 +1,10 @@
+{
+    "name" : "%country1%",
+    "actor_type" : "country",
+    
+    "impact" : 0.0,
+    "public_opinion" : 0.0,
+    "controversy" : 0.0,
+    "mentions_weight" : 0.0,
+    "linked_themes" : ["%theme1%", "%theme2%"]
+}
