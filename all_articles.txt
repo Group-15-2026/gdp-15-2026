@@ -1,0 +1,539 @@
+{
+    "status": "ok",
+    "totalResults": 41,
+    "articles": [
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Jay Peters",
+            "title": "New MacBooks, the iPhone 17E, and more: everything we know about Apple\u2019s March 2026 announcements",
+            "description": "Apple is kicking off March with a flurry of product announcements ahead of a \u201cspecial Apple experience\u201d on March 4th in New York City, London, and Shanghai. Apple started on March 2nd by announcing the iPhone 17E. The new $599 phone has a lot of welcome addit\u2026",
+            "url": "https://www.theverge.com/tech/888352/apple-march-2026-event-experience-announcements-iphone-macbook-ipad",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Apple-MacBook-Pro-M5-Pro-and-M5-Max-Capture-One-260303.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-03T17:27:40Z",
+            "content": "Updated Today, Mar 3, 2026, 4:02 PM UTC\r\nApple is kicking off March with a flurry of product announcements ahead of a special Apple experience on March 4th in New York City, London, and Shanghai.\r\nAp\u2026 [+7556 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Jay Peters",
+            "title": "Apple might use Google servers to store data for its upgraded AI Siri",
+            "description": "Apple has asked Google to look into \"setting up servers\" for a new version of Siri that's Gemini-powered and meets Apple's privacy requirements, The Information reports. Apple had already announced in January that Google's Gemini AI models would help power th\u2026",
+            "url": "https://www.theverge.com/tech/887802/apple-ai-siri-google-servers",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25697396/STK071_APPLE_M.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-02T20:22:33Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nApple may be leaning even more on Google as it tries to catch up in AI.\r\nApple may be leaning even more on Google as it tries to catch up in AI.\r\nby\r\nJay PetersC\u2026 [+2369 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Emma Roth",
+            "title": "Apple launches M5 Pro and M5 Max chips",
+            "description": "Apple has just announced two new chips: the M5 Pro and M5 Max. The new chips will power the MacBook Pro it revealed on Tuesday, offering an 18-core CPU and a new \"Fusion Architecture\" that integrates two 3nm dies into a single system-on-a-chip (SoC). The CPU'\u2026",
+            "url": "https://www.theverge.com/tech/888090/apple-m5-pro-max-processors",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/apple_chips.jpg?quality=90&strip=all&crop=0%2C10.740836125969%2C100%2C78.518327748063&w=1200",
+            "publishedAt": "2026-03-03T14:23:34Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe new 18-core processors come with a new Fusion Architecture that combines two dies on one chip.\r\nThe new 18-core processors come with a new Fusion Architectur\u2026 [+2150 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Stevie Bonifield",
+            "title": "Apple launches budget-friendly MacBook Neo powered by an iPhone chip",
+            "description": "Apple just announced a new entry-level MacBook that runs on the same A18 Pro chip that launched two years ago in its iPhone 16 lineup and starts at $599. With older M-series MacBooks being phased out, it's a cheaper alternative that competes with Windows and \u2026",
+            "url": "https://www.theverge.com/tech/886496/apple-march-2026-event-macbook-neo-announcement",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/030426_Apple_MacBook_Neo_ADiBenedetto_0005.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-04T14:20:24Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe entry-level MacBook could help Apple compete with Chromebooks and low-cost Windows laptops.\r\nThe entry-level MacBook could help Apple compete with Chromebook\u2026 [+2539 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Stevie Bonifield",
+            "title": "Apple\u2019s website leaks MacBook \u2018Neo,\u2019 which could be its new cheaper laptop",
+            "description": "During Apple's week-long product launch event on Tuesday, a listing for the \"MacBook Neo (Model A3404)\" appeared on a regulatory compliance page on Apple's website under its line-up of 2026 MacBooks. First spotted by MacRumors, the listing appears to be an ac\u2026",
+            "url": "https://www.theverge.com/tech/888226/apple-macbook-neo-website-leak",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK071_APPLE_I.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-03T16:02:41Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe unannounced MacBook Neo appeared alongside listings for the new M5 MacBook Air and updated MacBook Pro models.\r\nThe unannounced MacBook Neo appeared alongsid\u2026 [+2518 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Nilay Patel",
+            "title": "iPhone 17e hands-on: nothing more, nothing less",
+            "description": "Apple announced the $599 iPhone 17e earlier this week, and we just got a chance to play with one for a few minutes at the company's \"experience\" for media in New York City. The 17e is more or less exactly what you'd expect - a cheaper, simpler riff on the iPh\u2026",
+            "url": "https://www.theverge.com/tech/888941/apple-iphone-17e-hands-on",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/DSC_5479.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-04T14:37:34Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nApples cheapest iPhone adds MagSafe and a little more storage, but the price stays steady at $599.\r\nApples cheapest iPhone adds MagSafe and a little more storage\u2026 [+3254 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani",
+            "title": "You can already save up to $50 on the new M4 iPad Air",
+            "description": "In case you missed it, Apple announced a host of new devices this week, including both a new phone and a cheaper laptop. It also unveiled the M4-powered iPad Air, which is already receiving a preorder discount ahead of its March 11th debut. Right now, the 128\u2026",
+            "url": "https://www.theverge.com/gadgets/890389/apple-ipad-air-m4-xbox-wireless-controller-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/ipadairm4.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-06T17:03:09Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nWe also have an exclusive discount on Garmins Forerunner 265, just for Verge readers.\r\nWe also have an exclusive discount on Garmins Forerunner 265, just for Ver\u2026 [+4785 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Antonio G. Di Benedetto",
+            "title": "Our first hands-on look at Apple\u2019s MacBook Neo",
+            "description": "Here is the MacBook Neo, Apple's new entry-level Mac laptop. Its colorful chassis options easily set it apart from current MacBook Air and Pro models. But the biggest difference is that inside the Neo is an A18 Pro iPhone chip instead of an M-series processor\u2026",
+            "url": "https://www.theverge.com/tech/888712/macbook-neo-laptop-iphone-chip-apple-event-photos-price-features",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/030426_Apple_MacBook_Neo_ADiBenedetto_0001.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-04T14:15:04Z",
+            "content": "Here is the MacBook Neo, Apple's new entry-level Mac laptop. Its colorful chassis options easily set it apart from current MacBook Air and Pro models. But the biggest difference is that inside the Ne\u2026 [+319 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Andrew Liszewski",
+            "title": "BenQ\u2019s new Mac monitor could be a cheaper alternative to Apple\u2019s new Studio Display",
+            "description": "It was first announced last month without pricing or availability details, but BenQ has now shared all the specs for its new 27-inch 5K display designed for Mac users. The MA270S matches the size and 5,120 x 2,880 resolution of the new Studio Display and Stud\u2026",
+            "url": "https://www.theverge.com/tech/889082/benq-27-inch-5k-mac-monitor-ma270s-display",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/benq_display1.jpg?quality=90&strip=all&crop=0,10.692956754247,100,78.614086491506",
+            "publishedAt": "2026-03-04T15:32:24Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe new 27-inch 5K BenQ MA270S is $600 cheaper than Apples latest entry-level Studio Display.\r\nThe new 27-inch 5K BenQ MA270S is $600 cheaper than Apples latest \u2026 [+2756 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Emma Roth",
+            "title": "Samsung\u2019s Digital Home Key lets you use your phone as your key",
+            "description": "Just days after showing off the Galaxy S26, Samsung is finally rolling out the ability for users to unlock their home with a tap of their phone or by simply approaching their door. The new feature, called Digital Home Key, will live inside Samsung Wallet and \u2026",
+            "url": "https://www.theverge.com/tech/887564/samsung-wallet-digital-key-smart-home-aliro",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/samsung-galaxy-s25-edge-06.jpg?quality=90&strip=all&crop=0%2C10.741906587151%2C100%2C78.516186825698&w=1200",
+            "publishedAt": "2026-03-02T15:57:21Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nSamsung brings an Apple Home Key-style tap-to-unlock feature to Galaxy phones using Aliro.\r\nSamsung brings an Apple Home Key-style tap-to-unlock feature to Galax\u2026 [+2811 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani, Cameron Faulkner",
+            "title": "Where to preorder the new iPhone 17E before it hits stores on March 11th",
+            "description": "Apple's week of product announcements kicked off with the iPhone 17E, a phone designed for those who don't want to spend north of $700 on their next upgrade. The iPhone 16E follow-up won't officially launch until March 11th; however, preorders are now open at\u2026",
+            "url": "https://www.theverge.com/gadgets/887512/iphone-17e-preorder-how-to-buy-price-release-date",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/iPhone-17E-Press-Image-2.jpg?quality=90&strip=all&crop=0%2C10.724512445145%2C100%2C78.55097510971&w=1200",
+            "publishedAt": "2026-03-04T14:33:15Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nApples next budget phone arrives later this month.\r\nApples next budget phone arrives later this month.\r\nby\r\nSheena VasaniClose\r\nPosts from this author will be ad\u2026 [+3659 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani",
+            "title": "The new MacBook Air debuts with a $50 gift card as the M4 model hits its best price",
+            "description": "Powered by the new M5 chip, Apple\u2019s latest MacBook Airs are more powerful than ever with double the base storage (512GB), but they also cost $100 more than their predecessor. Fortunately, though, we\u2019ve found a few ways to save. Best Buy is offering the new 13\u2026",
+            "url": "https://www.theverge.com/gadgets/889391/apple-macbook-air-m5-m4-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Apple-MacBook-Air-lifestyle-03-260303_big.jpg.large_2x.jpg?quality=90&strip=all&crop=0%2C10.773011832141%2C100%2C78.453976335719&w=1200",
+            "publishedAt": "2026-03-04T20:23:41Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe new MacBook Air now costs more, but you can still save with gift cards or a big discount on last years model.\r\nThe new MacBook Air now costs more, but you ca\u2026 [+3140 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Cameron Faulkner",
+            "title": "Magic Keyboard cases for the latest iPad Pro are up to $85 off",
+            "description": "Apple\u2019s Magic Keyboard cases offer a fantastic typing experience, elevating the iPad to laptop status with a large trackpad that offers haptic feedback, and an articulating hinge to help you angle the display just right for your comfort. It\u2019s typically a very\u2026",
+            "url": "https://www.theverge.com/gadgets/887501/ipad-magic-keyboard-case-m4-pro-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/magickeyboarddealpost.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-02T16:30:50Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThese cases fit the M4 models, but not the iPad Air. You can also save on the fantastic DJI Osmo Pocket 3 and more.\r\nThese cases fit the M4 models, but not the i\u2026 [+4450 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Jay Peters",
+            "title": "Valve\u2019s Steam Machine may not launch this year",
+            "description": "Valve still can't reveal details about the Steam Machine, Steam Frame, and Steam Controller launch dates, which were originally scheduled for early 2026. In a new post, the company now says \"we hope to ship in 2026\" due to the ongoing shortages of memory and \u2026",
+            "url": "https://www.theverge.com/games/890986/valve-steam-machine-frame-controller-delay-ram-memory",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/11/R6WsqDDQ.jpeg?quality=90&strip=all&crop=0%2C6.8753495455066%2C100%2C86.249300908987&w=1200",
+            "publishedAt": "2026-03-06T21:36:12Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe company now says we hope to ship new Steam hardware in 2026.\r\nThe company now says we hope to ship new Steam hardware in 2026.\r\nby\r\nJay PetersClose\r\nPosts fr\u2026 [+1990 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "David Pierce",
+            "title": "The 6G, modular, robot phones of the future",
+            "description": "Year after year, we mostly know what to expect from our smartphone upgrades. Galaxy, iPhone, Pixel, or whatever else, everything seems to get slightly better (and occasionally more expensive) without many surprises in store. That's not to say there are no new\u2026",
+            "url": "https://www.theverge.com/podcast/888089/mwc-2026-6g-foldable-robot-phones-vergecast",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/VRG_VST_0303_YT_Site.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-03T14:39:23Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nOn The Vergecast: Funky phones, clever phone straps, and phone metaverses. If those are even a thing.\r\nOn The Vergecast: Funky phones, clever phone straps, and p\u2026 [+3315 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Emma Roth",
+            "title": "Lawmakers just advanced online safety laws that require\u00a0age verification at the app store",
+            "description": "A package of child safety bills is headed to the House floor following an hours-long session that left Democrats and Republicans divided. On Thursday, lawmakers on the House Committee on Energy and Commerce voted to advance the Kids Internet and Digital Safet\u2026",
+            "url": "https://www.theverge.com/policy/890367/house-lawmakers-online-safety-bills-kids-act",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK461_INTERNET_CHILD_SAFETY_E_Stock_CVirginia.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-05T23:16:37Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nRep. Alexandria Ocasio-Cortez says the KIDS Act is a smoke screen for what Big Tech lobbyists want.\r\nRep. Alexandria Ocasio-Cortez says the KIDS Act is a smoke s\u2026 [+5482 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Brandon Widder",
+            "title": "Preorders for Apple\u2019s colorful MacBook Neo come with a $25 gift card",
+            "description": "The forthcoming MacBook Neo is certainly compelling \u2014 at least for the right person. One could argue that buying a last-gen MacBook Air is a better bet in most instances; however, if you\u2019re still sold on picking Apple\u2019s colorful budget laptop ahead of its lau\u2026",
+            "url": "https://www.theverge.com/gadgets/889199/macbook-neo-metroid-prime-4-beyond-switch-2-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/MacBook-Neo-Deal-Image.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-05T15:34:47Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nYou can also save on Metroid Prime 4: Beyond and Yotos cute, screen-free storytime player.\r\nYou can also save on Metroid Prime 4: Beyond and Yotos cute, screen-f\u2026 [+4630 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Nilay Patel",
+            "title": "Prediction markets in the news are a dangerous gamble",
+            "description": "Today on Decoder, let\u2019s talk about prediction markets, which continue to insert themselves into the news cycle and the news itself in increasingly weird, unsettling, and potentially illegal ways.\u00a0 My guest today is Liz Lopatto, senior reporter at The Verge, w\u2026",
+            "url": "https://www.theverge.com/podcast/889177/prediction-markets-news-gambling-polymarket-kalshi-iran-war-regulation",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-placeholder_f212b3.png?quality=90&strip=all&crop=0,0.13712291199202,100,99.725754176016",
+            "publishedAt": "2026-03-05T14:59:00Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nPrediction markets in the news are a dangerous gamble\r\nWhy platforms like Kalshi and Polymarket want so badly to be seen as sources of news, instead of anything-\u2026 [+43997 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Tina Nguyen",
+            "title": "Inside the secret meeting that led to the AI political resistance",
+            "description": "In early January, a group of 90 or so political, community and thought leaders gathered in a New Orleans Marriott for a secret conference on artificial intelligence - so secret, in fact, that no one knew who else had been invited until they walked into the ro\u2026",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/888841/pro-human-ai-declaration-fli",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268379_The_AI_political_resistance_movement_has_arrived_CVirginia2.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-04T06:06:52Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nInside the secret meeting that led to the AI political resistance\r\nThe Pro-Human Declaration has been signed by the AFL-CIO, the Congress of Christian Leaders, t\u2026 [+12092 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Hayden Field",
+            "title": "How OpenAI caved to the Pentagon on AI surveillance",
+            "description": "On Friday evening, amidst fallout from a standoff between the Department of Defense and Anthropic, OpenAI CEO Sam Altman announced that his own company had successfully negotiated new terms with the Pentagon. The US government had just moved to blacklist Anth\u2026",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/887309/openai-anthropic-dod-military-pentagon-contract-sam-altman-hegseth",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/STKS515_CYBER_WARFARE_D.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-02T14:22:18Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nHow OpenAI caved to the Pentagon on AI surveillance\r\nThe law doesnt say what Sam Altman claims it does.\r\nby\r\nHayden FieldClose\r\nPosts from this author will be ad\u2026 [+17185 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Emma Roth",
+            "title": "Apple announces the iPhone 17E",
+            "description": "Apple has taken the wraps off the iPhone 17E, its latest entry-level smartphone. The iPhone 17E starts at $599 for 256GB of storage, and is available in black, white, and pink. The company revealed the new device as part of a series of announcements that kick\u2026",
+            "url": "https://www.theverge.com/tech/886476/apple-iphone-march-2026",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/iphone-17e-finish-unselect-gallery-1-202603_GEO_US.webp?quality=90&strip=all&crop=14.37641994485%2C17.572989383362%2C69.67755857407%2C64.854021233275&w=1200",
+            "publishedAt": "2026-03-02T14:06:10Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe new iPhone is the latest version of Apples most affordable smartphone.\r\nThe new iPhone is the latest version of Apples most affordable smartphone.\r\nby\r\nEmma \u2026 [+2571 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Stevie Bonifield",
+            "title": "Apple announces M5 MacBook Air and updated MacBook Pro",
+            "description": "Apple is launching an upgraded MacBook Air featuring the M5 chip along with new MacBook Pro models featuring the M5 Pro and M5 Max. Announced on Tuesday, the new Macs will all be available for pre-order starting March 4th with availability in stores starting \u2026",
+            "url": "https://www.theverge.com/tech/888091/apple-march-2026-event-macbook-air-pro-announcement",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/apple_laptop.jpg?quality=90&strip=all&crop=0%2C10.740836125969%2C100%2C78.518327748063&w=1200",
+            "publishedAt": "2026-03-03T14:17:44Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe new Macs will be available for pre-order starting tomorrow.\r\nThe new Macs will be available for pre-order starting tomorrow.\r\nby\r\nStevie BonifieldClose\r\nPost\u2026 [+1710 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Jess Weatherbed",
+            "title": "Apple Music adds optional labels for AI songs and visuals",
+            "description": "Apple is asking artists and record labels on its music streaming platform to voluntarily label songs that were made using AI. The new \"Transparency Tags\" metadata system for Apple Music was announced in a newsletter to industry partners yesterday, according t\u2026",
+            "url": "https://www.theverge.com/tech/889836/apple-music-ai-transparency-tags-launch",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23925980/acastro_STK046_04.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-05T14:00:00Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nYet another honesty policy for generative AI disclosures.\r\nYet another honesty policy for generative AI disclosures.\r\nby\r\nJess WeatherbedClose\r\nPosts from this a\u2026 [+3934 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Andrew Liszewski",
+            "title": "Apple launches a new iPad Air with an upgraded M4 processor",
+            "description": "After updating its mid and entry-level tablets last year, Apple has announced new versions of the iPad Air today now powered by the company's M4 processor. Today's iPad Air upgrades follow the minor improvements introduced a year ago to the device that sits i\u2026",
+            "url": "https://www.theverge.com/tech/886433/apple-ipad-air-2026-launch-price-specs-availability",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Apple-iPad-Air-M4-multitasking-260302_big.jpg.large_2x.jpg?quality=90&strip=all&crop=0%2C13.403066673638%2C100%2C73.193866652725&w=1200",
+            "publishedAt": "2026-03-02T14:05:45Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nA processor upgrade is the most notable improvement for the new iPad Air.\r\nA processor upgrade is the most notable improvement for the new iPad Air.\r\nby\r\nAndrew \u2026 [+2467 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani",
+            "title": "Apple\u2019s cheapest AirPods have hit $89",
+            "description": "It\u2019s a good day for Apple fans on a budget. Not only did the company introduce a new budget phone, its entry-level AirPods 4 are also on sale. Right now, you can snag a pair of Apple\u2019s AirPods 4 starting at just $89 ($30 off) at Walmart. The model with active\u2026",
+            "url": "https://www.theverge.com/gadgets/887839/apple-airpods-4-active-noise-cancellation-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/DSCF0048.webp?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-02T22:03:09Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe noise-canceling model is down to just $119, which is cheaper than the regular AirPods 4 at full price.\r\nThe noise-canceling model is down to just $119, which\u2026 [+2675 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Nathan Edwards",
+            "title": "MacBook Neo versus an old MacBook Air: good luck",
+            "description": "My first thought when Apple announced the MacBook Neo today was \"okay, but why not just get an older Air?\" If you're thinking that too, you might be right. If you can find one. The Neo starts at $599 with an A18 Pro processor, 8GB of memory, and 256GB storage\u2026",
+            "url": "https://www.theverge.com/gadgets/889128/macbook-neo-vs-older-macbook-air",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/030426_Apple_MacBook_Neo_ADiBenedetto_0005.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-04T16:21:26Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nAn M2 or later MacBook Air is a better computer, if you can find one. Nows probably the time.\r\nAn M2 or later MacBook Air is a better computer, if you can find o\u2026 [+5116 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Richard Lawler",
+            "title": "Apple\u2019s new Studio Display XDR adds a Mini LED upgrade",
+            "description": "After a few years between updates, Apple has two new 5K monitor options, ranging from expensive to very expensive, with the 27-inch 5K Studio Display and Studio Display XDR. Both have 5,120 x 2,880 resolutions and 12MP Center Stage cameras embedded inside - w\u2026",
+            "url": "https://www.theverge.com/tech/888119/apple-studio-display-xdr-5k-monitor",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/apple_displays3.jpg?quality=90&strip=all&crop=10.5012%2C0%2C78.9976%2C100&w=1200",
+            "publishedAt": "2026-03-03T14:35:15Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe $3,299 Studio Display XDR has Mini LED backlighting and 120Hz refresh rate.\r\nThe $3,299 Studio Display XDR has Mini LED backlighting and 120Hz refresh rate.\r\u2026 [+2011 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Emma Roth",
+            "title": "Android\u2019s Find Hub adds iPhone-like luggage tracking links",
+            "description": "Google is rolling out an Android update that includes the ability to share the location of your missing luggage with an airline. It's similar to the luggage-tracking feature Apple brought to the iPhone, allowing you to view the location of your Find Hub tag o\u2026",
+            "url": "https://www.theverge.com/tech/888200/google-android-find-hub-luggage-tracking",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/04/google-find-my-device-trackers-12.jpg?quality=90&strip=all&crop=0%2C10.741906587151%2C100%2C78.516186825698&w=1200",
+            "publishedAt": "2026-03-03T18:56:37Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe new feature lets you share the location of your luggage with your airline.\r\nThe new feature lets you share the location of your luggage with your airline.\r\nb\u2026 [+3410 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Cameron Faulkner, Brandon Widder",
+            "title": "Here\u2019s where you can preorder Apple\u2019s budget-friendly MacBook Neo",
+            "description": "The MacBook Neo is Apple\u2019s newest, most affordable laptop. Although the MacBook Air has been known to occasionally drop by a couple of hundred dollars \u2014 rendering it more on par with a host of midrange Windows laptops \u2014 the Neo will take things a step further\u2026",
+            "url": "https://www.theverge.com/gadgets/888285/macbook-neo-preorder-how-to-buy-price-release-date",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/MacBook-Neo-Press-Image-2.jpg?quality=90&strip=all&crop=0%2C10.743882715538%2C100%2C78.512234568924&w=1200",
+            "publishedAt": "2026-03-04T15:41:33Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nLike all of Apples recently announced products, its newest laptop arrives March 11th.\r\nLike all of Apples recently announced products, its newest laptop arrives \u2026 [+3529 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sean Hollister",
+            "title": "Tim Sweeney signed away his right to criticize Google until 2032",
+            "description": "Epic CEO Tim Sweeney might be one of the most outspoken people in the history of the world. He fought two of the world's most valuable and powerful companies almost all the way to the US Supreme Court, insulting them again and again: \"crooked,\" \"deceitful,\" \"\u2026",
+            "url": "https://www.theverge.com/news/889595/tim-sweeney-signed-away-his-right-to-criticize-google-until-2032",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STK186_TIM_SWEENEY_CVIRGINIA_C.jpg?quality=90&strip=all&crop=0%2C9.9676601489831%2C100%2C80.064679702034&w=1200",
+            "publishedAt": "2026-03-04T23:52:21Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nGoogle has finally muzzled Tim Sweeney.\r\nGoogle has finally muzzled Tim Sweeney.\r\nby\r\nSean HollisterClose\r\nPosts from this author will be added to your daily ema\u2026 [+3313 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani",
+            "title": "How the new iPhone 17E stacks up against Apple\u2019s pricier phones",
+            "description": "The iPhone 17 lineup now has a \u201cbudget\u201d option. Announced this week, the iPhone 17E will hit stores on Wednesday, March 11th, starting at $599, with preorders opening on March 4th. The 6.1-inch phone joins the rest of Apple\u2019s iPhone 17 lineup, which includes \u2026",
+            "url": "https://www.theverge.com/gadgets/887570/iphone-17e-vs-17-pro-max-air-spec-comparison-price-features",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Apple-iPhone-17e-accessories-260302.jpg?quality=90&strip=all&crop=0%2C10.625319150245%2C100%2C78.74936169951&w=1200",
+            "publishedAt": "2026-03-02T20:48:53Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nHeres what you gain and what you give up by opting for the 17E over other iPhone 17 models (and the ultra-thin iPhone Air).\r\nHeres what you gain and what you giv\u2026 [+10197 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "John.Higgins",
+            "title": "Nothing\u2019s Headphone A are something worth considering",
+            "description": "After the release of the Headphone 1 last year - Nothing's first over-ear headphones - the company is back with the Headphone A. They're a slimmed-down over-ear option that keep the Nothing design aesthetic and excellent controls while decreasing the weight a\u2026",
+            "url": "https://www.theverge.com/tech/889615/nothing-headphone-a-review",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268383_Nothing_Headphones_JHiggins_0004.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-05T01:03:29Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe second over-ear offering from Nothing keeps much of what was great about the Headphone 1 for $100 less.\r\nIf you buy something from a Verge link, Vox Media ma\u2026 [+9106 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "David Pierce",
+            "title": "Apple\u2019s cheap laptop looks like a winner",
+            "description": "Hi, friends! Welcome to Installer No. 118, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, please take my Switch away so I can get some work done, and also you can read all the old editions at the Installer homepage.) T\u2026",
+            "url": "https://www.theverge.com/tech/890785/macbook-neo-slay-spire-2-pokopia-installer",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/Installer-118.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-06T18:32:19Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nPlus, in this weeks Installer: A new model from OpenAI, F1 is back, Slay the Spire 2 is here, and more.\r\nPlus, in this weeks Installer: A new model from OpenAI, \u2026 [+12259 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Dominic Preston",
+            "title": "Honor\u2019s Magic V6 is the first foldable with an IP69 rating",
+            "description": "For the third year running, Honor has announced what it says is the world's thinnest book-style folding phone. For the second year, it's combined that with the biggest battery in any foldable too. This year, for its third and final trick, the company went ahe\u2026",
+            "url": "https://www.theverge.com/tech/887104/honor-magic-v6-thinnest-battery-launch-mwc",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/honor-magic-v6-2.jpg?quality=90&strip=all&crop=0%2C10.741906587151%2C100%2C78.516186825698&w=1200",
+            "publishedAt": "2026-03-01T12:41:23Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nIts also the thinnest, and packs the biggest battery.\r\nIts also the thinnest, and packs the biggest battery.\r\nby\r\nDominic PrestonClose\r\nPosts from this author wi\u2026 [+5694 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Andrew Liszewski",
+            "title": "Ikea\u2019s Matter-compatible smart bulbs are now available in the US",
+            "description": "After being announced last November, Ikea's Matter-compatible smart home collection has been slowly trickling into its stores around the world over the past few months. Despite some early connectivity issues, one of the most anticipated items in that collecti\u2026",
+            "url": "https://www.theverge.com/tech/889820/ikea-matter-over-thread-smart-home-light-bulbs-available-pricing",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/ikea_smart_bulbs1.jpg?quality=90&strip=all&crop=0,10.71635277447,100,78.56729445106",
+            "publishedAt": "2026-03-05T14:17:58Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe Matter-over-Thread smart bulbs start at just $5.99.\r\nThe Matter-over-Thread smart bulbs start at just $5.99.\r\nby\r\nAndrew LiszewskiClose\r\nPosts from this auth\u2026 [+3385 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Emma Roth",
+            "title": "The Pixel Watch now lets you tap to pay without opening the Wallet app",
+            "description": "Google has a big update in store for the Pixel Watch, which will now allow you to make a range of payments by simply tapping your watch to a retail terminal without opening the Wallet app. The feature, called \"express pay,\" is coming to the Pixel Watch 2 and \u2026",
+            "url": "https://www.theverge.com/tech/888509/google-pixel-watch-update-express-pay",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/257970_Pixel_Watch_4_AKrales_0392.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-03T18:55:10Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe Pixel Watch 2 and later can also alert you when youve left your phone behind.\r\nThe Pixel Watch 2 and later can also alert you when youve left your phone behi\u2026 [+3104 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani",
+            "title": "Anker\u2019s last-gen sleep buds are nearly 40 percent off ahead of daylight saving time",
+            "description": "Bad news: most Americans are about to lose an hour of sleep next week. Good news: if you have trouble falling (or staying asleep), Newegg is currently selling Anker\u2019s Soundcore Sleep A20 earbuds for $113.99 ($66 off) when you use coupon code MMSF88 at checkou\u2026",
+            "url": "https://www.theverge.com/gadgets/888719/anker-soundcore-sleep-a20-earbuds-newegg-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25337452/soundcore_Sleep_A20_Lifestyle_image1.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-03T23:29:06Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nIn addition to muffling snoring, the buds feature built-in sleep sounds and tracking.\r\nIn addition to muffling snoring, the buds feature built-in sleep sounds an\u2026 [+3114 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Sheena Vasani",
+            "title": "Google\u2019s Pixel 10 is the best Android phone available, and it\u2019s $200 off",
+            "description": "Google\u2019s Pixel 10a is set to arrive on March 5th, but if you\u2019d prefer the more powerful Google Pixel 10, Woot is currently selling it unlocked through March 6th for $599 ($200 off) with 128GB of storage. While we\u2019ve seen it drop to $449 during Black Friday, t\u2026",
+            "url": "https://www.theverge.com/gadgets/889060/google-pixel-10-anker-soundcore-boom-3i-speaker-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/02/Google-Pixel-10A-Deal-Image.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-04T15:50:00Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nPlus, we found deals on Ankers Soundcore Boom 3i Bluetooth speaker and Moto Tag trackers.\r\nPlus, we found deals on Ankers Soundcore Boom 3i Bluetooth speaker and\u2026 [+4641 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Janko Roettgers",
+            "title": "Osmo is trying to crack AR edutainment (again)",
+            "description": "This is Lowpass by Janko Roettgers, a newsletter on the ever-evolving intersection of tech and entertainment, syndicated just for The Verge subscribers once a week. I still remember the first time I tried the kids edutainment system Osmo back in 2014: I was s\u2026",
+            "url": "https://www.theverge.com/column/889879/osmo-is-trying-to-crack-ar-edutainment-again",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/img_0592.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-05T15:21:44Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nThe pioneering kids AR edutainment startup is back after ex-employees bought it out of bankruptcy.\r\nThe pioneering kids AR edutainment startup is back after ex-e\u2026 [+6960 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Cameron Faulkner",
+            "title": "Time\u2019s running out to get a free gift card when you preorder a new MacBook",
+            "description": "This has been a week to remember here at The Verge. MWC 2026 in Barcelona lead straight into Apple\u2019s week of product announcements. There was truly something for everyone, whether you\u2019ve been wanting a company to make a phone that can start fires, or had your\u2026",
+            "url": "https://www.theverge.com/gadgets/890788/macbook-neo-air-pro-samsung-galaxy-s26-gift-card-deal-sale",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/macbookneodealroundup.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-07T13:53:11Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nDeals aplenty, including $50 off the new M4 iPad Air, 17 percent off Marathon on Steam, and more.\r\nDeals aplenty, including $50 off the new M4 iPad Air, 17 perce\u2026 [+6609 chars]"
+        },
+        {
+            "source": {
+                "id": "the-verge",
+                "name": "The Verge"
+            },
+            "author": "Allison Johnson",
+            "title": "Oh great, here comes 6G",
+            "description": "It brings me no pleasure to say this, but friends: The next G cometh. The standard formally known as 6G is still being established, but it's going to be a major topic of discussion at Mobile World Congress 2026, which gets started today in Barcelona. 5G arriv\u2026",
+            "url": "https://www.theverge.com/tech/886558/6g-satellite-ai-isac",
+            "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/02/268369_here_comes_6G_CVirginia3.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+            "publishedAt": "2026-03-02T11:06:05Z",
+            "content": "<ul><li></li><li></li><li></li></ul>\r\nWe could be in for some wild stuff come 2030. But is this the 5G hype industrial complex all over again?\r\nby\r\nAllison JohnsonClose\r\nPosts from this author will b\u2026 [+13010 chars]"
+        }
+    ]
+}
