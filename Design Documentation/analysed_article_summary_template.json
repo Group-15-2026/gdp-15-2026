@@ -1,0 +1,32 @@
+{
+    "article_id" : "%unique_ascii_id%",
+    "article_title" : "%title%",
+    "publication_time" : "%utc+00:00 time: hour-minute%",
+    "source" : {
+        "source_id" : "%unique_ascii_id%",
+        "source_name" : "%name%"
+    },
+    
+    "initial_categories" : ["%entries must be one of 5-10 predetermined, very broad categories"],
+    "actors" : [
+        {
+            "name" : "%country1%",
+            "actor_type" : "%country%",
+            "occurences" : 1
+        },
+        {
+            "name" : "%politician1%",
+            "actor_type" : "%politician%",
+            "occurences" : 2
+        }
+    ],
+    
+    "events" : ["%recent_event1%", "%ongoing_event2%"],
+    "claims" : [
+        {
+            "claim" : "%simple_claim%",
+            "opinion" : 0.0
+        }
+    ],
+    "themes" : ["%existing_theme1%", "%new_theme1%"]
+}
