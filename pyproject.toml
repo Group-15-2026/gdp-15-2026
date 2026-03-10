@@ -9,5 +9,6 @@ dependencies = [
     "mcp>=1.26.0",
     "mcp-use>=1.6.0",
     "newsapi>=0.1.1",
+    "pytest>=9.0.2",
     "spacy>=3.8.11",
 ]

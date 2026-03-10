@@ -36,10 +36,9 @@ SYSTEM_PROMPTS: Dict[BotName, str] = {
     ),
 }
 
-
 def _new_history(bot: BotName) -> List[Dict[str, Any]]:
+    """Create a new conversation history for a bot."""
     return [{"role": "system", "content": SYSTEM_PROMPTS[bot]}]
-
 
 HISTORIES: Dict[BotName, List[Dict[str, Any]]] = {
     "alice": _new_history("alice"),
@@ -50,7 +49,6 @@ ollama_client = AsyncClient(host=OLLAMA_HOST)
 
 mcp = FastMCP("Two Bots (Ollama + Tools)", json_response=True)
 
-
 def _inject_internal_note(bot: BotName, note: str) -> None:
     """
     INTERNAL NOTE channel: record cross-bot messages in a way that does NOT
@@ -58,9 +56,9 @@ def _inject_internal_note(bot: BotName, note: str) -> None:
     """
     HISTORIES[bot].append({"role": "system", "content": f"INTERNAL NOTE: {note}"})
 
-
 @mcp.tool()
 async def chat_with_bot(bot: BotName, user_message: str) -> Dict[str, Any]:
+    """Chat with a specific bot."""
     if bot not in HISTORIES:
         return {"ok": False, "error": f"Unknown bot '{bot}'"}
 
@@ -70,14 +68,14 @@ async def chat_with_bot(bot: BotName, user_message: str) -> Dict[str, Any]:
 
     return {"ok": True, "bot": bot, "model": DEFAULT_MODEL, "reply": reply, "history_len": len(HISTORIES[bot])}
 
-
 @mcp.tool()
 async def send_bot_message(
     from_bot: BotName,
     to_bot: BotName,
     message: str,
-    auto_reply: bool = True,
+    auto_reply: bool = True
 ) -> Dict[str, Any]:
+    """Send a message from one bot to another."""
     if from_bot not in HISTORIES or to_bot not in HISTORIES:
         return {"ok": False, "error": "Unknown bot name(s)"}
     if from_bot == to_bot:
@@ -106,29 +104,30 @@ async def send_bot_message(
 
     return result
 
-
 @mcp.tool()
 def get_bot_history(bot: BotName, last_n: int = 20) -> Dict[str, Any]:
+    """Get the recent history for a bot."""
     if bot not in HISTORIES:
         return {"ok": False, "error": f"Unknown bot '{bot}'"}
 
     last_n = max(1, min(200, int(last_n)))
     return {"ok": True, "bot": bot, "history": HISTORIES[bot][-last_n:]}
 
-
 @mcp.tool()
 def reset_bot(bot: BotName) -> Dict[str, Any]:
+    """Reset a bot's conversation history."""
     if bot not in HISTORIES:
         return {"ok": False, "error": f"Unknown bot '{bot}'"}
 
     HISTORIES[bot] = _new_history(bot)
     return {"ok": True, "bot": bot, "history_len": len(HISTORIES[bot])}
 
-
 # ----------------------------
 # Ollama tool-calling agent loop
 # ----------------------------
+
 def _ollama_tools_for(_: BotName) -> List[Dict[str, Any]]:
+    """Get the available tools for a bot."""
     return [
         {
             "type": "function",
@@ -167,8 +166,8 @@ def _ollama_tools_for(_: BotName) -> List[Dict[str, Any]]:
         },
     ]
 
-
 def _try_parse_pseudo_tool_call(content: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """Try to parse a pseudo tool call from content."""
     content = content.strip()
     if not (content.startswith("{") and content.endswith("}")):
         return None
@@ -186,8 +185,8 @@ def _try_parse_pseudo_tool_call(content: str) -> Optional[Tuple[str, Dict[str, A
         return None
     return name, params
 
-
 async def _execute_tool_for_bot(bot: BotName, name: str, args: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute a tool for a bot."""
     if name == "send_to_bot":
         to_bot = args.get("to_bot")
         message = args.get("message")
@@ -209,8 +208,8 @@ async def _execute_tool_for_bot(bot: BotName, name: str, args: Dict[str, Any]) -
 
     return {"ok": False, "error": f"Unknown tool: {name}"}
 
-
 async def _ollama_agent_reply(bot: BotName) -> str:
+    """Get a reply from the Ollama agent with streaming support."""
     tools = _ollama_tools_for(bot)
 
     for _step in range(10):
@@ -218,20 +217,68 @@ async def _ollama_agent_reply(bot: BotName) -> str:
             model=DEFAULT_MODEL,
             messages=HISTORIES[bot],
             tools=tools,
-            stream=False,
+            stream=True,
         )
 
-        tool_calls = getattr(resp.message, "tool_calls", None)
-        content = getattr(resp.message, "content", None)
+        # For streaming, we need to collect chunks
+        full_content = ""
+        accumulated_tool_calls = []
 
-        if tool_calls:
+        # Process streaming response
+        try:
+            async for chunk in resp:
+                # Safely access chunk attributes
+                if hasattr(chunk, 'message'):
+                    # Handle tool calls in streaming chunks
+                    if hasattr(chunk.message, "tool_calls") and chunk.message.tool_calls:
+                        accumulated_tool_calls.extend(chunk.message.tool_calls)
+
+                    # Handle content in streaming chunks
+                    if hasattr(chunk.message, "content") and chunk.message.content:
+                        content_chunk = chunk.message.content
+                        full_content += content_chunk
+        except Exception as e:
+            # If streaming fails, fall back to non-streaming
+            print(f"Streaming failed, falling back to non-streaming: {e}")
+            resp = await ollama_client.chat(
+                model=DEFAULT_MODEL,
+                messages=HISTORIES[bot],
+                tools=tools,
+                stream=False,
+            )
+
+            tool_calls = getattr(resp.message, "tool_calls", None)
+            content = getattr(resp.message, "content", None)
+
+            if tool_calls:
+                # record tool-call request
+                if hasattr(resp.message, "model_dump"):
+                    HISTORIES[bot].append(resp.message.model_dump())
+                else:
+                    HISTORIES[bot].append({"role": "assistant", "content": content or "", "tool_calls": tool_calls})
+
+                for call in tool_calls:
+                    name = call.function.name
+                    args = call.function.arguments or {}
+                    if not isinstance(args, dict):
+                        try:
+                            args = json.loads(args)
+                        except Exception:
+                            args = {}
+
+                    result = await _execute_tool_for_bot(bot, name, args)
+                    HISTORIES[bot].append({"role": "tool", "tool_name": name, "content": json.dumps(result)})
+
+                continue
+
+            return content or ""
+
+        # After collecting all chunks, process the complete response
+        if accumulated_tool_calls:
             # record tool-call request
-            if hasattr(resp.message, "model_dump"):
-                HISTORIES[bot].append(resp.message.model_dump())
-            else:
-                HISTORIES[bot].append({"role": "assistant", "content": content or "", "tool_calls": tool_calls})
+            HISTORIES[bot].append({"role": "assistant", "content": full_content or "", "tool_calls": accumulated_tool_calls})
 
-            for call in tool_calls:
+            for call in accumulated_tool_calls:
                 name = call.function.name
                 args = call.function.arguments or {}
                 if not isinstance(args, dict):
@@ -245,16 +292,16 @@ async def _ollama_agent_reply(bot: BotName) -> str:
 
             continue
 
-        if isinstance(content, str) and content.strip():
-            pseudo = _try_parse_pseudo_tool_call(content)
+        if isinstance(full_content, str) and full_content.strip():
+            pseudo = _try_parse_pseudo_tool_call(full_content)
             if pseudo:
                 name, args = pseudo
-                HISTORIES[bot].append({"role": "assistant", "content": content})
+                HISTORIES[bot].append({"role": "assistant", "content": full_content})
                 result = await _execute_tool_for_bot(bot, name, args)
                 HISTORIES[bot].append({"role": "tool", "tool_name": name, "content": json.dumps(result)})
                 continue
 
-            return content
+            return full_content
 
         # empty content: nudge
         HISTORIES[bot].append(
@@ -262,7 +309,6 @@ async def _ollama_agent_reply(bot: BotName) -> str:
         )
 
     return "I got stuck in a tool loop. Please rephrase, or ask me to answer without tools."
-
 
 if __name__ == "__main__":
     print("Starting MCP Streamable HTTP server (FastMCP)...")

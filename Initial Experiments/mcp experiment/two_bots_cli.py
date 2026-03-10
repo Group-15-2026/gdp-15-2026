@@ -15,18 +15,19 @@ HELP = """
 Commands:
   /use alice               - talk to alice
   /use bob                 - talk to bob
-  /a2b <message>            - send message Alice -> Bob (Bob auto-replies back to Alice)
-  /b2a <message>            - send message Bob -> Alice (Alice auto-replies back to Bob)
-  /hist [alice|bob] [n]     - show last n messages (default 10)
-  /history [alice|bob] [n]  - same as /hist
-  /reset [alice|bob]        - reset bot conversation
-  /help                     - show this help
-  /quit                     - exit
+  /a2b <message>           - send message Alice -> Bob (Bob auto-replies back to Alice)
+  /b2a <message>           - send message Bob -> Alice (Alice auto-replies back to Bob)
+  /hist [alice|bob] [n]    - show last n messages (default 10)
+  /history [alice|bob] [n] - same as /hist
+  /reset [alice|bob]       - reset bot conversation
+  /help                    - show this help
+  /quit                    - exit
 Otherwise: your line is sent to the currently selected bot as user chat.
 """.strip()
 
 
 def _tcp_preflight(url: str) -> None:
+    """Check if the MCP server is reachable."""
     u = urlparse(url)
     host = u.hostname or "127.0.0.1"
     port = u.port or (443 if u.scheme == "https" else 80)
@@ -53,6 +54,7 @@ def _unwrap_result(d: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def _extract_tool_result_as_dict(res: Any) -> Dict[str, Any]:
+    """Extract tool result as a dictionary."""
     # 1) Best case: structuredContent is present
     sc = getattr(res, "structuredContent", None)
     if isinstance(sc, dict):
@@ -82,6 +84,7 @@ def _extract_tool_result_as_dict(res: Any) -> Dict[str, Any]:
 
 
 def _print_result(title: str, obj: Dict[str, Any]) -> None:
+    """Print a formatted result."""
     obj = _unwrap_result(obj)
     print(f"\n== {title} ==")
     for k, v in obj.items():
@@ -100,10 +103,12 @@ def _print_result(title: str, obj: Dict[str, Any]) -> None:
 
 
 def _toggle_trailing_slash(url: str) -> str:
+    """Toggle trailing slash in URL."""
     return url[:-1] if url.endswith("/") else (url + "/")
 
 
 async def _run_session(url: str) -> None:
+    """Run the interactive CLI session."""
     current_bot = "alice"
 
     async with streamable_http_client(url) as (read_stream, write_stream, _):
@@ -182,6 +187,7 @@ async def _run_session(url: str) -> None:
 
 
 async def main() -> None:
+    """Main entry point."""
     print(f"Connecting to MCP server at {SERVER_URL} ...\n")
     print(HELP)
 
