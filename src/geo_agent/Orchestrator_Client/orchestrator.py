@@ -2,3 +2,8 @@
 # it owns sequencing decisions, and is the only entity interacting with all three MCP servers
 # it should typically call the servers in sequence (potentially using loops to gain extra context / 
 #   find new articles).
+
+from ..Analyst_Server.analyst import analyst_mcp
+from ..Collector_Server.collector import collector_mcp
+from ..Summariser_Server.summariser import summariser_mcp
+

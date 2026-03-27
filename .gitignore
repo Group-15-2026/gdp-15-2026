@@ -3,3 +3,6 @@
 
 # VSCode #
 **/.vscode/
+
+# Import Caches #
+**/__pycache__/**.pyc

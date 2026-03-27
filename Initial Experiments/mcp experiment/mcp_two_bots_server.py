@@ -1,3 +1,5 @@
+# Disclaimer: The following code is an illustrative example produced by an LLM
+
 import os
 import json
 from typing import Any, Dict, List, Literal, Optional, Tuple
