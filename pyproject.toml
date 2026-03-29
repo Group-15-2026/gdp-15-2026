@@ -1,0 +1,26 @@
+[project]
+name = "gdp-15-2026"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-ollama>=1.0.1",
+    "mcp>=1.26.0",
+    "newsapi>=0.1.1",
+    "pytest>=9.0.2",
+    "spacy>=3.8.11",
+]
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[tool.uv.sources]
+gdp-15-2026 = { workspace = true, editable = true }
+
+[dependency-groups]
+dev = [
+    "gdp-15-2026",
+]
