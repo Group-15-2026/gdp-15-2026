@@ -24,3 +24,7 @@ def tag_themes(articles: list[Article]) -> list[Article]:
 @summariser_mcp.tool()
 def extract_act_eve(articles: list[Article]) -> tuple[list[Actor], list[Event]]:
     return NotImplemented
+
+# XX Note: may or may not be necessary depending on how MCP client is implemented
+if __name__ == "__main__":
+    summariser_mcp.run()

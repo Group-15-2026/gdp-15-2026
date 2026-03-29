@@ -21,3 +21,7 @@ def analyse_events(events: list[Event]) -> list[Event]:
 @analyst_mcp.prompt()
 def gen_report() -> str:
     return NotImplemented
+
+# XX Note: may or may not be necessary depending on how MCP client is implemented
+if __name__ == "__main__":
+    analyst_mcp.run()

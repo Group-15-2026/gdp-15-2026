@@ -362,6 +362,11 @@ dependencies = [
     { name = "spacy" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "gdp-15-2026" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "langchain-ollama", specifier = ">=1.0.1" },
@@ -370,6 +375,9 @@ requires-dist = [
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "spacy", specifier = ">=3.8.11" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "gdp-15-2026", virtual = "." }]
 
 [[package]]
 name = "h11"

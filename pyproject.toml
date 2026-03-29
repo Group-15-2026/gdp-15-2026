@@ -11,3 +11,16 @@ dependencies = [
     "pytest>=9.0.2",
     "spacy>=3.8.11",
 ]
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[tool.uv.sources]
+gdp-15-2026 = { workspace = true, editable = true }
+
+[dependency-groups]
+dev = [
+    "gdp-15-2026",
+]

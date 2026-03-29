@@ -15,3 +15,7 @@ def search_news(topics: list[str], start_date: str, end_date: str) -> list[Artic
 @collector_mcp.resource("files://articles/top")
 def collect_articles() -> list[Article]:
     return NotImplemented
+
+# XX Note: may or may not be necessary depending on how MCP client is implemented
+if __name__ == "__main__":
+    collector_mcp.run()
