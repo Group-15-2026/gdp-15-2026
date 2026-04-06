@@ -46,5 +46,3 @@ async def run_task():
     await client.close_all_sessions()
 
     return result
-
-# XX TODO: stop logs being displayed
