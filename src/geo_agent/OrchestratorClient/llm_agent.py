@@ -5,7 +5,10 @@
 
 import asyncio
 from langchain_ollama.chat_models import ChatOllama
-from mcp_use import MCPAgent, MCPClient
+from mcp_use import MCPAgent, MCPClient, set_debug
+
+# Avoid printing messy logs
+set_debug(0)
 
 CONFIG = {
     "mcpServers": {
@@ -34,7 +37,7 @@ async def run_task():
     llm = ChatOllama(model=MODEL, base_url="http://localhost:11434")
     
     # Wire the LLM to the client
-    agent = MCPAgent(llm=llm, client=client, system_prompt=SYSTEM_PROMPT, max_steps=20, verbose=False)
+    agent = MCPAgent(llm=llm, client=client, system_prompt=SYSTEM_PROMPT, max_steps=20)
 
     # Give prompt to the agent
     result = await agent.run(TASK_PROMPT)
