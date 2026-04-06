@@ -9,3 +9,8 @@
 
 # Experiments #
 /Initial\ Experiments/news-api-test/newsapi_key.txt
+
+# API Keys #
+.env
+.env.*
+!.env.example
