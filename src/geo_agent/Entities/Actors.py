@@ -28,6 +28,7 @@ class Actor(BaseModel):
     # XX should be restricted to only themes found
     linked_themes: str | None = None
 
+    # XX may need breaking up into different methods for filling in at different times
     def set_processed_values(self, 
                             impact: float, 
                             public_opinion: float,
