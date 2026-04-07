@@ -1,6 +1,7 @@
 from .Actors import ActorType
 from .Validators import Between10, Count
 
+from collections import Counter
 from datetime import datetime
 from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
@@ -47,6 +48,9 @@ class Article(BaseModel):
     publication_time: datetime = Field(frozen=True)
     source: _Source = Field(frozen=True)
 
+    # XX This has been temporarily added for MVP, to avoid full DB
+    text_body: str = Field(frozen=True)
+
     # Fields to be filled in later
     initial_categories: list[ArticleType] | None = None
     actors: list[_ActorEntry] | None = None
@@ -66,3 +70,9 @@ class Article(BaseModel):
         self.events = events
         self.claims = [_ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
         self.themes = themes
+
+    def set_actors(self, actors: Counter[tuple[str, ActorType]]) -> None:
+        self.actors = []
+        for actor in actors:
+            (name, label) = actor
+            self.actors.append(_ActorEntry(name=name, actor_type=ActorType(label), occurences=actors[actor]))
