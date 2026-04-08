@@ -7,13 +7,6 @@ from mcp.server.fastmcp import FastMCP
 
 from ..Entities.Article import Article
 
-# Set up logging
-logging.basicConfig(
-    level = logging.DEBUG, # Most detailed info for development
-    format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-# XX Note: move this ^^^ to Main.py later
-
 logger = logging.getLogger(__name__) # global logger named src.geo_agent.CollectorServer
 
 # Read from .env into os.environ
@@ -24,6 +17,9 @@ newsapi_key = os.getenv("NEWSAPI_KEY")
 if not newsapi_key:
     logger.error("Missing NEWSAPI_KEY. Set it in your .env file. See .env.example for an example.")
     raise # propogate exception
+
+def logging_test():
+    logger.info("Collector logger test")
 
 collector_mcp = FastMCP(name="Collector MCP Server")
 
