@@ -1,9 +1,8 @@
 import logging
 from pathlib import Path
+from .paths import get_project_root
 
-from paths import get_project_root
-
-def _setup_logging():
+def setup_logging():
     root_logger = logging.getLogger()
     formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", "%Y-%m-%d %H:%M")
     # 2026-04-08 12:25 - __main__ - INFO - This is a test
@@ -35,7 +34,6 @@ def clear_archive(LOG_DIR):
     ARCHIVE_PATH.write_text('')
 
 if __name__ == "__main__":
-    LOG_DIR = _setup_logging()
+    setup_logging()
     logger = logging.getLogger(__name__)
-    clear_archive(LOG_DIR)
-    logger.info("This is a test")
+    logger.info("Logging started successfully")

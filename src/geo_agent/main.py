@@ -6,16 +6,22 @@
 # that it can access. It may be cleanest to define these in the relevant MCP related files, and simply
 # import them here.
 
-from geo_agent.OrchestratorClient.orchestrator import MCPClient
-
 import asyncio
+import logging
+
+from OrchestratorClient.orchestrator import MCPClient
+from utils import setup_logging
 
 async def main():
+    setup_logging()
+    logger = logging.getLogger(__name__)
+    logger.info("Logging started successfully")
+
     # XX currently just test code to demonstrate the mcp client connecting to the servers
     client = MCPClient()
     try:
         await client.connect_to_servers()
-        print("\nAll servers connected successfully")
+        logger.info("All servers connected successfully")
 
         # XX Example: extract a server session and call a tool
         collectorSession = await client.get_session("collector")
@@ -26,7 +32,7 @@ async def main():
                                                     "end_date":"29/03/2026"
                                                    }
                                                  )
-        print(f"\n\nCollector Server returned: {result} for tool 'search_news'")
+        logger.info(f"Collector Server returned: {result} for tool 'search_news'")
 
         # XX This is where the client would then be linked to the local LLM and used
     finally:
