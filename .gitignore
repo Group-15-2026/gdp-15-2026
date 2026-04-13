@@ -1,8 +1,11 @@
-# Experiments #
-/Initial\ Experiments/news-api-test/newsapi_key.txt
-
 # VSCode #
 **/.vscode/
 
+# Virtual Environment #
+/.venv/
+
 # Import Caches #
 **/__pycache__/
+
+# Experiments #
+/Initial\ Experiments/news-api-test/newsapi_key.txt

@@ -13,12 +13,13 @@ class MCPClient:
         return StdioServerParameters(
             command="uv",
             args=["run", "python", "-m", path],
+            #args=["run", path],
             env=None,
         )
 
     def __init__(self):
         self.servers = {
-            "collector": MCPClient._set_server_params("src.geo_agent.CollectorServer.collector"),
+            "collector": self._set_server_params("src.geo_agent.CollectorServer.collector"),
             "summariser": self._set_server_params("src.geo_agent.SummariserServer.summariser"),
             "analyst": self._set_server_params("src.geo_agent.AnalystServer.analyst"),
         }
