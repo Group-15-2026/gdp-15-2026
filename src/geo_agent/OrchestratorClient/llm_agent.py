@@ -28,6 +28,7 @@ CONFIG = {
 }
 
 MODEL = "gemma4:e4b"
+#MODEL = "qwen3:latest"      # XX small enough to run completely on my laptop integrated graphics for testing purposes
 
 SYSTEM_PROMPT = "" # XX to complete
 TASK_PROMPT = "What news can you find on the topic of 'trade' from the 28/03/2026 to the 29/03/2026?"
