@@ -58,7 +58,7 @@ class Article(BaseModel):
     claims: list[_ClaimEntry] | None = None
     themes: list[str] | None = None
 
-    # XX may need breaking up into different methods for filling in at different times
+    # XX may need breaking up into different methods for filling in at different times (see set_actors)
     def set_processed_values(self,
                              initial_categories: list[str],
                              actors: list[tuple[str, str, int]],

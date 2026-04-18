@@ -1,9 +1,12 @@
+from ..config import config
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor, ActorType
 from ..Entities.Events import Event
 
 from collections import Counter
+import json
 from mcp.server.fastmcp import FastMCP
+from ollama import AsyncClient
 import spacy
 
 summariser_mcp = FastMCP(name="Summariser MCP Server")
@@ -23,20 +26,60 @@ def score_sentiment(articles: list[Article]) -> list[Article]:
 def tag_themes(articles: list[Article]) -> list[Article]:
     return NotImplemented
 
+# ---------------------------------------------- extract_act_eve ------------------------------------------- #
+
+# SpaCy NLP Setup
 nlp = None
-relevant_entity_labels = {"GPE", "LAW", "MONEY", "NORP", "ORG", "PERSON"}
-simple_map = {
-    "GPE": ActorType.country,
-    "ORG": ActorType.company,
-    "PERSON": ActorType.celebrity,  # XX actually inaccurate as well as simple
-}
-def classify_actor(name: str, label: str) -> ActorType:
-    # XX This is very simple - simpler than the MVP
-    # XX The task 'Event categorisation (prompt engineering) implementation' should extend it
-    return simple_map.get(label, ActorType.other)
+relevant_entity_labels = {"GPE", "LAW", "NORP", "ORG", "PERSON"}
+
+# Ollama LLM Setup
+ollama_client = None
+classification_system_prompt = [
+    {"role": "system", "content": 
+        "You are a geopolitical actor classification agent. Given a list of input actors and their "
+        f"initial labels, you should classify each of the actors into one of {[role.value for role in ActorType]}. "
+        "In general GPE should be a country, ORG should be a company, NORP a political party, and a PERSON "
+        "should be one of a politician, celebrity, ceo or other - use your best judgement however."
+        "If you don't believe a name to be a valid actor, then you omit them from the output. If a "
+        "name which is a shortening of a previous name in your conversation history (or the batch list) "
+        "is encountered, then treat is as the full name, and give the same classification as "
+        "you gave previously. You will be given batches of up to 10 actor / label pairs at a time, "
+        "and must reply with only a JSON object where the keys are the valid actor names, and the keys "
+        "are the classifications that you have given them."
+    }
+]
+
+# The tool acts as an independent client to the same local Ollama instance as the orchestrator  (saving memory)
+async def classify_actor(
+        batch: list[tuple[str, str]], 
+        history: list[dict[str, str]] = classification_system_prompt
+    ) -> list[tuple[str, ActorType]]:
+
+    global ollama_client
+
+    if ollama_client is None:
+        ollama_client = AsyncClient()
+
+    history.append(
+        {
+            "role": "user", 
+            "content": f"(Actor, Label) pairs: {batch}"
+        }
+    )
+    response = await ollama_client.chat(
+        model=config.MODEL, 
+        messages=history,
+        format="json"
+    )
+    output = response.message.content or "{}"
+    history.append(
+        {"role": "assistant", "content": output}
+    )
+    output = json.loads(output)
+    return [(k, ActorType(v)) for k, v in output.items()]
 
 @summariser_mcp.tool()
-def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[Actor], list[Event]]:
+async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[Actor], list[Event]]:
     global nlp
     
     # Extract Actors
@@ -44,22 +87,43 @@ def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[Actor]
     # XX for now, the MVP adds an extra field to address this
     article_texts = [article.text_body for article in articles]
 
-    actors = Counter()
-    actor_types = {}
-    if nlp is None:         # avoid memory intensive load unless necessary
+    # Control the batch size sent to LLM. Larger values should lead to better performance, but will be more error prone (especially with smaller LLMs with reduced context)
+    BATCH_SIZE = 10         # XX consider moving to config.py
+    
+    # avoid memory intensive load unless necessary
+    if nlp is None:
         nlp = spacy.load(
             "en_core_web_trf",
             disable=["tagger", "parser", "attribute_ruler", "lemmatizer"]   # remove memory/compute intensive, unused parts  
         )
-    with nlp.memory_zone():     # avoid leaking/storing new vocab between batches
+    
+    actors = Counter()
+
+    # avoid leaking/storing new vocab between batches
+    with nlp.memory_zone():
         for doc, article in zip(nlp.pipe(article_texts, batch_size=50), articles):
             doc_actors = Counter()
+            actor_types = {}
+            actor_batch = []
+            classifier_convo_context = classification_system_prompt
             for ent in doc.ents:
                 if ent.label_ in relevant_entity_labels:
-                    key = (ent.text, ent.label_)
-                    if key not in actor_types:
-                        actor_types[key] = classify_actor(*key)
-                    doc_actors[(ent.text, actor_types[key])] += 1
+                    # check classification cache first
+                    if ent.text not in actor_types:
+                        actor_batch.append((ent.text, ent.label_))
+                        if len(actor_batch) == BATCH_SIZE:
+                            batch = await classify_actor(actor_batch, history=classifier_convo_context)
+                            actor_batch = []
+                        else:
+                            continue        # wait to process on a future iteration
+                    else: 
+                        batch = [(ent.text, actor_types[ent.text])]
+                    for actor_tuple in batch:
+                        doc_actors[actor_tuple] += 1
+            if len(actor_batch) > 0:
+                batch = await classify_actor(actor_batch, history=classifier_convo_context)
+                for actor_tuple in batch:
+                    doc_actors[actor_tuple] += 1
             article.set_actors(doc_actors)
             actors += doc_actors
     
