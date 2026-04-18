@@ -23,13 +23,8 @@ def score_sentiment(articles: list[Article]) -> list[Article]:
 def tag_themes(articles: list[Article]) -> list[Article]:
     return NotImplemented
 
-nlp = spacy.load(
-    "en_core_web_trf",
-    disable=["tagger", "parser", "attribute_ruler", "lemmatizer"]
-)
-
+nlp = None
 relevant_entity_labels = {"GPE", "LAW", "MONEY", "NORP", "ORG", "PERSON"}
-
 simple_map = {
     "GPE": ActorType.country,
     "ORG": ActorType.company,
@@ -42,24 +37,31 @@ def classify_actor(name: str, label: str) -> ActorType:
 
 @summariser_mcp.tool()
 def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[Actor], list[Event]]:
+    global nlp
+    
     # Extract Actors
-
     # XX extract article_texts using SQL DB
     # XX for now, the MVP adds an extra field to address this
     article_texts = [article.text_body for article in articles]
 
     actors = Counter()
     actor_types = {}
-    for doc, article in zip(nlp.pipe(article_texts, batch_size=50), articles):
-        doc_actors = Counter()
-        for ent in doc.ents:
-            if ent.label_ in relevant_entity_labels:
-                key = (ent.text, ent.label_)
-                if key not in actor_types:
-                    actor_types[key] = classify_actor(*key)
-                doc_actors[(ent.text, actor_types[key])] += 1
-        article.set_actors(doc_actors)
-        actors += doc_actors
+    if nlp is None:         # avoid memory intensive load unless necessary
+        nlp = spacy.load(
+            "en_core_web_trf",
+            disable=["tagger", "parser", "attribute_ruler", "lemmatizer"]   # remove memory/compute intensive, unused parts  
+        )
+    with nlp.memory_zone():     # avoid leaking/storing new vocab between batches
+        for doc, article in zip(nlp.pipe(article_texts, batch_size=50), articles):
+            doc_actors = Counter()
+            for ent in doc.ents:
+                if ent.label_ in relevant_entity_labels:
+                    key = (ent.text, ent.label_)
+                    if key not in actor_types:
+                        actor_types[key] = classify_actor(*key)
+                    doc_actors[(ent.text, actor_types[key])] += 1
+            article.set_actors(doc_actors)
+            actors += doc_actors
     
     actors_objs = []
     for actor in actors:
