@@ -5,11 +5,18 @@ from pydantic import BaseModel, ConfigDict, Field
 
 # pydantic is used to allow use of objects in mcp tools
 
+# XX Note that the below class has been extended when compared to the original schema
 class ActorType(StrEnum):
     country = "country"
+    government = "government"
+    political_party = "political party"
+
     company = "company"
+    news_outlet = "news outlet"
+
     politician = "politician"
     celebrity = "celebrity"
+    ceo = "ceo"
     other = "other"
 
 class Actor(BaseModel):
