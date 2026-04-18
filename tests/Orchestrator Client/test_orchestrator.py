@@ -1,4 +1,4 @@
-from geo_agent.OrchestratorClient.llm_agent import run_task
+from geo_agent.OrchestratorClient.orchestrator import run_task
 
 #import pytest
 import asyncio

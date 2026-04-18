@@ -17,6 +17,5 @@ In order to use the local LLMs, ollama must be installed on your local computer,
 * Note: If your CPU has integrated graphics, then you may be able to partially utilise these by creating a new environment variable "OLLAMA_VULKAN", and setting it to "1". After this, restart your ollama installation, and you should benefit from GPU acceleration (for a temporary fix quit ollama, then run "$env:OLLAMA_VULKAN="1"" followed by "ollama serve")
 * Eventually, this will be made easter via a batch or bash script, and/or packaging our python project as an executable .exe application, but for now we are just testing.
 
-In order to use the Spacy NLP model from the summariser mcp server, it must be installed locally. Note that the summariser mcp server (and so top level orchestrator client) cannot be launched without this functionality:
+In order to use the Spacy NLP model from the summariser mcp server, it must be installed locally. Note that the summariser mcp server cannot be called without this functionality:
 * Run the command "uv run -- spacy download en_core_web_trf" in order to install the model that the project uses. It will take up ~0.5GB of space.
-* If you are testing unrelated parts of the project, and want to avoid installing the model, you can temporarily comment out the 'summariser' part of the "CONFIG" variable in the "src/OrchestratorClient/llm_agent.py" file, to stop the LLM from connecting to the summariser server.

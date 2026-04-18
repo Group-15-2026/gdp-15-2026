@@ -1,46 +1,46 @@
-# XX Note to implementer: this can potentially be a lightweight local LLM (e.g. using ollama)
-# it owns sequencing decisions, and is the only entity interacting with all three MCP servers
-# it should typically call the servers in sequence (potentially using loops to gain extra context /
-#   find new articles).
+# XX Note to implementer: Give a local LLM power to connect to an MCP client, and own the sequencing decisions required
+# Consider adding an mcp structured prompt to the final summariser server (or each) to guide the LLM at each stage
 
-from contextlib import AsyncExitStack
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
+from langchain_ollama.chat_models import ChatOllama
+from mcp_use import MCPAgent, MCPClient, set_debug
 
-class MCPClient:
-    @staticmethod
-    def _set_server_params(path: str) -> StdioServerParameters:
-        return StdioServerParameters(
-            command="uv",
-            args=["run", "python", "-m", path],
-            #args=["run", path],
-            env=None,
-        )
+# Avoid printing messy logs
+set_debug(0)
 
-    def __init__(self):
-        self.servers = {
-            "collector": self._set_server_params("src.geo_agent.CollectorServer.collector"),
-            "summariser": self._set_server_params("src.geo_agent.SummariserServer.summariser"),
-            "analyst": self._set_server_params("src.geo_agent.AnalystServer.analyst"),
+CONFIG = {
+    "mcpServers": {
+        "collector": {
+            "command": "uv",
+            "args": ["run", "python", "-m", "geo_agent.CollectorServer.collector"]
+        },
+        "summariser": {
+            "command": "uv",
+            "args": ["run", "python", "-m", "geo_agent.SummariserServer.summariser"]
+        },
+        "analyst": {
+            "command": "uv",
+            "args": ["run", "python", "-m", "geo_agent.AnalystServer.analyst"]
         }
-        self.exit_stack = AsyncExitStack()
-        self.sessions: dict[str, ClientSession] = {}
+    }
+}
 
-    # link the client to mcp servers
-    async def connect_to_servers(self, show=True):
-        for name, serverParams in self.servers.items():
-            stdio_transport = await self.exit_stack.enter_async_context(stdio_client(serverParams))
-            session = await self.exit_stack.enter_async_context(ClientSession(*stdio_transport))
-            await session.initialize()
-            self.sessions[name] = session
-            tools = (await session.list_tools()).tools
-            if show:
-                print(f"\n{name.title()} Server Connected — tools: {[t.name for t in tools]}")
+MODEL = "gemma4:e4b"
+#MODEL = "qwen3:latest"      # XX small enough to run completely on my laptop integrated graphics for testing purposes
 
-    # used to access sessions for calling tools 
-    async def get_session(self, name: str) -> ClientSession:
-        return self.sessions[name]
+SYSTEM_PROMPT = "" # XX to complete
+TASK_PROMPT = "What news can you find on the topic of 'trade' from the 28/03/2026 to the 29/03/2026?"
 
-    # close open server context sessions when finished
-    async def cleanup(self):
-        await self.exit_stack.aclose()
+async def run_task():
+    client = MCPClient.from_dict(CONFIG)
+    llm = ChatOllama(model=MODEL, base_url="http://localhost:11434")
+    
+    # Wire the LLM to the client
+    agent = MCPAgent(llm=llm, client=client, system_prompt=SYSTEM_PROMPT, max_steps=20)
+
+    # Give prompt to the agent
+    result = await agent.run(TASK_PROMPT)
+
+    # Always clean up running MCP sessions
+    await client.close_all_sessions()
+
+    return result
