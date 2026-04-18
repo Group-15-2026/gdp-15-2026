@@ -58,57 +58,76 @@ async def classify_actor(
         history: list[dict[str, str]] = classification_system_prompt
     ) -> list[tuple[str, ActorType]]:
 
-    global ollama_client
+    async def get_response(messages: list[dict[str, str]], new_message: str, record=True) -> str:
+        global ollama_client
 
-    if ollama_client is None:
-        ollama_client = AsyncClient()
+        if ollama_client is None:
+            ollama_client = AsyncClient()
 
-    history.append(
-        {
-            "role": "user", 
-            "content": f"(Actor, Label) pairs: {batch}"
-        }
-    )
-    response = await ollama_client.chat(
-        model=config.MODEL, 
-        messages=history,
-        format="json"
-    )
-    output = response.message.content or "{}"
-    history.append(
+        messages.append(
+            {
+                "role": "user", 
+                "content": new_message
+            }
+        )
+        response = await ollama_client.chat(
+            model=config.MODEL, 
+            messages=history,
+            format="json",
+            options={
+                "num_ctx": 8 * 1024     # extend context to allow the whole article, and history to be read
+            }
+        )
+        output = response.message.content or "{}"
+        if record:
+            messages.append(
+                {"role": "assistant", "content": output}
+            )
+        return output
+    
+    output = await get_response(history, f"(Actor, Label) pairs: {batch}", record=False)
+
+    # allow the model to try and correct itself
+    allowed_names = set(name for name, label in batch)
+    output_list : list[tuple[str, ActorType]] = []
+    history_copy = history.copy()   # avoid clogging context with mistakes
+    history_copy.append(
         {"role": "assistant", "content": output}
     )
-    # allow the model to try and correct itself
-    output_dict = None
-    output_list = None
     while True:
         try:
             output_dict = json.loads(output)
-            output_list = [(k, ActorType(v)) for k, v in output_dict.items()]
         except Exception as e:
-            if output_dict is None:
-                specific_error = "you failed to output valid JSON"
-            else:
-                specific_error = f"you didn't adhere to the strict instruction to only classify actors as one of {[role.value for role in ActorType]}"
+            message=f"Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON."
+            output = await get_response(history_copy, message)
+        else:        
+            erroneous = []
+            for k, v in output_dict.items():
+                try:
+                    assert k in allowed_names, "Cannot invent new actor names!!!"
+                    v2 = ActorType(v)
+                except Exception as e:
+                    erroneous.append((k, v, repr(e)))
+                else:
+                    output_list.append((k, v2))
+            if len(erroneous) > 0:
+                message = f"Your previous response didn't adhere to the strict instruction to only classify actors as one of " \
+                f"{[role.value for role in ActorType]}. Reclassify the following list of tuples of format (name, ai label, error): " \
+                f"{erroneous}, returning a JSON object with keys of the actor names, and values of their classifications."
 
-            print(f"\n\n{output}\n\n")
+                print(f"\n\n{history_copy}\n\n{output}\n\n{erroneous}\n\n")     # XX testing
 
-            history.append(
-                {
-                    "role": "user",
-                    "content": 
-                        f"Your previous response didn't match my required output format - {specific_error}. It gave this "
-                        f"error: '{e}'. Review you system prompt, then try again, with the input (Actor, Label) pairs: {batch}"
-                }
-            )
-            response = await ollama_client.chat(
-                model=config.MODEL,
-                messages=history,
-                format="json"
-            )
-            output = response.message.content or "{}"
-        else:
-            break
+                output = await get_response(history_copy, message)
+            else: 
+                # update the conversation context with the correct response
+                history.append(
+                    {
+                        "role": "assistant",
+                        "content": json.dumps(dict((k, v.value) for (k, v) in output_list))
+                    }
+                )
+                break
+            
     return output_list
 
 @summariser_mcp.tool()
@@ -119,9 +138,6 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[
     # XX extract article_texts using SQL DB
     # XX for now, the MVP adds an extra field to address this
     article_texts = [article.text_body for article in articles]
-
-    # Control the batch size sent to LLM. Larger values should lead to better performance, but will be more error prone (especially with smaller LLMs with reduced context)
-    BATCH_SIZE = 5         # XX consider moving to config.py
     
     # avoid memory intensive load unless necessary
     if nlp is None:
@@ -144,7 +160,7 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[
                     # check classification cache first
                     if ent.text not in actor_types:
                         actor_batch.append((ent.text, ent.label_))
-                        if len(actor_batch) == BATCH_SIZE:
+                        if len(actor_batch) == config.S_ACT_BATCH_SIZE:
                             batch = await classify_actor(actor_batch, history=classifier_convo_context)
                             actor_batch = []
                         else:
