@@ -9,7 +9,7 @@
 import asyncio
 import logging
 
-from OrchestratorClient.orchestrator import MCPClient
+from geo_agent.OrchestratorClient.orchestrator import MCPClient
 from utils import setup_logging
 
 async def main():
