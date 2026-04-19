@@ -1,7 +1,11 @@
 import spacy
 from spacy.lang.en.examples import sentences 
 
-nlp = spacy.load("en_core_web_sm")
+#spacy.require_gpu() # XX testing
+nlp = spacy.load(
+    "en_core_web_trf",
+    disable=["tagger", "parser", "attribute_ruler", "lemmatizer"]
+)
 #text = sentences[0]
 text = '''
 Global oil prices have risen as Iran continues to launch strikes across the Middle East in response to ongoing attacks by the US and Israel.

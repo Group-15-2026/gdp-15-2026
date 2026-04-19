@@ -1,7 +1,49 @@
-from pydantic import BaseModel
+from .Validators import Between10, Percentage
 
-# XX Note to the implementer: pydantic is used to allow use of objects in mcp tools
-# should build this class heavily around the json inter-stage standards we have defined
+from enum import StrEnum
+from pydantic import BaseModel, ConfigDict, Field
+
+# pydantic is used to allow use of objects in mcp tools
+
+# XX Note that the below class has been extended when compared to the original schema
+class ActorType(StrEnum):
+    country = "country"
+    government = "government"
+    political_party = "political party"
+
+    company = "company"
+    news_outlet = "news outlet"
+
+    politician = "politician"
+    celebrity = "celebrity"
+    ceo = "ceo"
+    other = "other"
 
 class Actor(BaseModel):
-    pass
+    # Ensure validation is carried out when details are added later
+    model_config = ConfigDict(validate_assignment=True)
+
+    # Fixed fields set upon creation, and unchanged after that
+    name: str = Field(frozen=True)
+    actor_type: ActorType = Field(frozen=True)
+
+    # Fields to be filled in later
+    impact: Between10 | None = None
+    public_opinion: Between10 | None = None
+    controversy: Between10 | None = None
+    mentions_weight: Percentage | None = None
+    # XX should be restricted to only themes found
+    linked_themes: str | None = None
+
+    # XX may need breaking up into different methods for filling in at different times
+    def set_processed_values(self, 
+                            impact: float, 
+                            public_opinion: float,
+                            controversy: float,
+                            mentions_weight: float,
+                            linked_themes: str) -> None:
+        self.impact = impact
+        self.public_opinion = public_opinion
+        self.controversy = controversy
+        self.mentions_weight = mentions_weight
+        self.linked_themes = linked_themes

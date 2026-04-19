@@ -1,0 +1,109 @@
+// Database Schema for Geopolitical Intelligence Assistant
+// Paste this into https://dbdiagram.io to render the diagram
+
+Table articles {
+  article_id TEXT [pk]
+  title TEXT [not null]
+  publication_time TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  text_body TEXT
+  article_type TEXT
+  url TEXT
+}
+
+Table actors {
+  id INTEGER [pk, increment]
+  name TEXT [not null]
+  actor_type TEXT [not null]
+  impact_score INTEGER [default: 0, note: "Range: -10 to 10"]
+  public_opinion REAL [note: "Range: 0 to 10"]
+  controversy REAL [note: "Range: 0 to 10"]
+  mentions_weight REAL [note: "Range: 0 to 100"]
+  indexes {
+    name [name: "idx_actors_name"]
+    actor_type [name: "idx_actors_type"]
+    (name, actor_type) [unique, name: "uq_actor_name_type"]
+  }
+}
+
+Table events {
+  id INTEGER [pk, increment]
+  description TEXT [not null]
+  controversy REAL [note: "Range: 0 to 10"]
+  economic_impact TEXT [note: "JSON"]
+  financial_market_impact TEXT [note: "JSON"]
+  security_impact TEXT [note: "JSON"]
+  diplomatic_impact TEXT [note: "JSON"]
+  event_date TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  indexes {
+    event_date [name: "idx_events_date"]
+  }
+}
+
+Table themes {
+  id INTEGER [pk, increment]
+  name TEXT [not null, unique]
+  description TEXT
+}
+
+Table claims {
+  id INTEGER [pk, increment]
+  article_id TEXT [ref: > articles.article_id]
+  claim_text TEXT [not null]
+  opinion_score REAL [note: "Range: 0 to 10"]
+  indexes {
+    article_id [name: "idx_claims_article"]
+  }
+}
+
+Table article_to_actors {
+  article_id TEXT [ref: > articles.article_id]
+  actor_id INTEGER [ref: > actors.id]
+  occurrence_count INTEGER [default: 1, not null]
+  indexes {
+    (article_id, actor_id) [pk, name: "pk_article_actors"]
+    article_id [name: "idx_article_to_actors_article"]
+    actor_id [name: "idx_article_to_actors_actor"]
+  }
+}
+
+Table article_to_event {
+  article_id TEXT [ref: > articles.article_id]
+  event_id INTEGER [ref: > events.id]
+  relevance_score REAL
+  indexes {
+    (article_id, event_id) [pk, name: "pk_article_event"]
+    article_id [name: "idx_article_to_event_article"]
+    event_id [name: "idx_article_to_event_event"]
+  }
+}
+
+Table actors_to_themes {
+  actor_id INTEGER [ref: > actors.id]
+  theme_id INTEGER [ref: > themes.id]
+  indexes {
+    (actor_id, theme_id) [pk]
+  }
+}
+
+Table events_to_themes {
+  event_id INTEGER [ref: > events.id]
+  theme_id INTEGER [ref: > themes.id]
+  indexes {
+    (event_id, theme_id) [pk]
+  }
+}
+
+// Relationships
+Ref: article_to_actors.article_id > articles.article_id
+Ref: article_to_actors.actor_id > actors.id
+
+Ref: claims.article_id > articles.article_id
+
+Ref: article_to_event.article_id > articles.article_id
+Ref: article_to_event.event_id > events.id
+
+Ref: actors_to_themes.actor_id > actors.id
+Ref: actors_to_themes.theme_id > themes.id
+
+Ref: events_to_themes.event_id > events.id
+Ref: events_to_themes.theme_id > themes.id
