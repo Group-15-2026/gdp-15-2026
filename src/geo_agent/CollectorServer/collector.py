@@ -18,9 +18,6 @@ if not newsapi_key:
     logger.error("Missing NEWSAPI_KEY. Set it in your .env file. See .env.example for an example.")
     raise # propogate exception
 
-def logging_test():
-    logger.info("Collector logger test")
-
 collector_mcp = FastMCP(name="Collector MCP Server")
 
 # XX Note to implementer: the following resource and tool should largely just wrap NewsAPI
