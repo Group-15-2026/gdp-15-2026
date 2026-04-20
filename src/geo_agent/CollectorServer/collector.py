@@ -15,7 +15,10 @@ def search_news(topics: list[str], start_date: str, end_date: str) -> list[Artic
 # Collect top articles for processing
 @collector_mcp.resource("files:///articles/top")
 def collect_articles() -> list[Article]:
-    return get_daily_articles()
+    # list of dictionaries containing: source, title, description, url, publishedAt, content
+    articles = get_daily_articles()
+
+    return NotImplemented
 
 if __name__ == "__main__":
     collector_mcp.run()

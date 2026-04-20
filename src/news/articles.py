@@ -2,12 +2,14 @@ import json
 import logging
 import os
 import sys
-import time
+from datetime import datetime
 
+from dateutil import parser
 from dotenv import load_dotenv, find_dotenv
 from itertools import chain
 from newsapi import NewsApiClient
 
+from geo_agent.Entities import Article
 from utils import get_data_dir
 
 logger = logging.getLogger(__name__)
@@ -75,16 +77,31 @@ def _top_by_category():
     logger.info(f"Successefully saved top relevant headlines to {archive_file}.")
     return archive_file
 
-# json -> Entities Article class
-def from_json(article):
-    pass
+# article codes:
+# DC - daily by category; DS - daily by source
+def generate_article_id(fetch_time, code, num):
+    timestr = fetch_time.strftime("%Y%m%d")
+    return f"{timestr}-{code}-{num}"
 
+# article dictionary -> Entities Article class
+def to_article(article, id):
+    title = article['title']
+    publishedAt = parser.parse(article['publishedAt']) # recognises any format to convert to DateTime
+    source = article['source'] # this is a dicionary of id and name
+    body = f"Summary: {article['description']}. Snippet: {article['content']}"
+    a = new Article(
+            article_id=id,
+            article_title=title,
+            publication_time=publishedAt,
+            text_body=body
+    )
+    return a
 
 # Attempts to get the daily articles from the data directory, fetches them from NewsAPI otherwise
-# Returns JSON
 def get_daily_articles():
     DATA_DIR = get_data_dir()
-    file_name = time.strftime("%Y-%m-%d") + ".txt"
+    fetch_time = time.time()
+    file_name = fetch_time.strftime("%Y-%m-%d") + ".txt"
     file_path = DATA_DIR / "by-category" / file_name
 
     try:
