@@ -1,6 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 
 from ..Entities.Article import Article
+from news import get_daily_articles
 
 collector_mcp = FastMCP(name="Collector MCP Server")
 
@@ -14,7 +15,7 @@ def search_news(topics: list[str], start_date: str, end_date: str) -> list[Artic
 # Collect top articles for processing
 @collector_mcp.resource("files:///articles/top")
 def collect_articles() -> list[Article]:
-    return NotImplemented
+    return get_daily_articles()
 
 if __name__ == "__main__":
     collector_mcp.run()

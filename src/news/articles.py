@@ -75,7 +75,13 @@ def _top_by_category():
     logger.info(f"Successefully saved top relevant headlines to {archive_file}.")
     return archive_file
 
+# json -> Entities Article class
+def from_json(article):
+    pass
+
+
 # Attempts to get the daily articles from the data directory, fetches them from NewsAPI otherwise
+# Returns JSON
 def get_daily_articles():
     DATA_DIR = get_data_dir()
     file_name = time.strftime("%Y-%m-%d") + ".txt"
@@ -83,11 +89,18 @@ def get_daily_articles():
 
     try:
         with open(file_path, "r") as f:
-            return f.read()
+            results_json = f.read()
     except:
         archive_path = _top_by_category()
         with open(archive_path, "r") as f:
-            return f.read()
+            results_json = f.read()
+
+    results_dict = json.loads(articles_json)
+    articles_list = articles_dict['articles']
+    return articles_list
+
+def get_daily_articles_about():
+    pass
 
 if __name__ == "__main__":
-    get_daily_articles()
+    print(get_daily_articles())
