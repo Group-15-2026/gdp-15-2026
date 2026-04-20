@@ -6,37 +6,31 @@
 # that it can access. It may be cleanest to define these in the relevant MCP related files, and simply
 # import them here.
 
+from geo_agent.OrchestratorClient.orchestrator import create_mcp_client, create_mcp_agent, TASK_PROMPT
+from utils import setup_logging
+
 import asyncio
 import logging
-
-from geo_agent.OrchestratorClient.orchestrator import MCPClient
-from utils import setup_logging
 
 async def main():
     setup_logging()
     logger = logging.getLogger(__name__)
     logger.info("Logging started successfully")
 
-    # XX currently just test code to demonstrate the mcp client connecting to the servers
-    client = MCPClient()
-    try:
-        await client.connect_to_servers()
-        logger.info("All servers connected successfully")
+    # XX currently just test code to demonstrate execution of a simple prompt
 
-        # XX Example: extract a server session and call a tool
-        collectorSession = await client.get_session("collector")
-        result = await collectorSession.call_tool("search_news", 
-                                                  {
-                                                    "topics":["trade"], 
-                                                    "start_date":"28/03/2026",
-                                                    "end_date":"29/03/2026"
-                                                   }
-                                                 )
-        logger.info(f"Collector Server returned: {result} for tool 'search_news'")
+    client = create_mcp_client()
+    logger.info("MCP Servers created successfully")
 
-        # XX This is where the client would then be linked to the local LLM and used
-    finally:
-        await client.cleanup()
+    agent = create_mcp_agent(client)
+    logger.info("Orchestrator Agent connected to MCP client successfully")
+
+    logger.info(f"Orchestrator Agent given prompt: {TASK_PROMPT}")
+    response = await agent.run(TASK_PROMPT)
+    logger.info(f"Orchestrator Agent generated response: {response}")
+
+    await client.close_all_sessions()
+    logger.info("MCP Servers shutdown successfully")
 
 if __name__ == "__main__":
     asyncio.run(main())
