@@ -10,12 +10,12 @@ import asyncio
 import logging
 
 from geo_agent.OrchestratorClient.orchestrator import MCPClient
-from utils import setup_logging
+from utils import setup
 
 async def main():
-    setup_logging()
+    setup()
     logger = logging.getLogger(__name__)
-    logger.info("Logging started successfully")
+    logger.info("Utilities setup successful.")
 
     # XX currently just test code to demonstrate the mcp client connecting to the servers
     client = MCPClient()

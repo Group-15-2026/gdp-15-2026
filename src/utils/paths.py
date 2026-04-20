@@ -34,7 +34,25 @@ def get_project_root():
         logger.info(f"Project root = {_project_root}")
     return _project_root
 
+def get_data_dir():
+    return get_project_root() / "data"
+
+def get_logs_dir():
+    return get_project_root() / "logs"
+
 # Checks if path is within project
 # Use this to check if a path is safe to use
 def is_internal(path):
     return path.is_relative_to(get_projet_root())
+
+# Makes directories if they don't already exist
+def setup_dirs():
+    LOGS_DIR = get_logs_dir()
+    DATA_DIR = get_data_dir()
+    DIRS = [
+        LOGS_DIR,
+        DATA_DIR / "by-source",
+        DATA_DIR / "by-category"
+    ]
+    for d in DIRS:
+        d.mkdir(parents=True, exist_ok=True)
