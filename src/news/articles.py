@@ -5,6 +5,7 @@ import sys
 import time
 
 from dotenv import load_dotenv, find_dotenv
+from itertools import chain
 from newsapi import NewsApiClient
 
 from utils import get_project_root
@@ -40,7 +41,13 @@ def save_headlines(headlines):
     latest.close()
 
     return archive_file
-    
+
+# Warn if results shows error, return false if there's an error, true if all is good
+def _check_status(results):
+    if results['status'] == "error":
+        logger.warning(f"Error fetching headlines: {results['code']}")
+        return False
+    return True
 
 # Fetch top headlines from NewsAPI and return location of permanent file containing headlines JSON
 def fetch_top():
@@ -52,5 +59,23 @@ def fetch_top():
     logger.info(f"Successfully saved top headlines to {archive_file}.")
     return archive_file
 
+def fetch_top_relevant():
+    def fetch_category(c):
+        results = newsapi.get_top_headlines(language='en',
+                                         category=c)
+        return results
+
+    categories = ["business", "science", "technology"]
+    results = [x for x in [fetch_category(c) for c in categories] if _check_status(x)]
+
+    combined_totalResults = sum([r["totalResults"] for r in results])
+    combined_articles = list(chain.from_iterable(r["articles"] for r in results))
+
+    headlines = dict(status="ok", totalResults=combined_totalResults, articles=combined_articles)
+
+    archive_file = save_headlines(headlines)
+    logger.info(f"Successefully saved top relevant headlines to {archive_file}.")
+    return archive_file
+
 if __name__ == "__main__":
-    fetch_top()
+    fetch_top_relevant()
