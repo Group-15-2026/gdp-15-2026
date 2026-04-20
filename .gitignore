@@ -10,10 +10,13 @@
 # Experiments #
 /Initial\ Experiments/news-api-test/newsapi_key.txt
 
-# Environment variables
+# Environment variables #
 *.env
 *.env.*
 !.env.example
 
 # Logs #
 **/*.log
+
+# Article data #
+/data/**/*
