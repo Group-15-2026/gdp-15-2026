@@ -1,1 +1,1 @@
-from .articles import get_daily_articles
+from .access import get_daily_articles
