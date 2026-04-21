@@ -76,11 +76,10 @@ def get_daily_articles():
             results_json = f.read()
 
     results_dict = json.loads(results_json)
-    articles_dict = results_dict['articles']
     articles_list = []
 
     for i in range(0, len(results_dict)):
-        d = articles_dict
+        r = results_dict['articles'][i]
 
         id = get_id_top_by_category(fetch_time, i)
         title = r['title']
