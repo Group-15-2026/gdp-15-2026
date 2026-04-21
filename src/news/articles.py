@@ -9,7 +9,7 @@ from dotenv import load_dotenv, find_dotenv
 from itertools import chain
 from newsapi import NewsApiClient
 
-from geo_agent.Entities import Article
+from geo_agent.Entities.Article import Article
 from utils import get_data_dir
 
 logger = logging.getLogger(__name__)
@@ -83,16 +83,24 @@ def generate_article_id(fetch_time, code, num):
     timestr = fetch_time.strftime("%Y%m%d")
     return f"{timestr}-{code}-{num}"
 
+# dict of id, name (maybe None) -> dict of source_id, source_name (str)
+def to_source(source):
+    MISSING_SOURCE = dict(source_id="missing-source", source_name="Missing Source")
+    id, name = source['id'], source['name']
+    s = dict(source_id=id, source_name=name) if id and name else MISSING_SOURCE
+    return s
+
 # article dictionary -> Entities Article class
 def to_article(article, id):
     title = article['title']
     publishedAt = parser.parse(article['publishedAt']) # recognises any format to convert to DateTime
-    source = article['source'] # this is a dicionary of id and name
+    source = to_source(article['source'])
     body = f"Summary: {article['description']}. Snippet: {article['content']}"
     a = Article(
         article_id=id,
         article_title=title,
         publication_time=publishedAt,
+        source=source,
         text_body=body
     )
     return a
@@ -113,7 +121,12 @@ def get_daily_articles():
             results_json = f.read()
 
     results_dict = json.loads(results_json)
-    articles_list = results_dict['articles']
+    id_prefix = fetch_time.strftime("%Y%m%d-DC-")
+    articles_list = []
+    for i in range(0, len(results_dict)):
+        id = id_prefix + str(i+1)
+        a = to_article(results_dict['articles'][i], id)
+        articles_list.append(a)
     return articles_list
 
 def get_daily_articles_about():
