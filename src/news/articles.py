@@ -29,7 +29,7 @@ def _save_headlines(headlines, subdir):
     DATA_DIR = get_data_dir()
 
     headlines_json = json.dumps(headlines, indent=4)
-    timestr_txt = time.strftime("%Y-%m-%d") + ".txt"
+    timestr_txt = datetime.now().strftime("%Y-%m-%d") + ".txt"
     archive_file = DATA_DIR / subdir / timestr_txt
     latest_file = DATA_DIR / subdir / "latest.txt"
 
@@ -89,18 +89,18 @@ def to_article(article, id):
     publishedAt = parser.parse(article['publishedAt']) # recognises any format to convert to DateTime
     source = article['source'] # this is a dicionary of id and name
     body = f"Summary: {article['description']}. Snippet: {article['content']}"
-    a = new Article(
-            article_id=id,
-            article_title=title,
-            publication_time=publishedAt,
-            text_body=body
+    a = Article(
+        article_id=id,
+        article_title=title,
+        publication_time=publishedAt,
+        text_body=body
     )
     return a
 
 # Attempts to get the daily articles from the data directory, fetches them from NewsAPI otherwise
 def get_daily_articles():
     DATA_DIR = get_data_dir()
-    fetch_time = time.time()
+    fetch_time = datetime.now()
     file_name = fetch_time.strftime("%Y-%m-%d") + ".txt"
     file_path = DATA_DIR / "by-category" / file_name
 
@@ -112,8 +112,8 @@ def get_daily_articles():
         with open(archive_path, "r") as f:
             results_json = f.read()
 
-    results_dict = json.loads(articles_json)
-    articles_list = articles_dict['articles']
+    results_dict = json.loads(results_json)
+    articles_list = results_dict['articles']
     return articles_list
 
 def get_daily_articles_about():
