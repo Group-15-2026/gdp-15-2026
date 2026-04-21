@@ -34,7 +34,7 @@ class _Index:
 
 def index_top_by_category():
     dir = get_top_dir()
-    code = TOP_CODE + BY_TOPIC_CODE
+    code = TOP_CODE + BY_CATEGORY_CODE
     return _Index(dir, code)
 
 def index_top_by_source():
