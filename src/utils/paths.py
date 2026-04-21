@@ -37,6 +37,15 @@ def get_project_root():
 def get_data_dir():
     return get_project_root() / "data"
 
+def get_top_dir():
+    return get_data_dir() / "daily"
+
+def get_weekly_dir():
+    return get_data_dir() / "weekly"
+
+def get_monthly_dir():
+    return get_data_dir() / "montly"
+
 def get_logs_dir():
     return get_project_root() / "logs"
 
@@ -48,11 +57,14 @@ def is_internal(path):
 # Makes directories if they don't already exist
 def setup_dirs():
     LOGS_DIR = get_logs_dir()
-    DATA_DIR = get_data_dir()
+    TOP_DIR = get_top_dir()
+    WEEKLY_DIR = get_weekly_dir()
+    MONTHLY_DIR = get_monthly_dir()
     DIRS = [
         LOGS_DIR,
-        DATA_DIR / "by-source",
-        DATA_DIR / "by-category"
+        TOP_DIR,
+        WEEKLY_DIR,
+        MONTHLY_DIR
     ]
     for d in DIRS:
         d.mkdir(parents=True, exist_ok=True)
