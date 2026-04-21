@@ -46,6 +46,9 @@ def get_weekly_dir():
 def get_monthly_dir():
     return get_data_dir() / "montly"
 
+def get_range_dir():
+    return get_data_dir() / "range"
+
 def get_logs_dir():
     return get_project_root() / "logs"
 
@@ -60,11 +63,13 @@ def setup_dirs():
     TOP_DIR = get_top_dir()
     WEEKLY_DIR = get_weekly_dir()
     MONTHLY_DIR = get_monthly_dir()
+    RANGE_DIR = get_range_dir()
     DIRS = [
         LOGS_DIR,
         TOP_DIR,
         WEEKLY_DIR,
-        MONTHLY_DIR
+        MONTHLY_DIR,
+        RANGE_DIR
     ]
     for d in DIRS:
         d.mkdir(parents=True, exist_ok=True)
