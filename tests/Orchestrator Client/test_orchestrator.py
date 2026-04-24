@@ -1,9 +1,24 @@
-from geo_agent.OrchestratorClient.orchestrator import run_task
+from geo_agent.config import config
+from geo_agent.OrchestratorClient.orchestrator import TASK_PROMPT, create_mcp_client, create_mcp_agent
 
 #import pytest
 import asyncio
+from langchain_ollama.chat_models import ChatOllama
+from mcp_use import MCPAgent, MCPClient, set_debug
 
 # XX TODO: add unit tests. Currently just seeing if the code runs
+
+async def run_task():
+    client = create_mcp_client()
+    agent = create_mcp_agent(client)
+
+    # Give prompt to the agent
+    result = await agent.run(TASK_PROMPT)
+
+    # Always clean up running MCP sessions
+    await client.close_all_sessions()
+
+    return result
 
 async def main():
     result = await run_task()    
