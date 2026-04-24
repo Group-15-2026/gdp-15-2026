@@ -1,4 +1,5 @@
 import datetime as dt
+from functools import partial
 import json
 import logging
 import os
@@ -8,7 +9,7 @@ from itertools import chain
 from newsapi import NewsApiClient
 
 from news.convert import to_article, to_datetime
-from news.index import index_top_by_category, index_top_by_source, index_weekly_by_topic
+from news.index import index_top_by_category, index_top_by_source, index_weekly_by_topic, index_range_by_topic
 
 logger = logging.getLogger(__name__)
 
@@ -44,15 +45,11 @@ def _top_by_category():
     articles = list(chain.from_iterable(r["articles"] for r in results))
     return articles
 
-def _weekly_by_topic(topic, oldest_str):
-    results = newsapi.get_everything(q=topic, from_param=oldest_str, language='en')
-    return results['articles']
+def _range_by_topic(topic, from_dt, to_dt):
+    from_str = from_dt.strftime("%Y-%m-%d")
+    to_str = to_dt.strftime("%Y-%m-%d")
 
-def _range_by_topic(topic, start_time_dt, end_time_dt):
-    from_str = start_time_dt.strftime("%Y-%m-%d")
-    to_str = end_time_dt.strftime("%Y-%m-%d")
-
-    results = newsapi.get_everything(q=t, from_param=from_str, to_param=to_str, language='en')
+    results = newsapi.get_everything(q=topic, from_param=from_str, to=to_str, language='en')
     
     return results['articles']
 
@@ -78,27 +75,28 @@ def _fetch_from(index, api_access):
 def get_daily_articles():
     fetch_time = dt.date.today()
     index = index_top_by_category(fetch_time)
-    raw = _fetch_from(index, _top_by_category, fetch_time)
+    raw = _fetch_from(index, _top_by_category)
 
-    id_prefix = index.get_file_id(fetch_time)
+    id_prefix = index.get_file_id()
     articles = [to_article(r, f"{id_prefix}-{i+1}") for i, r in enumerate(raw)]
 
     return articles
 
-def get_articles_about(topics, start_date_str, end_date_str):
-    start_time_dt, end_time_dt = to_datetime(start_date_str), to_datetime(end_date_str)
-    indices = [index_range_by_topic(t, start_time_dt, end_time_dt) for t in topics]
+# from is start, to is end
+def get_articles_about(topics, start_str, end_str):
+    start_dt, end_dt = to_datetime(start_str), to_datetime(end_str)
+    indices = [index_range_by_topic(topic, start_dt, end_dt) for topic in topics]
 
-    def api_access():
-        return _range_by_topic(topic, start_time_dt, end_time_dt)
+    api_access = partial(_range_by_topic, from_dt=start_dt, to_dt=end_dt)
 
-    raw = _fetch_from(index, api_access)
-
-    id_prefix = index.get_file_id(fetch_time)
-    articles = [to_article(r, f"{id_prefix}-{i+1}") for i, r in enumerate(raw)]
+    raws = [_fetch_from(index, partial(api_access, index.get_topic())) for index in indices]
+    id_prefixes = [index.get_file_id() for index in indices]
+    articles = list(chain.from_iterable([to_article(r, f"{id_prefixes[j]}-{i+1}") for i, r in enumerate(raw)] for j, raw in enumerate(raws)))
 
     return articles
 
 
 if __name__ == "__main__":
-    print(get_articles_about("cars"))
+    print(get_articles_about(["cars", "dogs"], "2026-04-01", "2026-04-24"))
+    print(get_daily_articles())
+    print(get_articles_about(["donald trump"], "2026-04-01", "2026-04-24"))

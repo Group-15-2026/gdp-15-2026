@@ -14,10 +14,20 @@ class _Index:
     def __init__(self, dir, code, time_dt):
         self._code = code
         self._dir = dir
-        self._time_id = self.get_time_id(time_dt)
+        self._time_id = self._to_time_id(time_dt)
+        self._topic = None
 
-    def get_time_id(self, time_dt):
+    def _to_time_id(self, time_dt):
         return time_dt.strftime("%Y%m%d")
+
+    def set_topic(self, topic):
+        self._topic = topic
+
+    def get_topic(self):
+        return self._topic
+
+    def get_time_id(self):
+        return self._time_id
 
     def get_file_id(self):
         return f"{self._time_id}-{self._code}"
@@ -33,15 +43,15 @@ class _Index:
         return file_path
 
 class _IndexRange(_Index):
-    def __init__(self, code, start_time_dt, end_time_dt):
+    def __init__(self, code, start_dt, end_dt):
         self._code = code
         self._dir = get_range_dir()
-        self._time_id = self.get_time_id(start_time_dt, end_time_dt)
+        self._time_id = self._set_time_id(start_dt, end_dt)
 
-    def get_time_id(self, start_time_dt, end_time_dt):
-        start_time_str = super().get_time_id(start_time_dt)
-        end_time_str = super().get_time_id(end_time_dt)
-        return f"{start_time_str}-{end_time_str}"
+    def _set_time_id(self, start_dt, end_dt):
+        from_str = super()._to_time_id(start_dt)
+        to_str = super()._to_time_id(end_dt)
+        return f"{from_str}-{to_str}"
 
 def index_top_by_category(time_dt):
     dir = get_top_dir()
@@ -60,5 +70,7 @@ def index_weekly_by_topic(topic, time_dt):
 
 def index_range_by_topic(topic, start_time_dt, end_time_dt):
     code = RANGE_CODE + BY_TOPIC_CODE + topic
-    return _IndexRange(code, start_time_dt, end_time_dt)
+    index = _IndexRange(code, start_time_dt, end_time_dt)
+    index.set_topic(topic)
+    return index
 

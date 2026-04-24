@@ -18,7 +18,7 @@ def to_article(raw, id):
     a = Article(
         article_id=id,
         article_title=raw['title'],
-        publication_time=to_datetime(raw['publishedAt'])
+        publication_time=to_datetime(raw['publishedAt']),
         source=_to_source(raw['source']),
         text_body=f"Summary: {raw['description']}. Snippet: {raw['content']}"
     )
