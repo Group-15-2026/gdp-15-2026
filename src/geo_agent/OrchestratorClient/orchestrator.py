@@ -3,6 +3,7 @@
 
 from ..config import config
 
+from datetime import date, timedelta
 from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient, set_debug
 
@@ -32,7 +33,11 @@ def create_mcp_client():
 SYSTEM_PROMPT = "" # XX to complete
 
 # XX Currently just a testing placeholder
-TASK_PROMPT = "What news can you find on the topic of 'trade' from the 28/03/2026 to the 29/03/2026?"
+today = date.today()
+yesterday = today - timedelta(days=1)
+TASK_PROMPT = f"What news can you find on the topic of 'trade' from the {yesterday} to the {today}?" \
+               "Extract the key actors from all relevant news articles, and display them to me alongside " \
+               "their classification, and the number of times that they are referenced in different articles."
 
 def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=128*1024, max_steps=50):
     llm = ChatOllama(
