@@ -3,8 +3,6 @@ from geo_agent.OrchestratorClient.orchestrator import TASK_PROMPT, create_mcp_cl
 
 #import pytest
 import asyncio
-from langchain_ollama.chat_models import ChatOllama
-from mcp_use import MCPAgent, MCPClient, set_debug
 
 # XX TODO: add unit tests. Currently just seeing if the code runs
 

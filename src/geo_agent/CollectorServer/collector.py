@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 
 from ..Entities.Article import Article
-from news import get_daily_articles, get-articles_about
+from news import get_daily_articles, get_articles_about
 
 collector_mcp = FastMCP(name="Collector MCP Server")
 
@@ -17,7 +17,8 @@ def search_news(topics: list[str], start_date: str, end_date: str) -> list[Artic
 # Collect top articles for processing
 # Returns top articles for that day, from business, science, and tech categories
 # Duplicates possible
-@collector_mcp.resource("files:///articles/top")
+#@collector_mcp.resource("files:///articles/top")
+collector_mcp.tool()
 def collect_articles() -> list[Article]:
     return get_daily_articles()
 

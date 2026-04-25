@@ -2,12 +2,12 @@ from datetime import datetime
 
 from dateutil import parser
 
-from geo_agent.Entities.Article import Article
+from geo_agent.Entities.Article import Article, _Source
 
 def _to_source(raw):
-    MISSING_SOURCE = dict(source_id="missing-source", source_name="Missing Source")
+    MISSING_SOURCE = _Source(source_id="missing-source", source_name="Missing Source")
     id, name = raw['id'], raw['name']
-    s = dict(source_id=id, source_name=name) if id and name else MISSING_SOURCE
+    s = _Source(source_id=id, source_name=name) if id and name else MISSING_SOURCE
     return s
 
 def to_datetime(time_str):
