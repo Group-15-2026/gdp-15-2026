@@ -1,0 +1,105 @@
+from ..config import config
+from ..Entities.Actors import Actor, ActorType
+from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
+
+from collections import Counter
+import itertools
+import json
+from ollama import AsyncClient
+from pydantic import TypeAdapter
+
+# Ollama LLM Setup
+ollama_client = None
+
+classification_system_prompt = f'''
+You are a geopolitical actor classification agent. Given a list of input actors and their
+initial labels, you should classify each of the actors into one of {[role.value for role in ActorType]}, 
+produce an appropriate Actor JSON object for each pair, and return a JSON list (no enclosing '{{}}') of these objects.
+Examine the output schema format carefully, and note that you must fill in the 'name' and 'actor_type' fields only 
+for each Actor object in the list. Do not use any '```json' tags in your output, only return the valid json list.
+In general the initial label GPE should lead to a 'country' actor_type, ORG to a company, NORP a political party, and a PERSON
+should be one of a politician, celebrity, ceo or other - use your best judgement however.
+If you don't believe a name to be a valid actor, then you omit their associated object from the output list. If a
+name which is a shortening of a previous name in your conversation history (or the batch list)
+is encountered, then treat is as the full name, and give the same classification as
+you gave previously. You will be given batches of up to 10 actor / label pairs at a time,
+and must reply with only a JSON list with one object for each valid actor, which has keys for the valid actor names, and
+the classifications that you have given them. The first thing that you should check is
+whether each name refers to a previously processed actor, and if so, to recall the previous
+classification, and use the extended name for the 'name' field in the relevant output object in the JSON list. 
+Always end by checking that the new actor_type field values are only one of the
+following: {[role.value for role in ActorType]}, and NOT any of the initial labels passed in.
+'''.replace("\n", " ")
+
+# type that represents the model's target output for batch classification
+ActorClassBatchResponse = TypeAdapter(list[Actor])
+
+# Class that evaluates the validity of the classification-LLM 's response
+class ActorClassResponseMarker(BaseResponseMarker):
+    def __init__(self):
+        self.valid_names = set()
+
+    def mark(self, response: str) -> str | None:
+        # XX need to implement, and add method to keep track of actor names encountered
+        message = None
+
+        try:
+            output_obj = ActorClassBatchResponse.validate_json(response)
+        except Exception as e:
+            message="Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON."
+        else:        
+            erroneous = []
+            for a in output_obj:
+                try:
+                    assert a.name in self.valid_names, "Cannot invent new actor names!!!"
+                except Exception as e:
+                    erroneous.append((a.name, a.actor_type.value, repr(e)))
+            if len(erroneous) > 0:
+                message = f"Your previous response didn't adhere to the strict instruction to only classify actors as one of " \
+                f"{[role.value for role in ActorType]}. Reclassify the following list of actor tuples of format (name, ai label, error): " \
+                f"{erroneous}, but keep the original classifications for the correct actors in your last response (who's names aren't " \
+                "mentioned here), returning a JSON list of objects conforming to the output format defined in your system prompt."
+        
+        return message
+    
+    def reset(self):
+        self.valid_names.clear()
+
+# This function uses an independent client to the same local Ollama instance as the orchestrator (saving memory)
+# It should be called on the complete set of raw actors for a single article (elements of 'extract_actors' output)
+async def classify_article_actors(article_actors: Counter[str], article_actor_clss: dict[str, str]) -> list[tuple[Actor, int]]:
+    global ollama_client
+
+    # setup link to LLM
+    if ollama_client is None:
+        ollama_client = AsyncClient()
+    response_marker = ActorClassResponseMarker()
+    chat_history = ChatHistory(
+        ollama_client, 
+        model = config.MODEL,
+        system_prompt=classification_system_prompt,
+        json = ActorClassBatchResponse.json_schema(),
+        context = 8 * 1024,         # extend context to allow the whole article, and history to be read
+        tools = [ollama_client.web_search, ollama_client.web_fetch],
+        allowed_attempts="inf",     # we need a valid JSON output, so must allow for infinite attempts
+        response_marker=response_marker
+    )
+    
+    # process actors in batches
+    actors: Counter[str] = Counter()
+    actor_lookup: dict[str, Actor] = {}
+    for batch in itertools.batched(article_actors, config.S_ACT_BATCH_SIZE):
+        processed_batch = []
+        for actor in batch:
+            processed_batch.append((actor, article_actor_clss[actor]))
+            response_marker.valid_names.add(actor)
+        output = await chat_history.chat(f"(Actor, Label) pairs: {processed_batch}")
+        output_obj: list[Actor] = ActorClassBatchResponse.validate_json(output)
+        for actor in output_obj:
+            actors[actor.name] += article_actors[actor.name]
+            actor_lookup[actor.name] = actor
+            
+    return [(actor, actors[name]) for name, actor in actor_lookup.items()]
+
+
+# XX add code to classify events / claims too

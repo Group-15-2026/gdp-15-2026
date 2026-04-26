@@ -28,6 +28,7 @@ def tag_themes(articles: list[Article]) -> list[Article]:
 
 # ---------------------------------------------- extract_act_eve ------------------------------------------- #
 
+'''
 # SpaCy NLP Setup
 nlp = None
 relevant_entity_labels = {"GPE", "LAW", "NORP", "ORG", "PERSON"}
@@ -115,7 +116,7 @@ async def classify_actor(
                 f"{[role.value for role in ActorType]}. Reclassify the following list of tuples of format (name, ai label, error): " \
                 f"{erroneous}, returning a JSON object with keys of the actor names, and values of their classifications."
 
-                print(f"\n\n{history_copy}\n\n{output}\n\n{erroneous}\n\n")     # XX testing
+                #print(f"\n\n{history_copy}\n\n{output}\n\n{erroneous}\n\n")     # XX testing
 
                 output = await get_response(history_copy, message)
             else: 
@@ -129,9 +130,11 @@ async def classify_actor(
                 break
             
     return output_list
+'''
 
 @summariser_mcp.tool()
 async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[Actor], list[Event]]:
+    '''
     global nlp
     
     # Extract Actors
@@ -186,6 +189,22 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[
     events = []
 
     return (articles, actors_objs, events)
+    '''
+
+    from .classification import classify_article_actors
+    from .extraction import extract_actors
+
+    actors_by_article = extract_actors(articles)
+    actors = []
+    for article, actor_counter, actor_clss in actors_by_article:
+        classified_actors = await classify_article_actors(actor_counter, actor_clss)
+        article.set_actors(classified_actors)
+        actors += [actor for actor, _ in classified_actors]
+
+    # XX TODO: implement, in the extraction.py and classification.py files
+    events = []
+
+    return (articles, actors, events)
 
 if __name__ == "__main__":
     summariser_mcp.run()
