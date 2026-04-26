@@ -1,6 +1,9 @@
+import logging
 from ollama import AsyncClient
 from pydantic.json_schema import JsonSchemaValue
 from typing import Any, Callable, Literal
+
+logger = logging.getLogger(__name__)
 
 message = dict[str, str]
 
@@ -55,6 +58,8 @@ class ChatHistory:
         if tools:
             self.config["tools"] = tools
 
+        logger.info(f"LLM interface template setup with config: \"{self.config}\"")
+
         self.allowed_attempts = allowed_attempts
         if allowed_attempts:
             assert response_marker is not None, "If model looping is allowed, a response assessing function must be provided" 
@@ -65,6 +70,8 @@ class ChatHistory:
         self.messages.append(format_message("user", prompt))
         response = await self.client.chat(messages=self.messages, **self.config)
         output = response.message.content or ""
+        logger.info(f"Received result \"{output}\" from LLM.")
+
         if record_response:
             self.messages.append(format_message("assistant", output))
         return output
@@ -73,8 +80,9 @@ class ChatHistory:
     async def chat_multiple(self, prompt: str, cull_mistakes: bool = True) -> str:
         output: str = ""    # appease static compiler analysis
         archived_messages = self.messages.copy() + [format_message("user", prompt)] if cull_mistakes else []
-        
+
         attempts = 0
+        logger.info("Entering multi-attempt LLM validation call loop...")
         while True:
             output = await self.chat_single(prompt, record_response=True)
 
@@ -85,8 +93,10 @@ class ChatHistory:
                 if cull_mistakes:
                     self.messages = archived_messages                       # remove model's 'debugging' messages from history
                 self.messages.append(format_message("assistant", output))   # record correct response
+                logger.info(f"Multi-attempt LLM response accepted after {attempts+1} attempts.")
                 return output
             else:
+                logger.warning(f"LLM response error: {error_message}. Trying again...")
                 prompt = error_message
                 attempts += 1
                 if self.allowed_attempts != "inf" and attempts >= int(self.allowed_attempts):
@@ -96,6 +106,7 @@ class ChatHistory:
     
     # Auto select response method based off of object configuration
     async def chat(self, prompt: str) -> str:
+        logger.info(f"Passing prompt \"{prompt}\" to LLM '{self.config['model']}'...")        
         if self.allowed_attempts == 1:
             return await self.chat_single(prompt)
         else:

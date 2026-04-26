@@ -4,9 +4,11 @@ from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
 
 from collections import Counter
 import itertools
-import json
+import logging
 from ollama import AsyncClient
 from pydantic import TypeAdapter
+
+logger = logging.getLogger(__name__)
 
 # Ollama LLM Setup
 ollama_client = None
@@ -27,6 +29,7 @@ and must reply with only a JSON list with one object for each valid actor, which
 the classifications that you have given them. The first thing that you should check is
 whether each name refers to a previously processed actor, and if so, to recall the previous
 classification, and use the extended name for the 'name' field in the relevant output object in the JSON list. 
+This includes combining duplicates from within a single batch given in one prompt.
 Always end by checking that the new actor_type field values are only one of the
 following: {[role.value for role in ActorType]}, and NOT any of the initial labels passed in.
 '''.replace("\n", " ")
@@ -40,7 +43,6 @@ class ActorClassResponseMarker(BaseResponseMarker):
         self.valid_names = set()
 
     def mark(self, response: str) -> str | None:
-        # XX need to implement, and add method to keep track of actor names encountered
         message = None
 
         try:
@@ -72,7 +74,9 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
 
     # setup link to LLM
     if ollama_client is None:
+        logger.info("Attempting to set up new Ollama AsyncClient.")
         ollama_client = AsyncClient()
+        logger.info("Ollama AsyncClient created successfully.")
     response_marker = ActorClassResponseMarker()
     chat_history = ChatHistory(
         ollama_client, 
