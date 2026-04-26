@@ -1,4 +1,4 @@
-from .Actors import ActorType
+from .Actors import Actor, ActorType
 from .Validators import Between10, Count
 
 from collections import Counter
@@ -71,8 +71,11 @@ class Article(BaseModel):
         self.claims = [_ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
         self.themes = themes
 
-    def set_actors(self, actors: Counter[tuple[str, ActorType]]) -> None:
+    def set_actors(self, actors: list[tuple[Actor, int]]) -> None:
         self.actors = []
-        for actor in actors:
-            (name, label) = actor
-            self.actors.append(_ActorEntry(name=name, actor_type=ActorType(label), occurences=actors[actor]))
+        for actor, count in actors:
+            self.actors.append(_ActorEntry(
+                name = actor.name, 
+                actor_type = actor.actor_type, 
+                occurences = count
+            ))

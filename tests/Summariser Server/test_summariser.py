@@ -1,6 +1,8 @@
 from geo_agent.Entities.Article import Article, _Source
 from geo_agent.SummariserServer.summariser import extract_act_eve
 
+from utils import setup
+
 import asyncio
 from datetime import datetime
 #import pytest
@@ -8,6 +10,8 @@ from datetime import datetime
 # XX TODO: add unit tests. Currently just seeing if the code runs
 
 async def main():
+    setup()
+
     article1 = Article(
         article_id = "",
         article_title = "",

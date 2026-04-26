@@ -8,7 +8,7 @@ from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient, set_debug
 
 # Avoid printing messy logs
-set_debug(0)
+#set_debug(0)   # XX trial removing to see compatibility with logging
 
 CONFIG = {
     "mcpServers": {
@@ -44,7 +44,8 @@ def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=128*1024, 
         model=config.MODEL, 
         base_url="http://localhost:11434",
         # XX TODO: adjust this depending on hardware the system is running on
-        num_ctx=num_ctx         # extend context to allow the model to work with many articles
+        num_ctx=num_ctx,        # extend context to allow the model to work with many articles
+        reasoning=True
     )
 
     # Wire the LLM to the client
