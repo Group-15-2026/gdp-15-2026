@@ -84,5 +84,10 @@ The SNP, Green Party and Reform UK have also called for Sir Keir to resign.
     for actor in actors:
         print(actor.name, actor.actor_type)
 
+    print()
+
+    for event in events:
+        print(event.event)
+
 if __name__ == "__main__":
     asyncio.run(main())

@@ -1,10 +1,9 @@
-from ..config import config
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor
 from ..Entities.Events import Event
 
 from .classification import classify_article_actors
-from .extraction import extract_actors
+from .extraction import extract_actors, extract_article_events
 
 from mcp.server.fastmcp import FastMCP
 
@@ -34,8 +33,11 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[
         article.set_actors(classified_actors)
         actors += [actor for actor, _ in classified_actors]
 
-    # XX TODO: implement, in the extraction.py and classification.py files
     events = []
+    for article in articles:
+        doc_events = await extract_article_events(article)
+        article.set_events(doc_events)
+        events += [events]
 
     return (articles, actors, events)
 
