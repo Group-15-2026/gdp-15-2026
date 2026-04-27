@@ -1,5 +1,5 @@
 from ..config import config
-from ..Entities.Article import Article
+from ..Entities.Article import Article, _ClaimEntry
 from ..Entities.Events import Event
 from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
 
@@ -119,4 +119,71 @@ async def extract_article_events(article: Article) -> list[Event]:
     
     return events
 
-# XX add code to extract claims too (+themes???)
+# ----------------------------------------- claim extraction ----------------------------------------- #
+
+# type that represents the model's target output for extraction
+ClaimExtractResponse = TypeAdapter(list[_ClaimEntry])
+
+# Class that evaluates the validity of the classification-LLM 's response
+class ClaimExtractResponseMarker(BaseResponseMarker):
+    max_word_count = 10
+
+    def mark(self, response: str) -> str | None:
+        message = None
+
+        try:
+            output_obj = ClaimExtractResponse.validate_json(response)
+        except Exception as e:
+            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
+            f"based off of the following error: {e}."
+        else:
+            too_long = []
+            for claim in output_obj:
+                if len(claim.claim.split(" ")) > self.max_word_count:
+                    too_long.append(claim.claim)
+            if len(too_long) > 0:
+                message = f"Your previous response failed to adhere to the strict instruction that all claims " \
+                f"should be at most {self.max_word_count} words long. In particular, the following description were too long: " \
+                f"{too_long}. Correct these overly long claims in your previous response, leaving the claims that are already " \
+                "short enough unchanged."
+        return message
+
+claim_extraction_system_prompt = f'''
+You are a geopolitical claim extraction agent. Given an article, you must output a JSON list of _ClaimEntry
+JSON objects corresponding to claims that the article makes. Each claim should be 
+{ClaimExtractResponseMarker.max_word_count} words or less, and as 
+simply worded as possible. Each claim should get a rating from -10 to 10 scoring the article's 'opinion' on
+the claim (10 = strongly agree, -10 = strongly disagree). Only include claims which you believe to be 
+relevant to geopolitics (it's okay if the link is strenuous), and do not include any repeats of the same 
+claim within a given article. Note that inverted claims are still the same claim (e.g. "X caused Y" vs 
+"X did not cause Y"). Only include a claim if it is controversial or opinionated in some way: 
+"dogs are animals" is not a controversial claim. Only the 'claim' and 'opinion' fields of each object 
+in your output list should be populated. Do not include any '```json' tags in your output, and make sure 
+to return a JSON list (no enclosing '{{}}').
+'''.replace("\r\n", " ").replace("\n", " ")
+
+async def extract_article_claims(article: Article) -> list[_ClaimEntry]:
+    global ollama_client
+
+    # setup link to LLM
+    if ollama_client is None:
+        logger.info("Attempting to set up new Ollama AsyncClient.")
+        ollama_client = AsyncClient()
+        logger.info("Ollama AsyncClient created successfully.")
+
+    response_marker = ClaimExtractResponseMarker()
+    chat_history = ChatHistory(
+        ollama_client,
+        model = config.MODEL,
+        system_prompt = claim_extraction_system_prompt,
+        json = ClaimExtractResponse.json_schema(),
+        context = 4 * 1024,
+        allowed_attempts = "inf",
+        response_marker = response_marker
+    )
+
+    # extract article claims
+    output = await chat_history.chat(f"Extract the claims in the article \"{article.article_title}\": {article.text_body}")
+    claims: list[_ClaimEntry] = ClaimExtractResponse.validate_json(output)
+    
+    return claims

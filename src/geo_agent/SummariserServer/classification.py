@@ -48,7 +48,8 @@ class ActorClassResponseMarker(BaseResponseMarker):
         try:
             output_obj = ActorClassBatchResponse.validate_json(response)
         except Exception as e:
-            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON."
+            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
+            f"based off of the following error: {e}."
         else:        
             erroneous = []
             for a in output_obj:
@@ -105,3 +106,5 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
             actor_lookup[actor.name] = actor
             
     return [(actor, actors[name]) for name, actor in actor_lookup.items()]
+
+# XX add code to classify articles by theme (i.e. tag themes) 

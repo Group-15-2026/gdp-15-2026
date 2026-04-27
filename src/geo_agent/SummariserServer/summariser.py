@@ -1,9 +1,9 @@
-from ..Entities.Article import Article
+from ..Entities.Article import Article, _ClaimEntry
 from ..Entities.Actors import Actor
 from ..Entities.Events import Event
 
 from .classification import classify_article_actors
-from .extraction import extract_actors, extract_article_events
+from .extraction import extract_actors, extract_article_events, extract_article_claims
 
 from mcp.server.fastmcp import FastMCP
 
@@ -17,8 +17,15 @@ def summarise_batch(articles: list[Article]) -> list[Article]:
     return NotImplemented
 
 @summariser_mcp.tool()
-def score_sentiment(articles: list[Article]) -> list[Article]:
-    return NotImplemented
+async def score_sentiment(articles: list[Article]) -> list[Article]:
+    '''
+    Extracts the claims made by different articles, rate the opinion of a given article on the claims
+    that it makes, and then update the article objects with the newly extracted and processed claims.
+    '''
+    for article in articles:
+        claims: list[_ClaimEntry] = await extract_article_claims(article)
+        article.claims = claims
+    return articles
 
 @summariser_mcp.tool()
 def tag_themes(articles: list[Article]) -> list[Article]:
