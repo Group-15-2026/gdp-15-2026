@@ -6,13 +6,14 @@ from pydantic import BaseModel, ConfigDict, Field
 # pydantic is used to allow use of objects in mcp tools
 
 class _Severity(StrEnum):
+    no_impact = "no_impact"
     low = "low"
     medium = "medium"
     high = "high"
 
 class _Impact(BaseModel):
-    severity: _Severity
-    justification: str
+    severity: _Severity = _Severity.no_impact
+    justification: str = ""
 
 class Event(BaseModel):
     # Ensure validation is carried out when details are added later
@@ -23,10 +24,10 @@ class Event(BaseModel):
 
     # Fields to be filled in later
     controversy: Between10p | None = None
-    economic_impact: _Impact | None = None
-    financial_market_impact: _Impact | None = None
-    security_impact: _Impact | None = None
-    diplomatic_impact: _Impact | None = None
+    economic_impact: _Impact = _Impact()
+    financial_market_impact: _Impact =  _Impact()
+    security_impact: _Impact = _Impact()
+    diplomatic_impact: _Impact =  _Impact()
 
     # XX may need breaking up into different methods for filling in at different times
     def set_processed_values(self,

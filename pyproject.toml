@@ -16,6 +16,7 @@ dependencies = [
     "pip>=26.0.1",
     "pytest>=9.0.2",
     "spacy>=3.8.11",
+    "sqlmodel>=0.0.38",
 ]
 
 # This tells hatchling exactly where your code lives
