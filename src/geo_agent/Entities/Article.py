@@ -1,4 +1,5 @@
 from .Actors import Actor, ActorType
+from .Events import Event
 from .Validators import Between10, Count
 
 from collections import Counter
@@ -79,3 +80,6 @@ class Article(BaseModel):
                 actor_type = actor.actor_type, 
                 occurences = count
             ))
+
+    def set_events(self, events: list[Event]) -> None:
+        self.events = [event.event for event in events]

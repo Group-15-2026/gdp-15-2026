@@ -10,6 +10,8 @@ from pydantic import TypeAdapter
 
 logger = logging.getLogger(__name__)
 
+# --------------------------------------- actor classification --------------------------------------- #
+
 # Ollama LLM Setup
 ollama_client = None
 
@@ -48,7 +50,8 @@ class ActorClassResponseMarker(BaseResponseMarker):
         try:
             output_obj = ActorClassBatchResponse.validate_json(response)
         except Exception as e:
-            message="Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON."
+            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
+            f"based off of the following error: {e}."
         else:        
             erroneous = []
             for a in output_obj:
@@ -77,16 +80,17 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         logger.info("Attempting to set up new Ollama AsyncClient.")
         ollama_client = AsyncClient()
         logger.info("Ollama AsyncClient created successfully.")
+
     response_marker = ActorClassResponseMarker()
     chat_history = ChatHistory(
         ollama_client, 
         model = config.MODEL,
-        system_prompt=classification_system_prompt,
+        system_prompt = classification_system_prompt,
         json = ActorClassBatchResponse.json_schema(),
-        context = 8 * 1024,         # extend context to allow the whole article, and history to be read
+        context = 2 * 1024,             # extend context to allow the whole article, and history to be read
         tools = [ollama_client.web_search, ollama_client.web_fetch],
-        allowed_attempts="inf",     # we need a valid JSON output, so must allow for infinite attempts
-        response_marker=response_marker
+        allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
+        response_marker = response_marker
     )
     
     # process actors in batches
@@ -106,4 +110,6 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
     return [(actor, actors[name]) for name, actor in actor_lookup.items()]
 
 
-# XX add code to classify events / claims too
+# ------------------------------- article classification (theme tagging) ----------------------------- #
+
+# TODO Implement the article classification using chat_history

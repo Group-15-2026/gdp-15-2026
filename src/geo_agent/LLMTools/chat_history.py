@@ -61,7 +61,7 @@ class ChatHistory:
         logger.info(f"LLM interface template setup with config: \"{self.config}\"")
 
         self.allowed_attempts = allowed_attempts
-        if allowed_attempts:
+        if allowed_attempts != 1:
             assert response_marker is not None, "If model looping is allowed, a response assessing function must be provided" 
             self.response_marker = response_marker
     
@@ -115,4 +115,5 @@ class ChatHistory:
     # Keep LLM client config, but clear the message record 
     def clear_history(self):
         self.messages = []
-        self.response_marker.reset()
+        if self.allowed_attempts != 1:
+            self.response_marker.reset()
