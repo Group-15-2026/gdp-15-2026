@@ -10,6 +10,8 @@ from pydantic import TypeAdapter
 
 logger = logging.getLogger(__name__)
 
+# --------------------------------------- actor classification --------------------------------------- #
+
 # Ollama LLM Setup
 ollama_client = None
 
@@ -107,4 +109,7 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
             
     return [(actor, actors[name]) for name, actor in actor_lookup.items()]
 
-# XX add code to classify articles by theme (i.e. tag themes) 
+
+# ------------------------------- article classification (theme tagging) ----------------------------- #
+
+# TODO Implement the article classification using chat_history
