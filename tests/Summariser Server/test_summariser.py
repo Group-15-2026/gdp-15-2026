@@ -80,7 +80,7 @@ The SNP, Green Party and Reform UK have also called for Sir Keir to resign.
     articles = [article1]
 
     articles, actors, events = await extract_act_eve(articles)
-    articles = await score_sentiment(articles)
+    #articles = await score_sentiment(articles)
 
     for actor in actors:
         print(actor.name, actor.actor_type)
@@ -92,10 +92,12 @@ The SNP, Green Party and Reform UK have also called for Sir Keir to resign.
 
     print()
 
+    '''
     for article in articles:
         print(f"{article.article_title} makes the following claims:")
         for claim in article.claims:
             print("\t* ", claim.claim, claim.opinion)
+    '''
 
 if __name__ == "__main__":
     asyncio.run(main())

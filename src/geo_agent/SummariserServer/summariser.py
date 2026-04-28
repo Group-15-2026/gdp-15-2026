@@ -52,9 +52,9 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[
     for article in articles:
         doc_events = await extract_article_events(article)
         article.set_events(doc_events)
-        events += [events]
+        events += doc_events
 
-    return (articles, actors, events)
+    return articles, actors, events
 
 if __name__ == "__main__":
     summariser_mcp.run()

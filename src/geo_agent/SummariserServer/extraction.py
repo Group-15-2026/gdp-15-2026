@@ -57,15 +57,14 @@ def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str],
 # Ollama LLM Setup
 ollama_client = None
 
-# TODO Fine tune prompt to reduce the number of events that are extracted
 event_extraction_system_prompt = f'''
 You are a geopolitical event extraction agent. Given an article, you must output a JSON list of event
 objects corresponding to events that the article covers as having occurred. The description of an event
 should be 10 words or less, and as precise as possible, using geopolitical language. Only include events
 which you believe to be relevant to geopolitics (it's okay if the link is strenuous), and do not include
-any repeats of the same event. Only the 'event' field of each object in your output list should be 
-populated. Do not include any '```json' tags in your output, and make sure to return a JSON list (no 
-enclosing '{{}}').
+any repeats of the same event. You should aim to ouput 1-4 events per article. Only the 'event' field of 
+each object in your output list should be populated. Do not include any '```json' tags in your output,
+and make sure to return a JSON list (no enclosing '{{}}').
 '''.replace("\n", " ")
 
 # type that represents the model's target output for extraction
@@ -123,6 +122,8 @@ async def extract_article_events(article: Article) -> list[Event]:
 
 # ----------------------------------------- claim extraction ----------------------------------------- #
 
+# TODO Link the extracted claims to the actors that they reference (try and only pass the actors who are mentioned in the particular article in order to avoid overwhelming the AI). 
+
 # type that represents the model's target output for extraction
 ClaimExtractResponse = TypeAdapter(list[_ClaimEntry])
 
@@ -150,19 +151,20 @@ class ClaimExtractResponseMarker(BaseResponseMarker):
                 "short enough unchanged."
         return message
 
-# TODO Fine tune system prompt to produce fewer claims, with more reliable 'opinion' ratings
 claim_extraction_system_prompt = f'''
 You are a geopolitical claim extraction agent. Given an article, you must output a JSON list of _ClaimEntry
 JSON objects corresponding to claims that the article makes. Each claim should be 
 {ClaimExtractResponseMarker.max_word_count} words or less, and as 
 simply worded as possible. Each claim should get a rating from -10 to 10 scoring the article's 'opinion' on
-the claim (10 = strongly agree, -10 = strongly disagree). Only include claims which you believe to be 
-relevant to geopolitics (it's okay if the link is strenuous), and do not include any repeats of the same 
-claim within a given article. Note that inverted claims are still the same claim (e.g. "X caused Y" vs 
-"X did not cause Y"). Only include a claim if it is controversial or opinionated in some way: 
-"dogs are animals" is not a controversial claim. Only the 'claim' and 'opinion' fields of each object 
-in your output list should be populated. Do not include any '```json' tags in your output, and make sure 
-to return a JSON list (no enclosing '{{}}').
+the claim (10 = the article strongly agrees with the claim, -10 = the article strongly disagrees with the claim).
+By the very definition that the article is making a claim, the opinion rating should never be exactly 0.0, and
+should predominantly be above 5 or below -5.  
+Only include claims which you believe to be relevant to geopolitics (it's okay if the link is strenuous), and 
+do not include any repeats of the same claim within a given article. Note that inverted claims are still the 
+same claim (e.g. "X caused Y" vs "X did not cause Y"). Only include a claim if it is controversial or 
+opinionated in some way: "dogs are animals" is not a controversial claim. Only the 'claim' and 'opinion' 
+fields of each object in your output list should be populated. Do not include any '```json' tags in your 
+output, and make sure to return a JSON list (no enclosing '{{}}').
 '''.replace("\r\n", " ").replace("\n", " ")
 
 async def extract_article_claims(article: Article) -> list[_ClaimEntry]:
