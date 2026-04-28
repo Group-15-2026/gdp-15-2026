@@ -8,7 +8,7 @@ from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient, set_debug
 
 # Avoid printing messy logs
-set_debug(0)   # XX trial removing to see compatibility with logging
+set_debug(0)   # TODO trial removing to see compatibility with logging
 
 CONFIG = {
     "mcpServers": {
@@ -45,7 +45,7 @@ add fields to objects when they return them, so make sure to check what outputs 
 tool before planning your next step. 
 '''
 
-# XX Currently just a testing placeholder
+# TODO Currently just a testing placeholder - will need to properly cultivate once completed
 today = date.today()
 yesterday = today - timedelta(days=1)
 TASK_PROMPT = f"What news can you find on the topic of 'trade' from the {yesterday} to the {today}? " \
@@ -58,7 +58,7 @@ def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=128*1024, 
     llm = ChatOllama(
         model=config.MODEL, 
         base_url="http://localhost:11434",
-        # XX TODO: adjust this depending on hardware the system is running on
+        # TODO: adjust this depending on hardware the system is running on (consider configuring in .env, and config.py)
         num_ctx=num_ctx,        # extend context to allow the model to work with many articles
         reasoning=True
     )

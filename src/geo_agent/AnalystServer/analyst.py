@@ -6,7 +6,7 @@ from mcp.server.fastmcp import FastMCP
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
 
-# XX Note to implementer: may only pass unique articles IDs to tools, and the articles can then be collected from central DB
+# TODO : Implement the two tools below, and add informative docstrings for each
 
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
@@ -16,8 +16,8 @@ def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
 def analyse_events(events: list[Event]) -> list[Event]:
     return NotImplemented
 
-# XX Note to implementer: this is slightly different from the arch. diagram, but is probably the easiest implementation
-# the LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
+# ! Note to implementer: this is slightly different from the arch. diagram, but is probably the easiest implementation
+# TODO : The LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
 @analyst_mcp.prompt()
 def gen_report() -> str:
     return NotImplemented

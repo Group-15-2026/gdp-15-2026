@@ -17,14 +17,15 @@ logger = logging.getLogger(__name__)
 nlp = None
 relevant_entity_labels = {"GPE", "LAW", "NORP", "ORG", "PERSON"}
 
-# XX merge labels for duplicated actors (preferring anything other than 'other')
+# TODO merge labels for duplicated actors (preferring anything other than 'other') across articles
+# |-> keep a single chat_history object live between function calls, and maintain inter-article context
 
 def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str], dict[str, str]]]:
     global nlp
     
     # Extract Actors
-    # XX extract article_texts using SQL DB
-    # XX for now, the MVP adds an extra field to address this
+    # TODO extract article_texts using SQL DB
+    # |-> for now, the MVP adds an extra field to address this
     article_texts = [article.text_body for article in articles]
     
     # avoid memory intensive load unless necessary
@@ -46,7 +47,7 @@ def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str],
                     doc_actors[ent.text] += 1
                     if ent.text not in doc_actor_clss:
                         doc_actor_clss[ent.text] = ent.label_
-                    # we will assume that different occurrences of the same actor in an article get the same spacy class (and so use first one as canonical)
+                    # ! we will assume that different occurrences of the same actor in an article get the same spacy class (and so use first one as canonical)
             actors.append((article, doc_actors, doc_actor_clss))
 
     return actors
@@ -56,6 +57,7 @@ def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str],
 # Ollama LLM Setup
 ollama_client = None
 
+# TODO Fine tune prompt to reduce the number of events that are extracted
 event_extraction_system_prompt = f'''
 You are a geopolitical event extraction agent. Given an article, you must output a JSON list of event
 objects corresponding to events that the article covers as having occurred. The description of an event
@@ -148,6 +150,7 @@ class ClaimExtractResponseMarker(BaseResponseMarker):
                 "short enough unchanged."
         return message
 
+# TODO Fine tune system prompt to produce fewer claims, with more reliable 'opinion' ratings
 claim_extraction_system_prompt = f'''
 You are a geopolitical claim extraction agent. Given an article, you must output a JSON list of _ClaimEntry
 JSON objects corresponding to claims that the article makes. Each claim should be 

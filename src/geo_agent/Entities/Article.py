@@ -49,7 +49,7 @@ class Article(BaseModel):
     publication_time: datetime = Field(frozen=True)
     source: _Source = Field(frozen=True)
 
-    # XX This has been temporarily added for MVP, to avoid full DB
+    # TODO This has been temporarily added for MVP, to avoid full DB -  will eventually need removing
     text_body: str = Field(frozen=True)
 
     # Fields to be filled in later
@@ -59,7 +59,7 @@ class Article(BaseModel):
     claims: list[_ClaimEntry] | None = None
     themes: list[str] | None = None
 
-    # XX may need breaking up into different methods for filling in at different times (see set_actors)
+    # TODO may need breaking up into different methods for filling in at different times (see set_actors)
     def set_processed_values(self,
                              initial_categories: list[str],
                              actors: list[tuple[str, str, int]],

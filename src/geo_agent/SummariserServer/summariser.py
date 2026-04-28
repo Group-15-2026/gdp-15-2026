@@ -9,8 +9,7 @@ from mcp.server.fastmcp import FastMCP
 
 summariser_mcp = FastMCP(name="Summariser MCP Server")
 
-# XX Note to implementer: some of the below tools may be combined together depending on implementation
-# may also only pass unique articles IDs to tools, and the articles can then be collected from central DB
+# TODO Implement remaining tools, and add informative docstrings to the tools
 
 @summariser_mcp.tool()
 def summarise_batch(articles: list[Article]) -> list[Article]:

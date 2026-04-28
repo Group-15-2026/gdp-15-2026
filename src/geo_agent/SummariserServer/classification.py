@@ -87,7 +87,7 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         model = config.MODEL,
         system_prompt = classification_system_prompt,
         json = ActorClassBatchResponse.json_schema(),
-        context = 2 * 1024,             # extend context to allow the whole article, and history to be read
+        context = 2 * 1024,             # extend context to allow the whole history to be read
         tools = [ollama_client.web_search, ollama_client.web_fetch],
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker

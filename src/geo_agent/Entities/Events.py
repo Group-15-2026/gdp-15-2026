@@ -28,7 +28,7 @@ class Event(BaseModel):
     security_impact: _Impact | None = None
     diplomatic_impact: _Impact | None = None
 
-    # XX may need breaking up into different methods for filling in at different times
+    # TODO may need breaking up into different methods for filling in at different times
     def set_processed_values(self,
                              controversy: float,
                              e_sev: str, e_just: str,
