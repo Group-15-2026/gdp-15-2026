@@ -33,6 +33,15 @@ def tag_themes(articles: list[Article]) -> list[Article]:
 
 @summariser_mcp.tool()
 async def extract_act_eve(articles: list[Article]) -> tuple[list[Article], list[Actor], list[Event]]:
+    '''
+    Extracts the geopolitical actors and events from a list of articles, classifies the actors, and
+    updates the articles with information on the actors and events that they reference. The updated
+    articles, actors and events are then returned.
+
+    You should only pass in article objects that have been outputted by the 'collect_articles' or 
+    'search_news' tools in the 'summariser' mcp server, NOT articles that have already been processed.
+    '''
+
     actors_by_article = extract_actors(articles)
     actors = []
     for article, actor_counter, actor_clss in actors_by_article:

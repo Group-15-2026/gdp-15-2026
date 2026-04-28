@@ -83,8 +83,7 @@ def get_daily_articles():
     return articles
 
 # from is start, to is end
-def get_articles_about(topics, start_str, end_str):
-    start_dt, end_dt = to_datetime(start_str), to_datetime(end_str)
+def get_articles_about(topics, start_dt, end_dt):
     indices = [index_range_by_topic(topic, start_dt, end_dt) for topic in topics]
 
     api_access = partial(_range_by_topic, from_dt=start_dt, to_dt=end_dt)
@@ -97,6 +96,6 @@ def get_articles_about(topics, start_str, end_str):
 
 
 if __name__ == "__main__":
-    print(get_articles_about(["cars", "dogs"], "2026-04-01", "2026-04-24"))
+    print(get_articles_about(["cars", "dogs"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
     print(get_daily_articles())
-    print(get_articles_about(["donald trump"], "2026-04-01", "2026-04-24"))
+    print(get_articles_about(["donald trump"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
