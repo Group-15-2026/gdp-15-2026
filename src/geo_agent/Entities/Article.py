@@ -19,8 +19,6 @@ class ArticleType(StrEnum):
     advice = "advice"
     finance = "finance"
 
-
-
 class _ClaimEntry(BaseModel):
     claim: str = Field(frozen=True)
     opinion: Between10 = Field(frozen=True)

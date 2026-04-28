@@ -1,6 +1,6 @@
-from .Validators import Between10p
 from .Actors import Actor, ActorType
-from .Validators import Count
+from .Article import Article
+from .Validators import Between10p, Count
 
 from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
@@ -38,6 +38,8 @@ class Event(BaseModel):
 
     # Fields to be filled in later
     actors: list[_ActorEntry] | None = None
+    themes: list[str] | None = None
+    source_articles: list[Article] | None = None
 
     controversy: Between10p | None = None
     economic_impact: _Impact | None = None
