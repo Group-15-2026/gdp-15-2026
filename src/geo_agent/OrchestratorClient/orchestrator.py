@@ -52,7 +52,8 @@ TASK_PROMPT = f"What news can you find on the topic of 'trade' from the {yesterd
                "Extract the key actors, and all events from all relevant news articles. Display the actors alongside " \
                "their classification, and the number of times that they are referenced in different articles. " \
                "Follow this with a list of all events extracted from the articles, alongside the title of the " \
-               "articles that they were extracted from."
+               "articles that they were extracted from. Finally, output a list of all of the claims made my the different " \
+               "articles, as well as an indication of how many articles back up or disagree with each claim."
 
 def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=128*1024, max_steps=50):
     llm = ChatOllama(
