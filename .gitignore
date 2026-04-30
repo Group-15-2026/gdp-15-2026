@@ -20,3 +20,8 @@
 
 # Article data #
 /data/**/*
+
+# Local files
+*.DS_Store
+
+database.db

@@ -1,20 +1,117 @@
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor
-from ..Entities.Events import Event
+from ..Entities.Events import Event, _Impact, _Severity
 
 from mcp.server.fastmcp import FastMCP
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
 
-# TODO : Implement the two tools below, and add informative docstrings for each
+from ollama import AsyncClient
+from pydantic import BaseModel
+import asyncio
+
+# ! Note to implementer: may only pass unique articles IDs to tools, and the articles can then be collected from central DB
 
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
     return NotImplemented
 
+
+ollama_client = None
+system_prompt_event_classification = """
+Role: You are a Senior Geopolitical Risk Analyst and Event Classification Agent.
+
+Input Data: All input fields are enclosed in tags.
+    <event>: Description of the event.
+    <economic_impact_severity>
+    <financial_market_impact_severity>
+    <security_impact_severity>
+    <diplomatic_impact_severity>
+
+Output Format: JSON object with only the following fields:
+    economic_impact_justification
+    financial_market_impact_justification
+    security_impact_justification
+    diplomatic_impact_justification
+    
+Task:
+    Justification: Write a one-sentence justification (max 30 words) for the pre-determined severity of a specific geopolitical event based on the event text. 
+    No Impact: If the severity level for a particular category is "no_impact", state "No material impact identified" for this category as your justification.
+    Exclusivity: Output only the JSON object. Do not include introductory remarks, markdown prose, or "Here is your JSON."
+    Format: Your response must be valid JSON.
+
+Severity Level Guidance: 
+    no_impact: The event has no relevance to this category.
+    low: Localized impact, minor diplomatic friction, or temporary market volatility.
+    medium: Regional impact, significant shifts in policy/trade, or prolonged instability.
+    high: Global impact, systemic financial risk, large-scale conflict, or permanent alliance shifts.
+
+Categories:
+    Economic: Trade disruptions, sanctions, supply chain integrity, commodity price exposure, and GDP growth outlook.
+    Financial Markets: Foreign exchange (FX) volatility, equity sector exposure, sovereign debt default risk, and central bank monetary policy shifts.
+    Security: Military escalation/mobilization, terrorism, state-sponsored cyber threats, and regional physical stability.
+    Diplomatic: Shifts in formal alliances, international organization responses (UN, NATO, EU, etc.), and the likelihood of new multilateral sanctions.
+"""
+
+class EventJustificationOutput(BaseModel):
+    economic_impact_justification: str
+    financial_market_impact_justification: str
+    security_impact_justification: str
+    diplomatic_impact_justification: str
+
+
 @analyst_mcp.tool()
-def analyse_events(events: list[Event]) -> list[Event]:
-    return NotImplemented
+async def analyse_events(events: list[Event]) -> list[Event]:
+    # TODO Need to implement impact scoring routine here.
+
+
+
+    # ! Assume impact scores already populated in events.
+
+    async def get_justification(event: Event) -> Event:
+        global ollama_client
+        if ollama_client is None:
+            ollama_client = AsyncClient()
+
+        user_query = f"<event>{event.event}</event> <economic_impact_severity>{event.economic_impact.severity}</economic_impact_severity> <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity> <security_impact_severity>{event.security_impact.severity}</security_impact_severity> <diplomatic_impact_severity>{event.diplomatic_impact.severity}</diplomatic_impact_severity>"
+
+        for _ in range(5):
+            try:
+                response = await ollama_client.chat(
+                    model='gemma4:e4b',
+                    messages=[
+                        {'role': 'system', 'content': system_prompt_event_classification},
+                        {'role': 'user', 'content': user_query}
+                    ],
+                    format=EventJustificationOutput.model_json_schema(),
+                )
+
+                output = EventJustificationOutput.model_validate_json(response.message.content)
+                break
+            except:
+                response = await ollama_client.chat(
+                    model='gemma4:e4b',
+                    messages=[
+                        {'role': 'system', 'content': system_prompt_event_classification},
+                        {'role': 'user', 'content': user_query}
+                    ],
+                    format=EventJustificationOutput.model_json_schema(),
+                )
+
+                output = EventJustificationOutput.model_validate_json(response.message.content)
+        
+        event.economic_impact.justification = output.economic_impact_justification
+        event.diplomatic_impact.justification = output.diplomatic_impact_justification
+        event.financial_market_impact.justification = output.financial_market_impact_justification
+        event.security_impact.justification = output.security_impact_justification
+        
+        return event
+
+    analysed_events = []
+    for event in events:
+        analysed_events.append(await get_justification(event))
+
+    return analysed_events
 
 # ! Note to implementer: this is slightly different from the arch. diagram, but is probably the easiest implementation
 # TODO : The LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
@@ -23,4 +120,13 @@ def gen_report() -> str:
     return NotImplemented
 
 if __name__ == "__main__":
-    analyst_mcp.run()
+    # analyst_mcp.run()
+
+    # Testing
+    test_event = Event(event="Civil unrest in Gabon")
+    test_event.diplomatic_impact.severity = _Severity.low
+    test_event.economic_impact.severity = _Severity.no_impact
+    test_event.financial_market_impact.severity = _Severity.no_impact
+    test_event.security_impact.severity = _Severity.high
+    result = asyncio.run(analyse_events([test_event]))
+    print(result)

@@ -24,9 +24,7 @@ def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str],
     global nlp
     
     # Extract Actors
-    # TODO extract article_texts using SQL DB
-    # |-> for now, the MVP adds an extra field to address this
-    article_texts = [article.text_body for article in articles]
+    article_texts = (article.get_text_body() for article in articles)
     
     # avoid memory intensive load unless necessary
     if nlp is None:
@@ -115,7 +113,8 @@ async def extract_article_events(article: Article) -> list[Event]:
     )
 
     # extract article events
-    output = await chat_history.chat(f"Extract the events in the article \"{article.article_title}\": {article.text_body}")
+    text_body = article.get_text_body()
+    output = await chat_history.chat(f"Extract the events in the article \"{article.article_title}\": {text_body}")
     events: list[Event] = EventExtractResponse.validate_json(output)
     
     return events
@@ -188,7 +187,8 @@ async def extract_article_claims(article: Article) -> list[_ClaimEntry]:
     )
 
     # extract article claims
-    output = await chat_history.chat(f"Extract the claims in the article \"{article.article_title}\": {article.text_body}")
+    text_body = article.get_text_body()
+    output = await chat_history.chat(f"Extract the claims in the article \"{article.article_title}\": {text_body}")
     claims: list[_ClaimEntry] = ClaimExtractResponse.validate_json(output)
     
     return claims
