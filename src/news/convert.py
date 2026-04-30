@@ -19,21 +19,54 @@ def to_datetime(time_str):
 
 # raws are Python dicts following NewsAPI style
 def to_article(raw, id):
-    text_body = to_full_text(raw)
-    name = raw['name']
-    # with Session(engine) as session:
-    #     statement = select(SourceDB).where(SourceDB.source_name == name)
-    #     results = session.exec(statement)
-    #     results.first
-    
-
     a = Article(
         article_title=raw['title'],
         publication_time=to_datetime(raw['publishedAt']),
         source=_to_source(raw['source']),
     )
-
     return a
+
+def to_source_db(raw) -> tuple[_Source, SourceDB]:
+    name = raw['name']
+    if not name:
+        name = "Missing Source"
+    with Session(engine) as session:
+        statement = select(SourceDB).where(SourceDB.source_name == name)
+        results = session.exec(statement)
+        query = results.first
+        sourcedb: SourceDB
+        if query is None:
+            sourcedb = SourceDB(
+                source_name=name
+            )
+            session.add(sourcedb)
+            session.commit()
+        else:
+            sourcedb = query # ignore warning
+    source = _Source(
+        source_name=name,
+    )
+    return (source, sourcedb)
+
+def to_article_db(raw) -> tuple[Article, ArticleDB]:
+    text_body = to_full_text(raw)
+    source, sourcedb = to_source_db(raw)
+    
+    article = Article(
+        article_title=raw['title'],
+        publication_time=to_datetime(raw['publishedAt']),
+        source=source,
+    )
+
+    articledb = ArticleDB(
+        article_title=raw['title'],
+        publication_time=to_datetime(raw['publishedAt']),
+        source_id=sourcedb.source_id,
+        source=sourcedb,
+        url=raw['url'],
+        text_body=text_body,
+    )
+    return (article, articledb)
 
 def to_full_text(raw):
     url = raw['url']

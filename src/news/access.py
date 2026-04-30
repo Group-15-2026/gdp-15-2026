@@ -8,14 +8,12 @@ from dotenv import load_dotenv, find_dotenv
 from itertools import chain
 from newsapi.newsapi_client import NewsApiClient
 
-from news.convert import to_article, to_datetime
+from news.convert import to_article, to_datetime, to_article_db
 from news.index import index_top_by_category, index_top_by_source, index_weekly_by_topic, index_range_by_topic
 
-from sqlmodel import Session
+from sqlmodel import Session, select
 from src.db.database import engine
 from geo_agent.Entities.Article import Article, SourceDB, ArticleDB
-
-import newspaper
 
 logger = logging.getLogger(__name__)
 
@@ -83,10 +81,14 @@ def get_daily_articles():
     index = index_top_by_category(fetch_time)
     raw = _fetch_from(index, _top_by_category)
 
-    id_prefix = index.get_file_id()
-    articles = [to_article(r, f"{id_prefix}-{i+1}") for i, r in enumerate(raw)]
+    # id_prefix = index.get_file_id()
+    # articles = [to_article(r, f"{id_prefix}-{i+1}") for i, r in enumerate(raw)]
 
-    # add_articles_to_db(articles)
+    articles = []
+    for i, r in enumerate(raw):
+        article, articledb_new = to_article_db(r)
+        articles.append(article)
+        add_articledb_to_db(articledb_new)
 
     return articles
 
@@ -97,32 +99,27 @@ def get_articles_about(topics, start_dt, end_dt):
     api_access = partial(_range_by_topic, from_dt=start_dt, to_dt=end_dt)
 
     raws = [_fetch_from(index, partial(api_access, index.get_topic())) for index in indices]
-    id_prefixes = [index.get_file_id() for index in indices]
-    articles = list(chain.from_iterable([to_article(r, f"{id_prefixes[j]}-{i+1}") for i, r in enumerate(raw)] for j, raw in enumerate(raws)))
+    # id_prefixes = [index.get_file_id() for index in indices]
+    # articles = list(chain.from_iterable([to_article(r, f"{id_prefixes[j]}-{i+1}") for i, r in enumerate(raw)] for j, raw in enumerate(raws)))
 
-    # add_articles_to_db(articles)
+    articles = []
+    for j, raw in enumerate(raws):
+        for i, r in enumerate(raw):
+            article, articledb_new = to_article_db(r)
+            articles.append(article)
+            add_articledb_to_db(articledb_new)
 
     return articles
 
-def add_articles_to_db(articles: list[Article]) -> None:
-    # could try to do something to prevent the same article being inserted multiple times
+def add_articledb_to_db(articledb_new: ArticleDB) -> None:
     with Session(engine) as session:
-        for article in articles:
-            # Add the source to the database if it exists
-            if article.source:
-                source_db = SourceDB(source_name=article.source.source_name)
-                session.add(source_db)
-            
-            # Create ArticleDB with both database fields and the source relationship
-            article_db = ArticleDB(
-                article_title=article.article_title,
-                publication_time=article.publication_time,
-                source_id=article.source_id,
-                source=article.source,
-                text_body=article.text_body
-            )
-            session.add(article_db)
-        session.commit()
+        # Check if article is already in database.
+        statement = select(ArticleDB).where(ArticleDB.article_title==articledb_new.article_title).where(ArticleDB.publication_time==articledb_new.publication_time).where(ArticleDB.source_id==articledb_new.source_id)
+        results = session.exec(statement)
+        query = results.first
+        if query is None:
+            session.add(articledb_new)
+            session.commit()
 
 if __name__ == "__main__":
     print(get_articles_about(["cars", "dogs"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
