@@ -70,10 +70,21 @@ class Article(BaseModel):
 
     def get_text_body(self) -> str:
         with Session(engine) as session:
-            statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.source_name==self.source.source_name) # type: ignore
+            statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.has(source_name=self.source.source_name))
             results = session.exec(statement)
             query = results.first()
             text_body = ""
             if query:
                 text_body = query.text_body
         return text_body
+    
+# if __name__ == "__main__":
+#     source = _Source(
+#         source_name="BBC News"
+#     )
+#     article = Article(
+#         article_title="Ex-FBI director James Comey surrenders over charge of threatening Trump's life in Instagram post",
+#         publication_time=datetime.fromisoformat("2026-04-29 17:52:20.120370"),
+#         source=source,
+#     )
+#     print(article.get_text_body())
