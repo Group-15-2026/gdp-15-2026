@@ -36,7 +36,7 @@ class ArticleDB(SQLModel, table=True):
     article_title: str = sqlField()
     publication_time: datetime = sqlField()
 
-    source_id: int | None = sqlField(default=None, foreign_key="_source.source_id")
+    source_id: int | None = sqlField(default=None, foreign_key="sourcedb.source_id")
     source: SourceDB | None = Relationship(back_populates="articles")
 
     url: str = sqlField(default="")
