@@ -72,8 +72,8 @@ class Article(BaseModel):
         with Session(engine) as session:
             statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.source_name==self.source.source_name) # type: ignore
             results = session.exec(statement)
-            query = results.first
+            query = results.first()
             text_body = ""
-            if not query:
+            if query:
                 text_body = query.text_body
         return text_body
