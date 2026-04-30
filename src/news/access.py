@@ -127,6 +127,7 @@ def add_articledb_to_db(articledb_new: ArticleDB) -> None:
 
 if __name__ == "__main__":
     create_tables()
-    print(get_daily_articles())
+    #print(get_daily_articles())
+    print(get_articles_about(["trade"], dt.datetime.today(), dt.datetime.today() - dt.timedelta(days=1)))
     # print(get_articles_about(["cars", "dogs"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
     # print(get_articles_about(["donald trump"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
