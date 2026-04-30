@@ -35,14 +35,14 @@ def to_source_db(raw) -> tuple[_Source, SourceDB]:
         results = session.exec(statement)
         query = results.first
         sourcedb: SourceDB
-        if query is None:
+        if not query:
+            sourcedb = query
+        else:
             sourcedb = SourceDB(
                 source_name=name
             )
             session.add(sourcedb)
             session.commit()
-        else:
-            sourcedb = query # ignore warning
     source = _Source(
         source_name=name,
     )
