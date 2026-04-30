@@ -9,10 +9,13 @@ from pydantic import BaseModel, ConfigDict, Field
 from sqlmodel import Field as sqlField, SQLModel, Relationship, Enum, Column, JSON
 from typing import List, Optional
 
-class _Source(SQLModel, table=True):
+class SourceDB(SQLModel, table=True):
     source_id: int | None = sqlField(default=None, primary_key=True)
     source_name: str
     articles: List["ArticleDB"] = Relationship(back_populates="source")
+
+class _Source(BaseModel, table=True):
+    source_name: str
 
 class ArticleType(StrEnum):
     conflict = "conflict"
@@ -33,7 +36,9 @@ class ArticleDB(SQLModel, table=True):
     publication_time: datetime = sqlField()
 
     source_id: int | None = sqlField(default=None, foreign_key="_source.source_id")
-    source: _Source | None = Relationship(back_populates="articles")
+    source: SourceDB | None = Relationship(back_populates="articles")
+
+    url: str = sqlField(default="")
 
     text_body: str = sqlField()
 
@@ -46,7 +51,6 @@ class Article(BaseModel):
     model_config = ConfigDict(validate_assignment=True)
 
     # Fixed fields set upon creation, and unchanged after that
-    article_id: str = Field(frozen=True)             # %publication_date%-%source_id%-%article_title_hash%
     article_title: str = Field(frozen=True)
     publication_time: datetime = Field(frozen=True)
     source: _Source = Field(frozen=True)

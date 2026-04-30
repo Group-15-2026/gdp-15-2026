@@ -13,7 +13,9 @@ from news.index import index_top_by_category, index_top_by_source, index_weekly_
 
 from sqlmodel import Session
 from src.db.database import engine
-from geo_agent.Entities.Article import Article, _Source, ArticleDB
+from geo_agent.Entities.Article import Article, SourceDB, ArticleDB
+
+import newspaper
 
 logger = logging.getLogger(__name__)
 
@@ -84,7 +86,7 @@ def get_daily_articles():
     id_prefix = index.get_file_id()
     articles = [to_article(r, f"{id_prefix}-{i+1}") for i, r in enumerate(raw)]
 
-    add_articles_to_db(articles)
+    # add_articles_to_db(articles)
 
     return articles
 
@@ -98,7 +100,7 @@ def get_articles_about(topics, start_dt, end_dt):
     id_prefixes = [index.get_file_id() for index in indices]
     articles = list(chain.from_iterable([to_article(r, f"{id_prefixes[j]}-{i+1}") for i, r in enumerate(raw)] for j, raw in enumerate(raws)))
 
-    add_articles_to_db(articles)
+    # add_articles_to_db(articles)
 
     return articles
 
@@ -108,11 +110,11 @@ def add_articles_to_db(articles: list[Article]) -> None:
         for article in articles:
             # Add the source to the database if it exists
             if article.source:
-                session.add(article.source)
+                source_db = SourceDB(source_name=article.source.source_name)
+                session.add(source_db)
             
             # Create ArticleDB with both database fields and the source relationship
             article_db = ArticleDB(
-                article_id=article.article_id,
                 article_title=article.article_title,
                 publication_time=article.publication_time,
                 source_id=article.source_id,

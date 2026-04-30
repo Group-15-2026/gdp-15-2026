@@ -13,6 +13,7 @@ dependencies = [
     "mcp>=1.26.0",
     "mcp-use>=1.7.0",
     "newsapi-python>=0.2.7",
+    "newspaper4k>=0.9.5",
     "pip>=26.0.1",
     "pytest>=9.0.2",
     "spacy>=3.8.11",
