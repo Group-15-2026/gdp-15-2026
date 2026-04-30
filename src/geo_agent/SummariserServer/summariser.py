@@ -58,7 +58,7 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Actor], list[Ev
         #//article.set_events(doc_events)
         for event in doc_events:
             event.source_articles = [article]
-        events += [events]
+        events += doc_events
 
     return actors, events
 
