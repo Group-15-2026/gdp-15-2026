@@ -73,4 +73,3 @@ def index_range_by_topic(topic, start_time_dt, end_time_dt):
     index = _IndexRange(code, start_time_dt, end_time_dt)
     index.set_topic(topic)
     return index
-

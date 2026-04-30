@@ -88,8 +88,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
                     format=EventJustificationOutput.model_json_schema(),
                 )
 
-                output = EventJustificationOutput.model_validate_json(response.message.content)
-                break
+                output = EventJustificationOutput.model_validate_json(response.message.content or "")
             except:
                 response = await ollama_client.chat(
                     model='gemma4:e4b',
@@ -100,13 +99,16 @@ async def analyse_events(events: list[Event]) -> list[Event]:
                     format=EventJustificationOutput.model_json_schema(),
                 )
 
-                output = EventJustificationOutput.model_validate_json(response.message.content)
+                output = EventJustificationOutput.model_validate_json(response.message.content or "")
+            else:
+                event.economic_impact.justification = output.economic_impact_justification
+                event.diplomatic_impact.justification = output.diplomatic_impact_justification
+                event.financial_market_impact.justification = output.financial_market_impact_justification
+                event.security_impact.justification = output.security_impact_justification
+                break
         
-        event.economic_impact.justification = output.economic_impact_justification
-        event.diplomatic_impact.justification = output.diplomatic_impact_justification
-        event.financial_market_impact.justification = output.financial_market_impact_justification
-        event.security_impact.justification = output.security_impact_justification
-        
+        # ! This fails silently if the first 5 attempts don't succeed. This is part of why it's important to transition to the ChatHistory Class
+
         return event
 
     analysed_events = []
@@ -122,8 +124,11 @@ def gen_report() -> str:
     return NotImplemented
 
 if __name__ == "__main__":
-    # analyst_mcp.run()
+    analyst_mcp.run()
 
+    # TODO This should be moved to the "tests/Analyst Server/test_analyst.py" file
+    # ! Never add tests to the MCP server files, as it breaks the project
+    '''
     # Testing
     test_event = Event(event="Civil unrest in Gabon")
     test_event.diplomatic_impact.severity = _Severity.low
@@ -132,3 +137,4 @@ if __name__ == "__main__":
     test_event.security_impact.severity = _Severity.high
     result = asyncio.run(analyse_events([test_event]))
     print(result)
+    '''
