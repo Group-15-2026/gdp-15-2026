@@ -1,4 +1,5 @@
 import json
+import os
 
 from utils import get_top_dir, get_weekly_dir, get_monthly_dir, get_range_dir
 
@@ -38,6 +39,7 @@ class _Index:
 
     def save(self, articles):
         file_path = self.get_file_path()
+        os.makedirs(self._dir, exist_ok=True)
         with open(file_path, "w") as f:
             json.dump(articles, f)
         return file_path

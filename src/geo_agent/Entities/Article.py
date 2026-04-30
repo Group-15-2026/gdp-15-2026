@@ -1,15 +1,18 @@
 from .Validators import Between10
 
+from db.database import engine
+
 from datetime import datetime
 from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
-from sqlmodel import Field as sqlField, SQLModel, Relationship
+from sqlmodel import Field as sqlField, SQLModel, Relationship, select, Session
 
+from sqlmodel import select, Session
 # pydantic is used to allow use of objects in mcp tools
 
 class SourceDB(SQLModel, table=True):
     source_id: int | None = sqlField(default=None, primary_key=True)
-    source_name: str
+    source_name: str # e.g. "BBC News"
     articles: list["ArticleDB"] = Relationship(back_populates="source")
 
 class Source(BaseModel):
@@ -33,18 +36,12 @@ class ArticleDB(SQLModel, table=True):
     article_title: str = sqlField()
     publication_time: datetime = sqlField()
 
-    source_id: int | None = sqlField(default=None, foreign_key="_source.source_id")
+    source_id: int | None = sqlField(default=None, foreign_key="sourcedb.source_id")
     source: SourceDB | None = Relationship(back_populates="articles")
 
     url: str = sqlField(default="")
 
     text_body: str = sqlField()
-
-
-# TODO May be ready to remove this 'session' stuff commented out below?
-# load from database
-#//article_db = session.get(ArticleDB, article_id)
-#//article2 = Article2(**article_db.model_dump())
 
 class Article(BaseModel):
     # Ensure validation is carried out when details are added later
@@ -71,6 +68,23 @@ class Article(BaseModel):
         self.claims = [_ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
         self.themes = themes
 
-    # TODO Link this to the database code
     def get_text_body(self) -> str:
-        return NotImplemented
+        with Session(engine) as session:
+            statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.has(source_name=self.source.source_name))
+            results = session.exec(statement)
+            query = results.first()
+            text_body = ""
+            if query:
+                text_body = query.text_body
+        return text_body
+    
+# if __name__ == "__main__":
+#     source = _Source(
+#         source_name="BBC News"
+#     )
+#     article = Article(
+#         article_title="Ex-FBI director James Comey surrenders over charge of threatening Trump's life in Instagram post",
+#         publication_time=datetime.fromisoformat("2026-04-29 17:52:20.120370"),
+#         source=source,
+#     )
+#     print(article.get_text_body())
