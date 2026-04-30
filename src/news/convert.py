@@ -50,7 +50,7 @@ def to_source_db(raw) -> tuple[_Source, SourceDB]:
 
 def to_article_db(raw) -> tuple[Article, ArticleDB]:
     text_body = to_full_text(raw)
-    source, sourcedb = to_source_db(raw)
+    source, sourcedb = to_source_db(raw['source'])
     
     article = Article(
         article_title=raw['title'],
@@ -70,7 +70,7 @@ def to_article_db(raw) -> tuple[Article, ArticleDB]:
 
 def to_full_text(raw):
     url = raw['url']
-    if raw['source_id'] in ['bbc','cnn']:
+    if raw['source']['name'] in ['bbc-news','cnn']: # TODO These names may not be the true newsapi names for bbc and cnn, so we may never scrape! 
         first_article = newspaper.Article(url=url, language='en')
         first_article.download()
         first_article.parse()
