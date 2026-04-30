@@ -2,16 +2,16 @@ from datetime import datetime
 
 from dateutil import parser
 
-from geo_agent.Entities.Article import Article, _Source, ArticleDB, SourceDB
+from geo_agent.Entities.Article import Article, Source, ArticleDB, SourceDB
 
 import newspaper
 from sqlmodel import select, Session
 from src.db.database import engine
 
 def _to_source(raw):
-    MISSING_SOURCE = _Source(source_name="Missing Source")
+    MISSING_SOURCE = Source(source_name="Missing Source")
     name = raw['name']
-    s = _Source(source_name=name) if name else MISSING_SOURCE
+    s = Source(source_name=name) if name else MISSING_SOURCE
     return s
 
 def to_datetime(time_str):

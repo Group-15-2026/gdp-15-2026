@@ -12,7 +12,7 @@ class SourceDB(SQLModel, table=True):
     source_name: str
     articles: list["ArticleDB"] = Relationship(back_populates="source")
 
-class _Source(BaseModel):
+class Source(BaseModel):
     source_name: str
 
 class ArticleType(StrEnum):
@@ -53,7 +53,7 @@ class Article(BaseModel):
     # Fixed fields set upon creation, and unchanged after that
     article_title: str = Field(frozen=True)
     publication_time: datetime = Field(frozen=True)
-    source: _Source = Field(frozen=True)
+    source: Source = Field(frozen=True)
 
     # Fields to be filled in later
     initial_categories: list[ArticleType] | None = None
