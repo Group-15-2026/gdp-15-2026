@@ -53,6 +53,7 @@ Categories:
     Diplomatic: Shifts in formal alliances, international organization responses (UN, NATO, EU, etc.), and the likelihood of new multilateral sanctions.
 """
 
+# TODO This should probably use the event class directly
 class EventJustificationOutput(BaseModel):
     economic_impact_justification: str
     financial_market_impact_justification: str
@@ -68,6 +69,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 
     # ! Assume impact scores already populated in events.
 
+    # TODO The below should be updated to use the ChatHistory class, instead of calling ollama directly
     async def get_justification(event: Event) -> Event:
         global ollama_client
         if ollama_client is None:
