@@ -1,4 +1,4 @@
-from geo_agent.Entities.Article import Article, _Source
+from geo_agent.Entities.Article import Article, Source
 from geo_agent.SummariserServer.summariser import score_sentiment, extract_act_eve
 
 from utils import setup
@@ -71,7 +71,7 @@ async def main():
     article1 = Article(
         article_title = "",
         publication_time = datetime.now(),
-        source = _Source(
+        source = Source(
             source_name = "Bob's Newsagents"
         )
     )

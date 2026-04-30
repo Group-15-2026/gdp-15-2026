@@ -7,11 +7,11 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from itertools import chain
 from newsapi.newsapi_client import NewsApiClient
+from sqlmodel import Session, select
 
 from news.convert import to_article, to_datetime, to_article_db
 from news.index import index_top_by_category, index_top_by_source, index_weekly_by_topic, index_range_by_topic
 
-from sqlmodel import Session, select
 from db.database import engine, create_tables
 from geo_agent.Entities.Article import Article, SourceDB, ArticleDB
 

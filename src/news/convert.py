@@ -1,17 +1,15 @@
 from datetime import datetime
-
 from dateutil import parser
-
-from geo_agent.Entities.Article import Article, _Source, ArticleDB, SourceDB
-from db.database import engine
-
 import newspaper
 from sqlmodel import select, Session
 
+from geo_agent.Entities.Article import Article, Source, ArticleDB, SourceDB
+from db.database import engine
+
 def _to_source(raw):
-    MISSING_SOURCE = _Source(source_name="Missing Source")
-    name = raw['name']
-    s = _Source(source_name=name) if name else MISSING_SOURCE
+    MISSING_SOURCE = Source(source_name="Missing Source")
+    id, name = raw['id'], raw['name']
+    s = Source(source_name=name) if id and name else MISSING_SOURCE
     return s
 
 def to_datetime(time_str):
@@ -22,11 +20,12 @@ def to_article(raw, id):
     a = Article(
         article_title=raw['title'],
         publication_time=to_datetime(raw['publishedAt']),
-        source=_to_source(raw['source']),
+        source=_to_source(raw['source'])
+        #//text_body=f"Summary: {raw['description']}. Snippet: {raw['content']}"
     )
     return a
 
-def to_source_db(raw) -> tuple[_Source, SourceDB]:
+def to_source_db(raw) -> tuple[Source, SourceDB]:
     name = raw['name']
     if not name:
         name = "Missing Source"
@@ -41,7 +40,7 @@ def to_source_db(raw) -> tuple[_Source, SourceDB]:
             session.add(sourcedb)
             session.commit()
             session.refresh(sourcedb)
-    source = _Source(
+    source = Source(
         source_name=name,
     )
     return (source, sourcedb)
