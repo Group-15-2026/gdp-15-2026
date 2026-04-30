@@ -3,8 +3,10 @@ from .Validators import Between10
 from datetime import datetime
 from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
-from sqlmodel import Field as sqlField, SQLModel, Relationship
+from sqlmodel import Field as sqlField, SQLModel, Relationship, select, Session
+from src.db.database import engine
 
+from sqlmodel import select, Session
 # pydantic is used to allow use of objects in mcp tools
 
 class SourceDB(SQLModel, table=True):
@@ -71,6 +73,12 @@ class Article(BaseModel):
         self.claims = [_ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
         self.themes = themes
 
-    # TODO Link this to the database code
     def get_text_body(self) -> str:
-        return NotImplemented
+        with Session(engine) as session:
+            statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.source_name==self.source.source_name) # type: ignore
+            results = session.exec(statement)
+            query = results.first
+            text_body = ""
+            if not query:
+                text_body = query.text_body
+        return text_body
