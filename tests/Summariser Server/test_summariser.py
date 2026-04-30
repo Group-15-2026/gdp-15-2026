@@ -5,24 +5,13 @@ from utils import setup
 
 import asyncio
 from datetime import datetime
+import types
 #import pytest
 
-# XX TODO: add unit tests. Currently just seeing if the code runs
+# TODO: add unit tests. Currently just seeing if the code runs
 
-async def main():
-    setup()
-
-    article1 = Article(
-        article_id = "",
-        article_title = "",
-        publication_time = datetime.now(),
-        source = _Source(
-            source_id = "",
-            source_name = "Bob's Newsagents"
-        ),
-
-        #text_body = "Today my friend Bob started a new job at Apple! He's also moving from the United Kingdom to the UK"
-        text_body = '''
+def test_get_text_body() -> str:
+    return '''
 The chief Foreign Office official ousted over the decision to grant Peter Mandelson a security clearance despite vetting concerns is expected to face questions from MPs on Tuesday.
 Sir Olly Robbins will be grilled by the Foreign Affairs Committee over why the ex-US ambassador received the clearance, and whether No 10 was told about red flags.
 It adds to the potential jeopardy Sir Keir Starmer faces next week, with the planned appearance coming a day after he is due to appear in the Commons to answer questions about the row.
@@ -75,11 +64,24 @@ Following Sir Olly's departure, Conservative leader Kemi Badenoch said the prime
 Liberal Democrat leader Sir Ed Davey called for an investigation by the Privileges Committee into whether the prime minister intentionally misled Parliament.
 The SNP, Green Party and Reform UK have also called for Sir Keir to resign.
 '''
+
+async def main():
+    setup()
+
+    article1 = Article(
+        article_title = "",
+        publication_time = datetime.now(),
+        source = _Source(
+            source_name = "Bob's Newsagents"
+        )
     )
+
+    # This avoid using the database for testing purposes
+    object.__setattr__(article1, "get_text_body", test_get_text_body)
 
     articles = [article1]
 
-    articles, actors, events = await extract_act_eve(articles)
+    actors, events = await extract_act_eve(articles)
     articles = await score_sentiment(articles)
 
     for actor in actors:

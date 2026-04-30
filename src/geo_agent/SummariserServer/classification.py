@@ -60,9 +60,9 @@ class ActorClassResponseMarker(BaseResponseMarker):
                 except Exception as e:
                     erroneous.append((a.name, a.actor_type.value, repr(e)))
             if len(erroneous) > 0:
-                message = f"Your previous response didn't adhere to the strict instruction to only classify actors as one of " \
-                f"{[role.value for role in ActorType]}. Reclassify the following list of actor tuples of format (name, ai label, error): " \
-                f"{erroneous}, but keep the original classifications for the correct actors in your last response (who's names aren't " \
+                message = f"Your previous response didn't adhere to the strict instruction not to create new actor names that haven't " \
+                "previously been encountered in this article. Rename the following list of actor tuples of format (name, ai label, error): " \
+                f"{erroneous}, but keep the correctly labelled and classified actors in your last response (who's names aren't " \
                 "mentioned here), returning a JSON list of objects conforming to the output format defined in your system prompt."
         
         return message
@@ -87,7 +87,7 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         model = config.MODEL,
         system_prompt = classification_system_prompt,
         json = ActorClassBatchResponse.json_schema(),
-        context = 2 * 1024,             # extend context to allow the whole article, and history to be read
+        context = 2 * 1024,             # extend context to allow the whole history to be read
         tools = [ollama_client.web_search, ollama_client.web_fetch],
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker

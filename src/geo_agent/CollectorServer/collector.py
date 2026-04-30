@@ -7,8 +7,6 @@ from mcp.server.fastmcp import FastMCP
 
 collector_mcp = FastMCP(name="Collector MCP Server")
 
-# XX Note to implementer: the following resource and tool should largely just wrap NewsAPI
-
 # Get more detailed news on a particular topic
 # Duplicates possible
 # start_date is distant date, end_date is recent date
@@ -22,15 +20,13 @@ def search_news(topics: list[str], start_date: datetime, end_date: datetime) -> 
 # Collect top articles for processing
 # Returns top articles for that day, from business, science, and tech categories
 # Duplicates possible
-#@collector_mcp.resource("files:///articles/top")
 @collector_mcp.tool()
 def collect_articles() -> list[Article]:
     '''
     Fetches and returns the web articles from the last day, on the topics of business, science and tech. 
 
     This should only be called ONCE, as no new articles will be acquired from multiple calls.
-    '''
-    
+    '''    
     return get_daily_articles()
 
 if __name__ == "__main__":

@@ -3,18 +3,16 @@ from .Validators import Between10
 from datetime import datetime
 from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
+from sqlmodel import Field as sqlField, SQLModel, Relationship
 
 # pydantic is used to allow use of objects in mcp tools
-
-from sqlmodel import Field as sqlField, SQLModel, Relationship, Enum, Column, JSON
-from typing import List, Optional
 
 class SourceDB(SQLModel, table=True):
     source_id: int | None = sqlField(default=None, primary_key=True)
     source_name: str
-    articles: List["ArticleDB"] = Relationship(back_populates="source")
+    articles: list["ArticleDB"] = Relationship(back_populates="source")
 
-class _Source(BaseModel, table=True):
+class _Source(BaseModel):
     source_name: str
 
 class ArticleType(StrEnum):
@@ -42,9 +40,11 @@ class ArticleDB(SQLModel, table=True):
 
     text_body: str = sqlField()
 
+
+# TODO May be ready to remove this 'session' stuff commented out below?
 # load from database
-# article_db = session.get(ArticleDB, article_id)
-# article2 = Article2(**article_db.model_dump())
+#//article_db = session.get(ArticleDB, article_id)
+#//article2 = Article2(**article_db.model_dump())
 
 class Article(BaseModel):
     # Ensure validation is carried out when details are added later
@@ -60,7 +60,7 @@ class Article(BaseModel):
     claims: list[_ClaimEntry] | None = None
     themes: list[str] | None = None
 
-    # XX may need breaking up into different methods for filling in at different times
+    # TODO may need breaking up into different methods for filling in at different times (see set_actors)
     def set_processed_values(self,
                              initial_categories: list[str],
                              events: list[str],
@@ -71,3 +71,6 @@ class Article(BaseModel):
         self.claims = [_ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
         self.themes = themes
 
+    # TODO Link this to the database code
+    def get_text_body(self) -> str:
+        return NotImplemented

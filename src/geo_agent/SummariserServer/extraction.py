@@ -17,15 +17,14 @@ logger = logging.getLogger(__name__)
 nlp = None
 relevant_entity_labels = {"GPE", "LAW", "NORP", "ORG", "PERSON"}
 
-# XX merge labels for duplicated actors (preferring anything other than 'other')
+# TODO merge labels for duplicated actors (preferring anything other than 'other') across articles
+# |-> keep a single chat_history object live between function calls, and maintain inter-article context
 
 def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str], dict[str, str]]]:
     global nlp
     
     # Extract Actors
-    # XX extract article_texts using SQL DB
-    # XX for now, the MVP adds an extra field to address this
-    article_texts = NotImplemented # TODO Will need fixing to use the DB to access the text_body
+    article_texts = (article.get_text_body() for article in articles)
     
     # avoid memory intensive load unless necessary
     if nlp is None:
@@ -46,7 +45,7 @@ def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str],
                     doc_actors[ent.text] += 1
                     if ent.text not in doc_actor_clss:
                         doc_actor_clss[ent.text] = ent.label_
-                    # we will assume that different occurrences of the same actor in an article get the same spacy class (and so use first one as canonical)
+                    # ! we will assume that different occurrences of the same actor in an article get the same spacy class (and so use first one as canonical)
             actors.append((article, doc_actors, doc_actor_clss))
 
     return actors
@@ -61,9 +60,9 @@ You are a geopolitical event extraction agent. Given an article, you must output
 objects corresponding to events that the article covers as having occurred. The description of an event
 should be 10 words or less, and as precise as possible, using geopolitical language. Only include events
 which you believe to be relevant to geopolitics (it's okay if the link is strenuous), and do not include
-any repeats of the same event. Only the 'event' field of each object in your output list should be 
-populated. Do not include any '```json' tags in your output, and make sure to return a JSON list (no 
-enclosing '{{}}').
+any repeats of the same event. You should aim to ouput 1-4 events per article. Only the 'event' field of 
+each object in your output list should be populated. Do not include any '```json' tags in your output,
+and make sure to return a JSON list (no enclosing '{{}}').
 '''.replace("\n", " ")
 
 # type that represents the model's target output for extraction
@@ -114,13 +113,15 @@ async def extract_article_events(article: Article) -> list[Event]:
     )
 
     # extract article events
-    text_body = NotImplemented # TODO Will need fixing to use the DB to access the text_body
+    text_body = article.get_text_body()
     output = await chat_history.chat(f"Extract the events in the article \"{article.article_title}\": {text_body}")
     events: list[Event] = EventExtractResponse.validate_json(output)
     
     return events
 
 # ----------------------------------------- claim extraction ----------------------------------------- #
+
+# TODO Link the extracted claims to the actors that they reference (try and only pass the actors who are mentioned in the particular article in order to avoid overwhelming the AI). 
 
 # type that represents the model's target output for extraction
 ClaimExtractResponse = TypeAdapter(list[_ClaimEntry])
@@ -154,13 +155,15 @@ You are a geopolitical claim extraction agent. Given an article, you must output
 JSON objects corresponding to claims that the article makes. Each claim should be 
 {ClaimExtractResponseMarker.max_word_count} words or less, and as 
 simply worded as possible. Each claim should get a rating from -10 to 10 scoring the article's 'opinion' on
-the claim (10 = strongly agree, -10 = strongly disagree). Only include claims which you believe to be 
-relevant to geopolitics (it's okay if the link is strenuous), and do not include any repeats of the same 
-claim within a given article. Note that inverted claims are still the same claim (e.g. "X caused Y" vs 
-"X did not cause Y"). Only include a claim if it is controversial or opinionated in some way: 
-"dogs are animals" is not a controversial claim. Only the 'claim' and 'opinion' fields of each object 
-in your output list should be populated. Do not include any '```json' tags in your output, and make sure 
-to return a JSON list (no enclosing '{{}}').
+the claim (10 = the article strongly agrees with the claim, -10 = the article strongly disagrees with the claim).
+By the very definition that the article is making a claim, the opinion rating should never be exactly 0.0, and
+should predominantly be above 5 or below -5.  
+Only include claims which you believe to be relevant to geopolitics (it's okay if the link is strenuous), and 
+do not include any repeats of the same claim within a given article. Note that inverted claims are still the 
+same claim (e.g. "X caused Y" vs "X did not cause Y"). Only include a claim if it is controversial or 
+opinionated in some way: "dogs are animals" is not a controversial claim. Only the 'claim' and 'opinion' 
+fields of each object in your output list should be populated. Do not include any '```json' tags in your 
+output, and make sure to return a JSON list (no enclosing '{{}}').
 '''.replace("\r\n", " ").replace("\n", " ")
 
 async def extract_article_claims(article: Article) -> list[_ClaimEntry]:
@@ -184,7 +187,7 @@ async def extract_article_claims(article: Article) -> list[_ClaimEntry]:
     )
 
     # extract article claims
-    text_body = NotImplemented # TODO Will need fixing to use the DB to access the text_body
+    text_body = article.get_text_body()
     output = await chat_history.chat(f"Extract the claims in the article \"{article.article_title}\": {text_body}")
     claims: list[_ClaimEntry] = ClaimExtractResponse.validate_json(output)
     
