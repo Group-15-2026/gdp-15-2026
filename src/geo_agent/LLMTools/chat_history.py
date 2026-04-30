@@ -86,7 +86,7 @@ class ChatHistory:
         while True:
             output = await self.chat_single(prompt, record_response=True)
 
-            # XX add support for tool calling here if the model attempts to call a tool
+            # TODO add support for tool calling here if the model attempts to call a tool
 
             error_message = self.response_marker.mark(output)
             if error_message is None:

@@ -1,11 +1,3 @@
-# XX Note to implementer: this file should create an instance of the mcp orchestrator client,
-# instances of each MCP server, and connect the three together. It should then start / prompt the client
-# and take care of storing / displaying the result.
-
-# XX: it will also need to create the JSON tooling/MCP templates used to inform the LLM about the tools
-# that it can access. It may be cleanest to define these in the relevant MCP related files, and simply
-# import them here.
-
 import asyncio
 import logging
 
@@ -17,7 +9,8 @@ async def main():
     logger = logging.getLogger(__name__)
     logger.info("Utilities setup successful.")
 
-    # XX currently just test code to demonstrate execution of a simple prompt
+    # TODO This is currently just test code to demonstrate execution of a simple prompt - may need updating
+    # |-> see the TASK_PROMPT in orchestrator.py for more details
 
     client = create_mcp_client()
     logger.info("MCP Servers created successfully")

@@ -5,7 +5,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 # pydantic is used to allow use of objects in mcp tools
 
-# XX Note that the below class has been extended when compared to the original schema
+# ! Note that the below class has been extended when compared to the original schema
 class ActorType(StrEnum):
     country = "country"
     government = "government"
@@ -32,10 +32,10 @@ class Actor(BaseModel):
     public_opinion: Between10 | None = None
     controversy: Between10 | None = None
     mentions_weight: Percentage | None = None
-    # XX should be restricted to only themes found
+    # TODO should be restricted to only themes found
     linked_themes: str | None = None
 
-    # XX may need breaking up into different methods for filling in at different times
+    # TODO may need breaking up into different methods for filling in at different times
     def set_processed_values(self, 
                             impact: float, 
                             public_opinion: float,

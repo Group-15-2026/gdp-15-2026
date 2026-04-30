@@ -10,7 +10,7 @@ from ollama import AsyncClient
 from pydantic import BaseModel
 import asyncio
 
-# XX Note to implementer: may only pass unique articles IDs to tools, and the articles can then be collected from central DB
+# ! Note to implementer: may only pass unique articles IDs to tools, and the articles can then be collected from central DB
 
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
@@ -62,11 +62,11 @@ class EventJustificationOutput(BaseModel):
 
 @analyst_mcp.tool()
 async def analyse_events(events: list[Event]) -> list[Event]:
-    # !! Need to implement impact scoring routine here.
+    # TODO Need to implement impact scoring routine here.
 
 
 
-    # Assume impact scores already populated in events.
+    # ! Assume impact scores already populated in events.
 
     async def get_justification(event: Event) -> Event:
         global ollama_client
@@ -113,9 +113,8 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 
     return analysed_events
 
-# XX Note to implementer: this is slightly different from the arch. diagram, but is probably the easiest implementation
-# the LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
-# According to specification: Score relevance for UK/EU financial context, perform impact assessment, identify Themes of the Day
+# ! Note to implementer: this is slightly different from the arch. diagram, but is probably the easiest implementation
+# TODO : The LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
 @analyst_mcp.prompt()
 def gen_report() -> str:
     return NotImplemented

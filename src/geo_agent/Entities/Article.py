@@ -3,10 +3,9 @@ from .Validators import Between10
 from datetime import datetime
 from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
+from sqlmodel import Field as sqlField, SQLModel, Relationship
 
 # pydantic is used to allow use of objects in mcp tools
-
-from sqlmodel import Field as sqlField, SQLModel, Relationship
 
 class SourceDB(SQLModel, table=True):
     source_id: int | None = sqlField(default=None, primary_key=True)
@@ -61,7 +60,7 @@ class Article(BaseModel):
     claims: list[_ClaimEntry] | None = None
     themes: list[str] | None = None
 
-    # XX may need breaking up into different methods for filling in at different times
+    # TODO may need breaking up into different methods for filling in at different times (see set_actors)
     def set_processed_values(self,
                              initial_categories: list[str],
                              events: list[str],
