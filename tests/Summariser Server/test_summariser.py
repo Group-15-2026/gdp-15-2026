@@ -1,5 +1,5 @@
 from geo_agent.Entities.Article import Article, _Source
-from geo_agent.SummariserServer.summariser import extract_act_eve
+from geo_agent.SummariserServer.summariser import score_sentiment, extract_act_eve
 
 from utils import setup
 
@@ -79,10 +79,23 @@ The SNP, Green Party and Reform UK have also called for Sir Keir to resign.
 
     articles = [article1]
 
-    article, actors, events = await extract_act_eve(articles)
+    articles, actors, events = await extract_act_eve(articles)
+    articles = await score_sentiment(articles)
 
     for actor in actors:
         print(actor.name, actor.actor_type)
+
+    print()
+
+    for event in events:
+        print(event.event)
+
+    print()
+
+    for article in articles:
+        print(f"{article.article_title} makes the following claims:")
+        for claim in article.claims:
+            print("\t* ", claim.claim, claim.opinion)
 
 if __name__ == "__main__":
     asyncio.run(main())

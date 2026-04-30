@@ -1,5 +1,5 @@
 import logging
-from pathlib import Path
+
 from .paths import get_logs_dir
 
 _root_logger = None
@@ -27,8 +27,8 @@ def setup_logging_to_files():
     # Early logs created, caught by to_console only
     LOGS_DIR = get_logs_dir()
 
-    to_latest = logging.FileHandler(LOGS_DIR / "latest.log", mode="w")
-    to_archive = logging.FileHandler(LOGS_DIR / "archive.log", mode="a")
+    to_latest = logging.FileHandler(LOGS_DIR / "latest.log", mode="w", encoding="utf-8")
+    to_archive = logging.FileHandler(LOGS_DIR / "archive.log", mode="a", encoding="utf-8")
 
     to_latest.setFormatter(_formatter)
     to_archive.setFormatter(_formatter)
