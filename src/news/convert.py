@@ -3,10 +3,10 @@ from datetime import datetime
 from dateutil import parser
 
 from geo_agent.Entities.Article import Article, _Source, ArticleDB, SourceDB
+from db.database import engine
 
 import newspaper
 from sqlmodel import select, Session
-from src.db.database import engine
 
 def _to_source(raw):
     MISSING_SOURCE = _Source(source_name="Missing Source")

@@ -12,7 +12,7 @@ from news.convert import to_article, to_datetime, to_article_db
 from news.index import index_top_by_category, index_top_by_source, index_weekly_by_topic, index_range_by_topic
 
 from sqlmodel import Session, select
-from src.db.database import engine
+from db.database import engine
 from geo_agent.Entities.Article import Article, SourceDB, ArticleDB
 
 logger = logging.getLogger(__name__)
