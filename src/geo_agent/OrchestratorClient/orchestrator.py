@@ -19,11 +19,11 @@ CONFIG = {
         "summariser": {
             "command": "uv",
             "args": ["run", "python", "-m", "geo_agent.SummariserServer.summariser"]
-        },
-        "analyst": {
-            "command": "uv",
-            "args": ["run", "python", "-m", "geo_agent.AnalystServer.analyst"]
-        }
+        }#,
+        #"analyst": {
+        #    "command": "uv",
+        #    "args": ["run", "python", "-m", "geo_agent.AnalystServer.analyst"]
+        #}
     }
 }
 

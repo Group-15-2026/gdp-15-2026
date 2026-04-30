@@ -4,6 +4,7 @@ from news import get_daily_articles, get_articles_about
 
 from datetime import datetime
 from mcp.server.fastmcp import FastMCP
+from db.database import create_tables
 
 collector_mcp = FastMCP(name="Collector MCP Server")
 
@@ -30,4 +31,5 @@ def collect_articles() -> list[Article]:
     return get_daily_articles()
 
 if __name__ == "__main__":
+    create_tables()
     collector_mcp.run()
