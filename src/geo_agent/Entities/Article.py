@@ -12,7 +12,7 @@ from sqlmodel import select, Session
 
 class SourceDB(SQLModel, table=True):
     source_id: int | None = sqlField(default=None, primary_key=True)
-    source_name: str
+    source_name: str # e.g. "BBC News"
     articles: list["ArticleDB"] = Relationship(back_populates="source")
 
 class _Source(BaseModel):
@@ -42,12 +42,6 @@ class ArticleDB(SQLModel, table=True):
     url: str = sqlField(default="")
 
     text_body: str = sqlField()
-
-
-# TODO May be ready to remove this 'session' stuff commented out below?
-# load from database
-#//article_db = session.get(ArticleDB, article_id)
-#//article2 = Article2(**article_db.model_dump())
 
 class Article(BaseModel):
     # Ensure validation is carried out when details are added later

@@ -12,7 +12,7 @@ from news.convert import to_article, to_datetime, to_article_db
 from news.index import index_top_by_category, index_top_by_source, index_weekly_by_topic, index_range_by_topic
 
 from sqlmodel import Session, select
-from db.database import engine
+from db.database import engine, create_tables
 from geo_agent.Entities.Article import Article, SourceDB, ArticleDB
 
 logger = logging.getLogger(__name__)
@@ -81,6 +81,9 @@ def get_daily_articles():
     index = index_top_by_category(fetch_time)
     raw = _fetch_from(index, _top_by_category)
 
+    index = index_top_by_source(fetch_time)
+    raw = _fetch_from(index, _top_by_source)
+
     # id_prefix = index.get_file_id()
     # articles = [to_article(r, f"{id_prefix}-{i+1}") for i, r in enumerate(raw)]
 
@@ -116,12 +119,14 @@ def add_articledb_to_db(articledb_new: ArticleDB) -> None:
         # Check if article is already in database.
         statement = select(ArticleDB).where(ArticleDB.article_title==articledb_new.article_title).where(ArticleDB.publication_time==articledb_new.publication_time).where(ArticleDB.source_id==articledb_new.source_id)
         results = session.exec(statement)
-        query = results.first
-        if query is None:
+        query = results.first()
+        if not query:
             session.add(articledb_new)
             session.commit()
 
+
 if __name__ == "__main__":
-    print(get_articles_about(["cars", "dogs"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
+    create_tables()
     print(get_daily_articles())
-    print(get_articles_about(["donald trump"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
+    # print(get_articles_about(["cars", "dogs"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
+    # print(get_articles_about(["donald trump"], to_datetime("2026-04-01"), to_datetime("2026-04-24")))
