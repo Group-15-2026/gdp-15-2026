@@ -1,5 +1,5 @@
 from geo_agent.Entities.Article import Article, Source
-from geo_agent.SummariserServer.summariser import score_sentiment, extract_act_eve
+from geo_agent.SummariserServer.summariser import extract_claims, extract_actors_and_events
 
 from utils import setup
 
@@ -86,8 +86,8 @@ async def main():
 
     # Test concurrent tool calling
     [(actors, events), articles] = await asyncio.gather(
-        extract_act_eve(articles),
-        score_sentiment(articles)
+        extract_actors_and_events(articles),
+        extract_claims(articles)
     )
 
     for actor in actors:

@@ -14,10 +14,10 @@ summariser_mcp = FastMCP(name="Summariser MCP Server")
 
 @summariser_mcp.tool()
 def summarise_batch(articles: list[Article]) -> list[Article]:
-    return NotImplemented
+    raise NotImplementedError()
 
 @summariser_mcp.tool()
-async def score_sentiment(articles: list[Article]) -> list[Article]:
+async def extract_claims(articles: list[Article]) -> list[Article]:
     '''
     Extracts the claims made by different articles, rate the opinion of a given article on the claims
     that it makes, and then update the article objects with the newly extracted and processed claims.
@@ -28,15 +28,15 @@ async def score_sentiment(articles: list[Article]) -> list[Article]:
     return articles
 
 @summariser_mcp.tool()
-def tag_themes(articles: list[Article]) -> list[Article]:
-    return NotImplemented
+def tag_article_categories(articles: list[Article]) -> list[Article]:
+    raise NotImplementedError()
 
 @summariser_mcp.tool()
-async def extract_act_eve(articles: list[Article]) -> tuple[list[Actor], list[Event]]:
+async def extract_actors_and_events(articles: list[Article]) -> tuple[list[Actor], list[Event]]:
     # TODO Update this docstring to be consistent with the changed Entity behaviours (specifically whether the event objects have full 'actor' and 'source_articles' fields)
     '''
     Extracts the geopolitical actors and events from a list of articles, classifies the actors, and
-    updates the articles with information on the actors and events that they reference. The updated
+    updates the events with information on the actors and articles that they reference. The updated
     articles, actors and events are then returned.
 
     You should only pass in article objects that have been outputted by the 'collect_articles' or 
@@ -57,6 +57,7 @@ async def extract_act_eve(articles: list[Article]) -> tuple[list[Actor], list[Ev
         
         actors += [actor for actor, _ in classified_actors]
 
+        # TODO Link actors mentioned into the events
         for event in doc_events:
             event.source_articles = [article]
         events += doc_events
