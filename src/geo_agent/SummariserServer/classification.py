@@ -72,10 +72,10 @@ class ActorClassResponseMarker(BaseResponseMarker):
                 else:
                     self.validActors.append(a)
             if len(erroneous) > 0:
-                message = f"Your previous response didn't adhere to the strict instruction not to create new actor names that haven't " \
-                "previously been encountered in this article. Rename the following list of actor tuples of format (name, ai label, error): " \
+                message = f"You cannot use the actor names {[a.name for (a, _, _) in erroneous]}, as they haven't appeared " \
+                "before in the article. Rename the following list of actor tuples of format (name, ai label, error): " \
                 f"{erroneous}, returning a JSON list of objects conforming to the output format defined in your system prompt. " \
-                "You may only use actor names from the set of actor names " \
+                "You may ONLY use actor names from the set of actor names " \
                 f"that have appeared so far, which is as follows: {self.valid_names}."
         
         return message
