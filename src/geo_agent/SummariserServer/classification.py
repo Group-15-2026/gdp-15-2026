@@ -6,7 +6,7 @@ from collections import Counter
 import itertools
 import logging
 from ollama import AsyncClient
-from pydantic import TypeAdapter
+from pydantic import TypeAdapter, BaseModel, Field
 
 logger = logging.getLogger(__name__)
 
@@ -36,13 +36,25 @@ Always end by checking that the new actor_type field values are only one of the
 following: {[role.value for role in ActorType]}, and NOT any of the initial labels passed in.
 '''.replace("\n", " ")
 
+# Remove bloat In 'Actor' that will only confuse the LLM
+class ClassifiedActor(BaseModel):
+    name: str = Field(frozen=True)
+    actor_type: ActorType = Field(frozen=True)
+
+    def to_full(self):
+        return Actor(
+            name=self.name, 
+            actor_type=self.actor_type
+        )
+
 # type that represents the model's target output for batch classification
-ActorClassBatchResponse = TypeAdapter(list[Actor])
+ActorClassBatchResponse = TypeAdapter(list[ClassifiedActor])
 
 # Class that evaluates the validity of the classification-LLM 's response
 class ActorClassResponseMarker(BaseResponseMarker):
     def __init__(self):
         self.valid_names = set()
+        self.validActors = []
 
     def mark(self, response: str) -> str | None:
         message = None
@@ -55,17 +67,22 @@ class ActorClassResponseMarker(BaseResponseMarker):
         else:        
             erroneous = []
             for a in output_obj:
-                try:
-                    assert a.name in self.valid_names, "Cannot invent new actor names!!!"
-                except Exception as e:
-                    erroneous.append((a.name, a.actor_type.value, repr(e)))
+                if a.name not in self.valid_names:
+                    erroneous.append((a.name, a.actor_type.value, "Cannot invent new actor names!!!"))
+                else:
+                    self.validActors.append(a)
             if len(erroneous) > 0:
                 message = f"Your previous response didn't adhere to the strict instruction not to create new actor names that haven't " \
                 "previously been encountered in this article. Rename the following list of actor tuples of format (name, ai label, error): " \
-                f"{erroneous}, but keep the correctly labelled and classified actors in your last response (who's names aren't " \
-                "mentioned here), returning a JSON list of objects conforming to the output format defined in your system prompt."
+                f"{erroneous}, returning a JSON list of objects conforming to the output format defined in your system prompt." \
+                "DO NOT repeat the actors from your last prompt who were classified correctly."
         
         return message
+    
+    def get_correct(self) -> str:
+        response = ActorClassBatchResponse.dump_json(self.validActors).decode("utf-8")
+        self.validActors = []
+        return response
     
     def reset(self):
         self.valid_names.clear()
@@ -87,7 +104,7 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         model = config.MODEL,
         system_prompt = classification_system_prompt,
         json = ActorClassBatchResponse.json_schema(),
-        context = 2 * 1024,             # extend context to allow the whole history to be read
+        context = config.CONTEXT,
         tools = [ollama_client.web_search, ollama_client.web_fetch],
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker
@@ -95,19 +112,19 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
     
     # process actors in batches
     actors: Counter[str] = Counter()
-    actor_lookup: dict[str, Actor] = {}
+    actor_lookup: dict[str, ClassifiedActor] = {}
     for batch in itertools.batched(article_actors, config.S_ACT_BATCH_SIZE):
         processed_batch = []
         for actor in batch:
             processed_batch.append((actor, article_actor_clss[actor]))
             response_marker.valid_names.add(actor)
         output = await chat_history.chat(f"(Actor, Label) pairs: {processed_batch}")
-        output_obj: list[Actor] = ActorClassBatchResponse.validate_json(output)
+        output_obj: list[ClassifiedActor] = ActorClassBatchResponse.validate_json(output)
         for actor in output_obj:
             actors[actor.name] += article_actors[actor.name]
             actor_lookup[actor.name] = actor
             
-    return [(actor, actors[name]) for name, actor in actor_lookup.items()]
+    return [(actor.to_full(), actors[name]) for name, actor in actor_lookup.items()]
 
 
 # ------------------------------- article classification (theme tagging) ----------------------------- #

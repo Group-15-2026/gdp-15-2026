@@ -76,13 +76,19 @@ async def main():
         )
     )
 
-    # This avoid using the database for testing purposes
+    # This avoids using the database for testing purposes
     object.__setattr__(article1, "get_text_body", test_get_text_body)
 
     articles = [article1]
 
-    actors, events = await extract_act_eve(articles)
-    articles = await score_sentiment(articles)
+    #actors, events = await extract_act_eve(articles)
+    #articles = await score_sentiment(articles)
+
+    # Test concurrent tool calling
+    [(actors, events), articles] = await asyncio.gather(
+        extract_act_eve(articles),
+        score_sentiment(articles)
+    )
 
     for actor in actors:
         print(actor.name, actor.actor_type)

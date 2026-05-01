@@ -7,7 +7,6 @@ from enum import StrEnum
 from pydantic import BaseModel, ConfigDict, Field
 from sqlmodel import Field as sqlField, SQLModel, Relationship, select, Session
 
-from sqlmodel import select, Session
 # pydantic is used to allow use of objects in mcp tools
 
 class SourceDB(SQLModel, table=True):
@@ -27,7 +26,7 @@ class ArticleType(StrEnum):
     advice = "advice"
     finance = "finance"
 
-class _ClaimEntry(BaseModel):
+class ClaimEntry(BaseModel):
     claim: str = Field(frozen=True)
     opinion: Between10 = Field(frozen=True)
 
@@ -54,7 +53,7 @@ class Article(BaseModel):
 
     # Fields to be filled in later
     initial_categories: list[ArticleType] | None = None
-    claims: list[_ClaimEntry] | None = None
+    claims: list[ClaimEntry] | None = None
     themes: list[str] | None = None
 
     # TODO may need breaking up into different methods for filling in at different times (see set_actors)
@@ -65,26 +64,15 @@ class Article(BaseModel):
                              themes: list[str]) -> None:
         self.initial_categories = [ArticleType(at) for at in initial_categories]
         self.events = events
-        self.claims = [_ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
+        self.claims = [ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
         self.themes = themes
 
     def get_text_body(self) -> str:
         with Session(engine) as session:
-            statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.has(source_name=self.source.source_name))
+            statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.has(source_name=self.source.source_name)) # type: ignore
             results = session.exec(statement)
             query = results.first()
             text_body = ""
             if query:
                 text_body = query.text_body
         return text_body
-    
-# if __name__ == "__main__":
-#     source = _Source(
-#         source_name="BBC News"
-#     )
-#     article = Article(
-#         article_title="Ex-FBI director James Comey surrenders over charge of threatening Trump's life in Instagram post",
-#         publication_time=datetime.fromisoformat("2026-04-29 17:52:20.120370"),
-#         source=source,
-#     )
-#     print(article.get_text_body())
