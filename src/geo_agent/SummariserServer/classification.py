@@ -72,7 +72,7 @@ class ActorClassResponseMarker(BaseResponseMarker):
                 else:
                     self.validActors.append(a)
             if len(erroneous) > 0:
-                message = f"You cannot use the actor names {[a.name for (a, _, _) in erroneous]}, as they haven't appeared " \
+                message = f"You cannot use the actor names {[name for (name, _, _) in erroneous]}, as they haven't appeared " \
                 "before in the article. Rename the following list of actor tuples of format (name, ai label, error): " \
                 f"{erroneous}, returning a JSON list of objects conforming to the output format defined in your system prompt. " \
                 "You may ONLY use actor names from the set of actor names " \
