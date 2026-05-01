@@ -71,13 +71,12 @@ class ActorClassResponseMarker(BaseResponseMarker):
                     erroneous.append((a.name, a.actor_type.value, "Cannot invent new actor names!!!"))
                 else:
                     self.validActors.append(a)
-                    self.valid_names.add(a.name)
             if len(erroneous) > 0:
                 message = f"Your previous response didn't adhere to the strict instruction not to create new actor names that haven't " \
                 "previously been encountered in this article. Rename the following list of actor tuples of format (name, ai label, error): " \
-                f"{erroneous}, returning a JSON list of objects conforming to the output format defined in your system prompt." \
-                "DO NOT repeat the actors from your last prompt who were classified correctly. For reference, the set of actor names " \
-                f"that have appeared so far is as follows: {self.valid_names}."
+                f"{erroneous}, returning a JSON list of objects conforming to the output format defined in your system prompt. " \
+                "You may only use actor names from the set of actor names " \
+                f"that have appeared so far, which is as follows: {self.valid_names}."
         
         return message
     
