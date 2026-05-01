@@ -18,7 +18,13 @@ def format_message(role: Literal["system", "user", "assistant"], content: str) -
 class BaseResponseMarker:
     # Provide an error message for the response, or 'None' if the response is valid
     def mark(self, response: str) -> str | None:
-        return NotImplemented
+        # should cache any correct aspects of the response here, ready to be returned by the 'get_correct' method
+        raise NotImplementedError()
+    
+    # Return the correct LLM response (constructed over the course of >=1 calls to 'mark')
+    # * MUST wipe the constructed response upon being called (so as not to carry forwards to the next task loop)
+    def get_correct(self) -> str:
+        raise NotImplementedError()
     
     # Clear any saved context for reset
     def reset(self):
@@ -91,10 +97,11 @@ class ChatHistory:
             error_message = self.response_marker.mark(output)
             if error_message is None:
                 if cull_mistakes:
-                    self.messages = archived_messages                       # remove model's 'debugging' messages from history
-                self.messages.append(format_message("assistant", output))   # record correct response
+                    self.messages = archived_messages                               # remove model's 'debugging' messages from history
+                finalOutput = self.response_marker.get_correct()
+                self.messages.append(format_message("assistant", finalOutput))      # record correct response
                 logger.info(f"Multi-attempt LLM response accepted after {attempts+1} attempts.")
-                return output
+                return finalOutput
             else:
                 logger.warning(f"LLM response error: {error_message}. Trying again...")
                 prompt = error_message

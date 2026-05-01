@@ -14,7 +14,7 @@ import asyncio
 
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
-    return NotImplemented
+    raise NotImplementedError()
 
 
 ollama_client = None
@@ -121,7 +121,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 # TODO : The LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
 @analyst_mcp.prompt()
 def gen_report() -> str:
-    return NotImplemented
+    raise NotImplementedError()
 
 if __name__ == "__main__":
     analyst_mcp.run()
