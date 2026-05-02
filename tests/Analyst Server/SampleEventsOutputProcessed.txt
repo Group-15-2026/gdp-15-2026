@@ -1,0 +1,1271 @@
+[
+  {
+    "event": "Trump questions Iran\'s new peace plan, expressing dissatisfaction.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "The latest: Trump says he\'s \'not satisfied\' with Iran\'s new peace plan",
+        "publication_time": "2026-05-01T12:14:37Z",
+        "source": {
+          "source_name": "Yahoo Entertainment"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Trump is dissatisfied with Iran\'s peace plan.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Indonesia considers toll charges for Strait of Malacca shipping.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "‘Turbulent and dangerous’: How shipping is the new global battleground",
+        "publication_time": "2026-05-01T13:18:33Z",
+        "source": {
+          "source_name": "Al Jazeera English"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Geopolitics is rewriting the rules of global shipping.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Global shipping is the new global battleground.",
+            "opinion": 9.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Automaker pivots strategy toward truck sales over EVs.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "GM bets on trucks and keeps writing down EVs, amid war and trade unease",
+        "publication_time": "2026-05-01T09:10:00Z",
+        "source": {
+          "source_name": "Ward\'s Auto"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Automakers should bet on trucks and SUVs.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Vessels targeted in hijackings off Somalia\'s coast.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Why is piracy rising off Somalia again — and is the Iran war responsible?",
+        "publication_time": "2026-05-01T06:10:45Z",
+        "source": {
+          "source_name": "Al Jazeera English"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Piracy is resurging off Somalia.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "The Iran war might be responsible for rising piracy.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Indianapolis Colts declines option on Anthony Richardson\'s contract",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Colts won’t pick up Anthony Richardson’s fifth-year option as trade questions loom",
+        "publication_time": "2026-05-01T00:57:19Z",
+        "source": {
+          "source_name": "New York Post"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "The Colts will not activate Anthony Richardson\'s fifth-year option.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "Anthony Richardson\'s time with the Colts will be short.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "NFL teams release draft content reviewing team strategies.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Buffalo Bills 2026 draft: Nuggets in Bills’ post-draft content, including another trade-down offer",
+        "publication_time": "2026-05-01T14:30:00Z",
+        "source": {
+          "source_name": "Buffalo Rumblings"
+        },
+        "initial_categories": null,
+        "claims": [],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Trump threatens to reduce pressure on Russia\'s global partners.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Trump’s Neo-Reagan Doctrine Is Rolling Back Russian Influence Across The World",
+        "publication_time": "2026-05-01T06:46:40Z",
+        "source": {
+          "source_name": "Nakedcapitalism.com"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Trump aims to reduce US pressure on certain countries.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Reducing US pressure might induce Russia to make deals.",
+            "opinion": 7.0
+          },
+          {
+            "claim": "Russia could lose many international partners.",
+            "opinion": 6.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Denver Nuggets consider trading key player to acquire assets.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Trade Jamal Murray? 3 deals for the Nuggets to get help for Nikola Jokić",
+        "publication_time": "2026-05-01T14:33:53Z",
+        "source": {
+          "source_name": "Yahoo Entertainment"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Denver Nuggets might have to trade Jamal Murray.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "India and UK discuss enhancing trade ties via CETA.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "India-UK trade boost: Goyal, Kyle discuss leveraging free trade pact",
+        "publication_time": "2026-05-01T14:30:04Z",
+        "source": {
+          "source_name": "BusinessLine"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "India and UK plan to boost trade ties.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "India-UAE FTA boosts bilateral trade exceeding $100 billion.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "India, UAE trade pact helps boost bilateral trade to cross $100 billion: Goyal",
+        "publication_time": "2026-05-01T09:15:42Z",
+        "source": {
+          "source_name": "BusinessLine"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "India-UAE trade pact boosted bilateral trade over $100 billion.",
+            "opinion": 9.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "USTR is questioned over trade policy justification methods.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Trump’s Plan B for Tariffs Rests on Shaky Foundations",
+        "publication_time": "2026-05-01T10:00:53Z",
+        "source": {
+          "source_name": "Foreign Policy"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "U.S. trade officials\' Section 301 case is incoherent and indefensible.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "The USTR\'s formula justifying tariffs is mocked globally.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "US imposes restrictive measures on telecommunications and trade",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "China Protests New US Restrictions in Telecommunications Sphere",
+        "publication_time": "2026-05-01T07:48:09Z",
+        "source": {
+          "source_name": "Sputnikglobe.com"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "US restrictions undermine China-US trade stability.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "US measures target countries lacking special agreements.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "China protests US trade restrictions undermining bilateral stability",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "China Protests New US Restrictions in Telecommunications Sphere",
+        "publication_time": "2026-05-01T07:48:09Z",
+        "source": {
+          "source_name": "Sputnikglobe.com"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "US restrictions undermine China-US trade stability.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "US measures target countries lacking special agreements.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "EU-Mercosur trade deal provisionally enters into force.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Blockbuster EU-Mercosur trade deal enters into force",
+        "publication_time": "2026-05-01T07:52:06Z",
+        "source": {
+          "source_name": "Thelocal.com"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "The EU-Mercosur trade deal provisionally entered into force.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "International trade is slowing due to rising economic uncertainty.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Amid rising tensions, ‘friendshoring’ might keep global trade alive",
+        "publication_time": "2026-05-01T10:48:18Z",
+        "source": {
+          "source_name": "The Conversation Africa"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Global trade is slowing down significantly.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Friendshoring may help keep global trade active.",
+            "opinion": 7.0
+          },
+          {
+            "claim": "US-China trade tension is a major concern.",
+            "opinion": 9.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "EU and Mercosur tentatively initiated a major trade agreement.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Blockbuster EU-Mercosur trade deal enters into force",
+        "publication_time": "2026-05-01T10:26:23Z",
+        "source": {
+          "source_name": "Hurriyet Daily News"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "EU and Mercosur signed a large trade deal.",
+            "opinion": 7.0
+          },
+          {
+            "claim": "The trade deal\'s legality faces a potential court challenge.",
+            "opinion": -8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "İzmir exhibits 8,500-year trade history of the port city.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "İzmir’s 8,500-year trade legacy on display at museum",
+        "publication_time": "2026-05-01T08:20:32Z",
+        "source": {
+          "source_name": "Hurriyet Daily News"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Izmir has an 8,500-year trade history.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "United States taking action to disrupt Iran\'s illicit oil trade",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "U.S. Sanctions Tighten Grip on Iran-China Oil Trade",
+        "publication_time": "2026-05-01T12:00:00Z",
+        "source": {
+          "source_name": "Globalsecurity.org"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Iran\'s oil trade funds terrorism and regional destabilization.",
+            "opinion": 10.0
+          },
+          {
+            "claim": "US takes decisive action to disrupt Iran\'s oil trade.",
+            "opinion": 9.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "War in Iran triggers fresh energy shock, impacting global supply.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Energy trade-offs: What’s prompted the global shift towards renewables over fossil fuels?",
+        "publication_time": "2026-05-01T08:30:45Z",
+        "source": {
+          "source_name": "Livemint"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "The war in Iran will change the global future unpredictably.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Iran\'s war triggers a fresh energy shock.",
+            "opinion": 7.0
+          },
+          {
+            "claim": "Inflation and supply disruptions could slow clean energy adoption.",
+            "opinion": 6.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "NHL player trade rumors intensify for Edmonton Oilers",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Oilers\' trade clock is officially ticking with Connor McDavid",
+        "publication_time": "2026-05-01T10:54:59Z",
+        "source": {
+          "source_name": "Sporting News"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Edmonton will eventually have to make a trade decision.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Detroit Tigers acquired Zack Short from Washington Nationals for cash.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Detroit Tigers Acquire ‘Old Friend’ Via Trade With Nationals",
+        "publication_time": "2026-05-01T14:31:26Z",
+        "source": {
+          "source_name": "Detroit Sports Nation"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Tigers acquired Zack Short from the Nationals.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Green Bay Packers consider acquiring a quarterback in offseason.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Packers potentially in play for massive offseason QB trade",
+        "publication_time": "2026-05-01T00:44:19Z",
+        "source": {
+          "source_name": "USA Today"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Green Bay Packers need to acquire a new quarterback.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "China imposed rare earth export controls, targeting global supply chains.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "China tightens grip on rare earth minerals, escalating global supply chain tensions",
+        "publication_time": "2026-05-01T06:00:00Z",
+        "source": {
+          "source_name": "Naturalnews.com"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "China restricts rare earth mineral exports via strict controls.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "China is weaponizing its dominant rare earth market share.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "The rare earth controls target Western defense and tech.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "India and UK discuss increasing bilateral trade mechanisms and volumes.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "India, UK discuss ways to boost bilateral trade",
+        "publication_time": "2026-05-01T09:53:13Z",
+        "source": {
+          "source_name": "BusinessLine"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "India and the UK discussed boosting bilateral trade.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Labor movement will protest on streets instead of ceremonial venues.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "May Day 2026: From stadiums to the streets",
+        "publication_time": "2026-05-01T00:16:00Z",
+        "source": {
+          "source_name": "Vanguard"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "May 1, 2026, will not be a state pageant event.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "May 1, 2026 returns to labor movement roots.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Labor actions will focus on the streets, not state venues.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Eswatini bans May Day rally, citing public order concerns.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Vanguard - May Day Showdown: Eswatini bans rally, labour union heads to court",
+        "publication_time": "2026-05-01T10:58:13Z",
+        "source": {
+          "source_name": "Vanguard"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Eswatini government banned a May Day rally.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Banning the rally will cause labor unrest.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "Labour union heads plan legal action against the government.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Labour union heads sue Eswatini government over rally ban.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Vanguard - May Day Showdown: Eswatini bans rally, labour union heads to court",
+        "publication_time": "2026-05-01T10:58:13Z",
+        "source": {
+          "source_name": "Vanguard"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Eswatini government banned a May Day rally.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "Banning the rally will cause labor unrest.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "Labour union heads plan legal action against the government.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "African workers protested rising economic inequality and elite control.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Vanguard - May Day: African Workers decry rising inequality, “Vanishing Billions” and Elite Control",
+        "publication_time": "2026-05-01T07:50:18Z",
+        "source": {
+          "source_name": "Vanguard"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "African workers are concerned about rising economic inequality.",
+            "opinion": 8.0
+          },
+          {
+            "claim": "The wealth of billions of Africans is disappearing.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "Elite control is diminishing the livelihoods of African workers.",
+            "opinion": 7.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "China implements zero-tariff trade access for 53 African nations.",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "China rolls out zero-tariff access for Nigeria, 52 other African countries",
+        "publication_time": "2026-05-01T12:24:58Z",
+        "source": {
+          "source_name": "Vanguard"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "China implemented zero tariffs for 53 African countries.",
+            "opinion": 10.0
+          },
+          {
+            "claim": "The tariff reduction aims to deepen trade ties with Africa.",
+            "opinion": 9.0
+          },
+          {
+            "claim": "These measures expand market access for African exports.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  },
+  {
+    "event": "Chinese company sues over federal seizure of Darwin Port",
+    "actors": null,
+    "themes": null,
+    "source_articles": [
+      {
+        "article_title": "Chinese company launches legal action over forced sale of Port of Darwin",
+        "publication_time": "2026-05-01T09:21:34Z",
+        "source": {
+          "source_name": "ABC News (AU)"
+        },
+        "initial_categories": null,
+        "claims": [
+          {
+            "claim": "Australian government should nationalize the Darwin Port.",
+            "opinion": 8.0
+          }
+        ],
+        "themes": null
+      }
+    ],
+    "controversy": null,
+    "economic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "financial_market_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "security_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    },
+    "diplomatic_impact": {
+      "severity": "no_impact",
+      "justification": ""
+    }
+  }
+]
