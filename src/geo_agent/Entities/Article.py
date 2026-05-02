@@ -1,10 +1,11 @@
+from .BaseModelClean import BaseModelClean as BaseModel
 from .Validators import Between10
 
 from db.database import engine
 
 from datetime import datetime
 from enum import StrEnum
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 from sqlmodel import Field as sqlField, SQLModel, Relationship, select, Session
 
 # pydantic is used to allow use of objects in mcp tools

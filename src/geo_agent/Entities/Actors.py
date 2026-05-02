@@ -1,7 +1,8 @@
+from .BaseModelClean import BaseModelClean as BaseModel
 from .Validators import Between10, Percentage
 
 from enum import StrEnum
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 
 # pydantic is used to allow use of objects in mcp tools
 

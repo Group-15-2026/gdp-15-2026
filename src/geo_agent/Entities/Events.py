@@ -1,9 +1,10 @@
 from .Actors import Actor, ActorType
 from .Article import Article
+from .BaseModelClean import BaseModelClean as BaseModel
 from .Validators import Between10p, Count
 
 from enum import StrEnum
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 
 # pydantic is used to allow use of objects in mcp tools
 

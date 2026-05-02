@@ -7,6 +7,7 @@ from .extraction import extract_actors, extract_article_events, extract_article_
 
 import asyncio
 from mcp.server.fastmcp import FastMCP
+from pydantic import BaseModel
 
 summariser_mcp = FastMCP(name="Summariser MCP Server")
 
@@ -21,8 +22,12 @@ def summarise_batch(articles: list[Article]) -> list[Article]:
 #def tag_article_categories(articles: list[Article]) -> list[Article]:
 #    raise NotImplementedError()
 
+class ExtractEventsResult(BaseModel):
+    actors: list[Actor]
+    events: list[Event]
+
 @summariser_mcp.tool()
-async def extract_events(articles: list[Article]) -> tuple[list[Actor], list[Event]]:
+async def extract_events(articles: list[Article]) -> ExtractEventsResult:
     # TODO Update this docstring to be consistent with the changed Entity behaviours (specifically whether the event objects have full 'actor' and 'source_articles' fields)
     '''
     Extracts the geopolitical actors, claims and events from a list of articles, classifies the actors, and
@@ -59,7 +64,7 @@ async def extract_events(articles: list[Article]) -> tuple[list[Actor], list[Eve
             event.source_articles = [article]
         events += doc_events
 
-    return actors, events
+    return ExtractEventsResult(actors=actors, events=events)
 
 if __name__ == "__main__":
     summariser_mcp.run()

@@ -81,14 +81,14 @@ async def main():
 
     articles = [article1]
 
-    (actors, events) = await extract_events(articles)
-    for actor in actors:
+    result = await extract_events(articles)
+    for actor in result.actors:
         print(actor.name, actor.actor_type)
 
     print()
 
     processed_articles = set()
-    for event in events:
+    for event in result.events:
         print(event.event)
         processed_articles = processed_articles.union(set(event.source_articles))
 
