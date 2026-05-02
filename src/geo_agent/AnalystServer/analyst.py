@@ -117,7 +117,6 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 
     return analysed_events
 
-# ! Note to implementer: this is slightly different from the arch. diagram, but is probably the easiest implementation
 # TODO : The LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
 @analyst_mcp.prompt()
 def gen_report() -> str:
@@ -125,16 +124,3 @@ def gen_report() -> str:
 
 if __name__ == "__main__":
     analyst_mcp.run()
-
-    # TODO This should be moved to the "tests/Analyst Server/test_analyst.py" file
-    # ! Never add tests to the MCP server files, as it breaks the project
-    '''
-    # Testing
-    test_event = Event(event="Civil unrest in Gabon")
-    test_event.diplomatic_impact.severity = _Severity.low
-    test_event.economic_impact.severity = _Severity.no_impact
-    test_event.financial_market_impact.severity = _Severity.no_impact
-    test_event.security_impact.severity = _Severity.high
-    result = asyncio.run(analyse_events([test_event]))
-    print(result)
-    '''
