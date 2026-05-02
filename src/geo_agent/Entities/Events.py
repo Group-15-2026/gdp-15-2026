@@ -20,15 +20,15 @@ class _ActorEntry(BaseModel):
         elif amt <= 0: raise ValueError(f"Count cannot increase by value {amt} <= 0")
         self.occurences += amt
 
-class _Severity(StrEnum):
+class Severity(StrEnum):
     no_impact = "no_impact"
     low = "low"
     medium = "medium"
     high = "high"
 
-class _Impact(BaseModel):
-    severity: _Severity = _Severity.no_impact
-    justification: str = ""
+class Impact(BaseModel):
+    severity: Severity
+    justification: str
 
 class Event(BaseModel):
     # Ensure validation is carried out when details are added later
@@ -43,10 +43,10 @@ class Event(BaseModel):
     source_articles: list[Article] | None = None
 
     controversy: Between10p | None = None
-    economic_impact: _Impact = _Impact()
-    financial_market_impact: _Impact =  _Impact()
-    security_impact: _Impact = _Impact()
-    diplomatic_impact: _Impact =  _Impact()
+    economic_impact: Impact | None = None
+    financial_market_impact: Impact | None = None
+    security_impact: Impact | None = None
+    diplomatic_impact: Impact | None = None
 
     # TODO may need breaking up into different methods for filling in at different times
     def set_processed_values(self,
@@ -56,10 +56,10 @@ class Event(BaseModel):
                              s_sev: str, s_just: str,
                              d_sev: str, d_just: str) -> None:
         self.controversy = controversy
-        self.economic_impact = _Impact(severity=_Severity(e_sev), justification=e_just)
-        self.financial_market_impact = _Impact(severity=_Severity(f_sev), justification=f_just)
-        self.security_impact = _Impact(severity=_Severity(s_sev), justification=s_just)
-        self.diplomatic_impact = _Impact(severity=_Severity(d_sev), justification=d_just)
+        self.economic_impact = Impact(severity=Severity(e_sev), justification=e_just)
+        self.financial_market_impact = Impact(severity=Severity(f_sev), justification=f_just)
+        self.security_impact = Impact(severity=Severity(s_sev), justification=s_just)
+        self.diplomatic_impact = Impact(severity=Severity(d_sev), justification=d_just)
 
     def set_actors(self, actors: list[tuple[Actor, int]]) -> None:
         self.actors = []

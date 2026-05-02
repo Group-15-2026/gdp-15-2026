@@ -1,6 +1,6 @@
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor
-from ..Entities.Events import Event, _Impact, _Severity
+from ..Entities.Events import Event, Impact, Severity
 
 from mcp.server.fastmcp import FastMCP
 
