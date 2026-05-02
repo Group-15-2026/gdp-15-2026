@@ -65,6 +65,9 @@ class ActorClassResponseMarker(BaseResponseMarker):
             message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
             f"based off of the following error: {e}."
         # ! If the article has spelling mistakes, the LLM may never be able to output the mispelled actors. In general, the LLM does well enough that this anti-hallucination validation is not required at all, so it has been removed for now 
+        else:
+            for a in output_obj:
+                self.validActors.append(a)        
         #else:
         #    erroneous = []
         #    for a in output_obj:
