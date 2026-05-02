@@ -30,7 +30,7 @@ async def main():
         source_articles = articles
     )
 
-    # Shouldn't be necessary once the full analyst function is implemented
+    # won't be necessary once the full analyst function is implemented
     event1.diplomatic_impact.severity = _Severity.medium
     event1.economic_impact.severity = _Severity.no_impact
     event1.financial_market_impact.severity = _Severity.no_impact
