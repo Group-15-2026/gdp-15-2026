@@ -1,5 +1,5 @@
 from geo_agent.Entities.Article import Article, Source
-from geo_agent.Entities.Events import Event, _Impact, _Severity
+from geo_agent.Entities.Events import Event, Impact, Severity
 from geo_agent.AnalystServer.analyst import impact_justifications
 
 from utils import setup
@@ -48,25 +48,20 @@ async def main():
     )
 
     # required as we are only judging the justification generator
-    event1.diplomatic_impact.severity = _Severity.low
-    event1.economic_impact.severity = _Severity.no_impact
-    event1.financial_market_impact.severity = _Severity.no_impact
-    event1.security_impact.severity = _Severity.no_impact
-    event2.diplomatic_impact.severity = _Severity.no_impact
-    event2.economic_impact.severity = _Severity.no_impact
-    event2.financial_market_impact.severity = _Severity.no_impact
-    event2.security_impact.severity = _Severity.low
-    event3.diplomatic_impact.severity = _Severity.low
-    event3.economic_impact.severity = _Severity.high
-    event3.financial_market_impact.severity = _Severity.high
-    event3.security_impact.severity = _Severity.medium
-
+    event1.set_impacts(Severity.no_impact, "", Severity.no_impact, "", Severity.no_impact, "", Severity.low, "")
+    event2.set_impacts(Severity.no_impact, "", Severity.no_impact, "", Severity.low, "", Severity.no_impact, "")
+    event3.set_impacts(Severity.high, "", Severity.high, "", Severity.medium, "", Severity.low, "")
+    
 
     [processed_events] = await asyncio.gather(
         impact_justifications([event1,event2,event3])
     )
 
     for event in processed_events:
+        assert event.economic_impact
+        assert event.financial_market_impact
+        assert event.security_impact
+        assert event.diplomatic_impact
         print(f"The event <<{event.event}>> has the following impacts:")
 
         print(f"economic impact severity: {event.economic_impact.severity}" )

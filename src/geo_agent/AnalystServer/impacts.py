@@ -1,7 +1,7 @@
 from ..config import config
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor
-from ..Entities.Events import Event, _Impact, _Severity
+from ..Entities.Events import Event, Impact, Severity
 from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
 
 from ollama import AsyncClient
@@ -111,6 +111,8 @@ async def impact_justifications(events: list[Event]) -> list[Event]:
     for batch in itertools.batched(events, config.A_EVE_BATCH_SIZE):
         processed_batch = []
         for event in batch:            
+            assert event.economic_impact and event.financial_market_impact
+            assert event.security_impact and event.diplomatic_impact
             user_query = f"<event>{event.event}</event>"
             user_query += f" <economic_impact_severity>{event.economic_impact.severity}</economic_impact_severity>"
             user_query += f" <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity>"
@@ -122,10 +124,16 @@ async def impact_justifications(events: list[Event]) -> list[Event]:
         output_obj: list[EventJustificationOutput] = JustificationBatchResponse.validate_json(output)
 
         for (event, output) in zip(batch, output_obj):
-            event.economic_impact.justification = output.economic_impact_justification
-            event.diplomatic_impact.justification = output.diplomatic_impact_justification
-            event.financial_market_impact.justification = output.financial_market_impact_justification
-            event.security_impact.justification = output.security_impact_justification
+            assert event.economic_impact and event.financial_market_impact
+            assert event.security_impact and event.diplomatic_impact
+
+            event.set_impacts(
+                event.economic_impact.severity, output.economic_impact_justification,
+                event.financial_market_impact.severity, output.financial_market_impact_justification,
+                event.security_impact.severity, output.security_impact_justification,
+                event.diplomatic_impact.severity, output.diplomatic_impact_justification
+            )
+
             processed_events.append(event)
 
     return processed_events
@@ -143,10 +151,6 @@ async def impact_serverities(events: list[Event]) -> list[Event]:
 
             all_related_claims += article.claims
 
-        economic_impact_severity = _Severity.no_impact
-        financial_market_impact_severity = _Severity.no_impact
-        security_impact_severity = _Severity.no_impact
-        diplomatic_impact_severity = _Severity.no_impact
 
         # TODO: extract structured indicators from article titles and claims using an LLM:
         raise NotImplementedError()

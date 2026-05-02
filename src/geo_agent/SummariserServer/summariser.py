@@ -28,7 +28,6 @@ class ExtractEventsResult(BaseModel):
 
 @summariser_mcp.tool()
 async def extract_events(articles: list[Article]) -> ExtractEventsResult:
-    # TODO Update this docstring to be consistent with the changed Entity behaviours (specifically whether the event objects have full 'actor' and 'source_articles' fields)
     '''
     Extracts the geopolitical actors, claims and events from a list of articles, classifies the actors, and
     updates the events with information on the actors and articles that they reference. The updated
@@ -36,6 +35,9 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
 
     You should only pass in article objects that have been outputted by the 'collect_articles' or 
     'search_news' tools, NOT articles that have already been processed.
+
+    Args:
+        articles: The articles to process, and extract the events from. These should come from one of the 'collect_articles' or 'search_news' tools
     '''
 
     # Extract Article Claims (concurrently if possible)

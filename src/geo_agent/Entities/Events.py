@@ -50,17 +50,19 @@ class Event(BaseModel):
     diplomatic_impact: Impact | None = None
 
     # TODO may need breaking up into different methods for filling in at different times
-    def set_processed_values(self,
-                             controversy: float,
+    def set_impacts(self,
                              e_sev: str, e_just: str,
                              f_sev: str, f_just: str,
                              s_sev: str, s_just: str,
                              d_sev: str, d_just: str) -> None:
-        self.controversy = controversy
         self.economic_impact = Impact(severity=Severity(e_sev), justification=e_just)
         self.financial_market_impact = Impact(severity=Severity(f_sev), justification=f_just)
         self.security_impact = Impact(severity=Severity(s_sev), justification=s_just)
         self.diplomatic_impact = Impact(severity=Severity(d_sev), justification=d_just)
+
+
+    def set_controvercy(self, controversy: float) -> None:
+        self.controversy = controversy
 
     def set_actors(self, actors: list[tuple[Actor, int]]) -> None:
         self.actors = []
