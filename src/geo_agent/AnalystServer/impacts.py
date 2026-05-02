@@ -7,7 +7,7 @@ from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
 from ollama import AsyncClient
 import itertools
 import logging
-from pydantic import TypeAdapter, BaseModel, Field
+from pydantic import TypeAdapter, BaseModel
 import asyncio
 
 logger = logging.getLogger(__name__)
@@ -62,7 +62,6 @@ JustificationBatchResponse = TypeAdapter(list[EventJustificationOutput])
 # Class that evaluates the validity of the classification-LLM 's response
 class EventJustificationResponseMarker(BaseResponseMarker):
     def __init__(self):
-        self.valid_names = set()
         self.validEvents = []
 
     def mark(self, response: str) -> str | None:
@@ -77,20 +76,12 @@ class EventJustificationResponseMarker(BaseResponseMarker):
             # TODO: perform further validation on output_obj and if it fails set a meaningful message
             for ej in output_obj:
                 self.validEvents.append(ej)
-
-        
-
         return message
     
     def get_correct(self) -> str:
         response = JustificationBatchResponse.dump_json(self.validEvents).decode("utf-8")
         self.validEvents = []
         return response
-    
-    def reset(self):
-        self.valid_names.clear()
-
-
 
 
 # Assume impact scores already populated in events.
@@ -130,14 +121,13 @@ async def impact_justifications(events: list[Event]) -> list[Event]:
         output = await chat_history.chat(f"Event severity values: {processed_batch}")
         output_obj: list[EventJustificationOutput] = JustificationBatchResponse.validate_json(output)
 
-
         for (event, output) in zip(batch, output_obj):
-
             event.economic_impact.justification = output.economic_impact_justification
             event.diplomatic_impact.justification = output.diplomatic_impact_justification
             event.financial_market_impact.justification = output.financial_market_impact_justification
             event.security_impact.justification = output.security_impact_justification
             processed_events.append(event)
+
     return processed_events
 
 

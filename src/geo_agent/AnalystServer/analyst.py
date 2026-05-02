@@ -1,6 +1,6 @@
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor
-from ..Entities.Events import Event, _Impact, _Severity
+from ..Entities.Events import Event
 
 from .impacts import impact_serverities, impact_justifications
 
@@ -17,7 +17,7 @@ def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
 
 
 @analyst_mcp.tool()
-async def analyse_events(events: list[Event]) -> list[Event]:                                     #
+async def analyse_events(events: list[Event]) -> list[Event]:
     '''
     Calculates the: economic impact, financial market impact, security impact and diplomatic impact
     of each of the events from its source articles. Updates the events with with these impacts and
@@ -26,8 +26,10 @@ async def analyse_events(events: list[Event]) -> list[Event]:                   
     You should only pass in event objects that have been outputted by the 'extract_events' tool in 
     the 'summariser' mcp server, NOT events that have already been processed.
     '''
-        
-    # scored_events = await impact_serverities(events)
+    
+    # TODO: Implement this funciton
+    scored_events = await impact_serverities(events)
+    
     analysed_events = await impact_justifications(events)
 
     return analysed_events
