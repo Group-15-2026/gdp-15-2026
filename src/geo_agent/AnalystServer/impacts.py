@@ -130,8 +130,6 @@ async def impact_justifications(events: list[Event]) -> list[Event]:
         output = await chat_history.chat(f"Event severity values: {processed_batch}")
         output_obj: list[EventJustificationOutput] = JustificationBatchResponse.validate_json(output)
 
-        logger.info("test.")
-        logger.info(output)
 
         for (event, output) in zip(batch, output_obj):
 
