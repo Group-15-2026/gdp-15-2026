@@ -178,7 +178,7 @@ class ClaimExtractResponseMarker(BaseResponseMarker):
         return response
 
 claim_extraction_system_prompt = f'''
-You are a geopolitical claim extraction agent. Given an article, you must output a JSON list of _ClaimEntry
+You are a geopolitical claim extraction agent. Given an article, you must output a JSON list of ClaimEntry
 JSON objects corresponding to claims that the article makes. Each claim should be 
 {ClaimExtractResponseMarker.max_word_count} words or less, and as 
 simply worded as possible. It should be a stand alone claim which makes sense without the context of the 

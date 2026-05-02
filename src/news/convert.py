@@ -16,12 +16,11 @@ def to_datetime(time_str):
     return parser.parse(time_str)
 
 # raws are Python dicts following NewsAPI style
-def to_article(raw, id):
+def to_article(raw):
     a = Article(
-        article_title=raw['title'],
-        publication_time=to_datetime(raw['publishedAt']),
-        source=_to_source(raw['source'])
-        #//text_body=f"Summary: {raw['description']}. Snippet: {raw['content']}"
+        article_title=raw['title'] or "Missing Title",
+        publication_time=to_datetime(raw['publishedAt'] or "Missing publication date"),
+        source=_to_source(raw['source'] or "Missing source")
     )
     return a
 
@@ -35,7 +34,7 @@ def to_source_db(raw) -> tuple[Source, SourceDB]:
         sourcedb = results.first()
         if not sourcedb:
             sourcedb = SourceDB(
-                source_name=name,
+                source_name=name
             )
             session.add(sourcedb)
             session.commit()
@@ -48,20 +47,23 @@ def to_source_db(raw) -> tuple[Source, SourceDB]:
 def to_article_db(raw) -> tuple[Article, ArticleDB]:
     text_body = to_full_text(raw)
     source, sourcedb = to_source_db(raw['source'])
-    
+
+    title = raw['title'] or "Missing title"
+    publication_time = to_datetime(raw['publishedAt'] or "Missing publication date")
+
     article = Article(
-        article_title=raw['title'],
-        publication_time=to_datetime(raw['publishedAt']),
-        source=source,
+        article_title=title,
+        publication_time=publication_time,
+        source=source
     )
 
     articledb = ArticleDB(
-        article_title=raw['title'],
-        publication_time=to_datetime(raw['publishedAt']),
+        article_title=title,
+        publication_time=publication_time,
         source_id=sourcedb.source_id,
         source=sourcedb,
-        url=raw['url'],
-        text_body=text_body,
+        url=raw['url'] or "Missing url",
+        text_body=text_body
     )
     return (article, articledb)
 
