@@ -1,5 +1,5 @@
 from geo_agent.Entities.Article import Article, Source
-from geo_agent.SummariserServer.summariser import extract_claims, extract_actors_and_events
+from geo_agent.SummariserServer.summariser import extract_events
 
 from utils import setup
 
@@ -69,10 +69,10 @@ async def main():
     setup()
 
     article1 = Article(
-        article_title = "",
+        article_title = "Random BBC news article",
         publication_time = datetime.now(),
         source = Source(
-            source_name = "Bob's Newsagents"
+            source_name = "bbc-news"
         )
     )
 
@@ -81,26 +81,20 @@ async def main():
 
     articles = [article1]
 
-    #actors, events = await extract_act_eve(articles)
-    #articles = await score_sentiment(articles)
-
-    # Test concurrent tool calling
-    [(actors, events), articles] = await asyncio.gather(
-        extract_actors_and_events(articles),
-        extract_claims(articles)
-    )
-
+    (actors, events) = await extract_events(articles)
     for actor in actors:
         print(actor.name, actor.actor_type)
 
     print()
 
+    processed_articles = set()
     for event in events:
         print(event.event)
+        processed_articles = processed_articles.union(set(event.source_articles))
 
     print()
 
-    for article in articles:
+    for article in processed_articles:
         print(f"{article.article_title} makes the following claims:")
         for claim in article.claims:
             print("\t* ", claim.claim, claim.opinion)

@@ -8,7 +8,7 @@ from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient, set_debug
 
 # Avoid printing messy logs
-set_debug(1)   # TODO trial removing to see compatibility with logging
+set_debug(2)   # TODO trial removing to see compatibility with logging
 
 CONFIG = {
     "mcpServers": {

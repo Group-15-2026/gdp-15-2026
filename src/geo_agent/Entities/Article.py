@@ -56,6 +56,14 @@ class Article(BaseModel):
     claims: list[ClaimEntry] | None = None
     themes: list[str] | None = None
 
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Article):
+            return self.article_title == other.article_title and self.publication_time == other.publication_time and self.source.source_name == other.source.source_name
+        return False
+
+    def __hash__(self) -> int:
+        return hash((self.article_title, self.publication_time, self.source.source_name))
+
     # TODO may need breaking up into different methods for filling in at different times (see set_actors)
     def set_processed_values(self,
                              initial_categories: list[str],
