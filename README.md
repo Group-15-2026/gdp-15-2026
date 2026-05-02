@@ -25,3 +25,12 @@ In order to use the local LLMs, ollama must be installed on your local computer,
 
 In order to use the Spacy NLP model in the summariser mcp server, it must be installed locally. Note that the summariser mcp 'extract_act_eve' tool cannot be called without this functionality:
 * Run the command "uv run -- spacy download en_core_web_trf" in order to install the model that the project uses. It will take up ~0.5GB of space.
+
+On Linux machines, the below commands may be useful for altering environment variables when running ollama as a service.
+* sudo systemctl edit ollama.service
+* sudo systemctl daemon-reload
+* sudo systemctl restart ollama
+
+The service settings file should then have the below added:  
+[Service]  
+Environment="OLLAMA_MAX_LOADED_MODELS=2" (or any other settings)
