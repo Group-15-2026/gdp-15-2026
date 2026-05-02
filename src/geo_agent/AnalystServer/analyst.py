@@ -2,15 +2,13 @@ from ..Entities.Article import Article
 from ..Entities.Actors import Actor
 from ..Entities.Events import Event, _Impact, _Severity
 
-from .impacts import get_justification
+from .impacts import event_impact_serverity, get_justification
 
 import asyncio
 from mcp.server.fastmcp import FastMCP
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
 
-
-# ! Note to implementer: may only pass unique articles IDs to tools, and the articles can then be collected from central DB
 
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
@@ -19,13 +17,21 @@ def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
 
 
 @analyst_mcp.tool()
-async def analyse_events(events: list[Event]) -> list[Event]:
-    # TODO Need to implement impact scoring routine here.
+async def analyse_events(events: list[Event]) -> list[Event]:                                     #
+    '''
+    Calculates the: economic impact, financial market impact, security impact and diplomatic impact
+    of each of the events from its source articles. Updates the events with with these impacts and
+    returns the updated events.
 
-
+    You should only pass in event objects that have been outputted by the 'extract_events' tool in 
+    the 'summariser' mcp server, NOT events that have already been processed.
+    '''
+        
     analysed_events = []
     for event in events:
-        analysed_events.append(await get_justification(event))
+        scored_event = await event_impact_serverity(event)
+        completed_event = await get_justification(scored_event)
+        analysed_events.append(completed_event)
 
     return analysed_events
 

@@ -50,15 +50,24 @@ class EventJustificationOutput(BaseModel):
     diplomatic_impact_justification: str
 
 
-# ! Assume impact scores already populated in events.
+# TODO Need to implement impact scoring routine.
+async def event_impact_serverity(event: Event) -> Event:
+    raise NotImplementedError()
 
+
+# ! This fails silently if the first 5 attempts don't succeed. This is part of why it's important to transition to the ChatHistory Class
 # TODO The below should be updated to use the ChatHistory class, instead of calling ollama directly
+# Assume impact scores already populated in events.
 async def get_justification(event: Event) -> Event:
     global ollama_client
     if ollama_client is None:
         ollama_client = AsyncClient()
 
-    user_query = f"<event>{event.event}</event> <economic_impact_severity>{event.economic_impact.severity}</economic_impact_severity> <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity> <security_impact_severity>{event.security_impact.severity}</security_impact_severity> <diplomatic_impact_severity>{event.diplomatic_impact.severity}</diplomatic_impact_severity>"
+    user_query = f"<event>{event.event}</event>"
+    user_query += f" <economic_impact_severity>{event.economic_impact.severity}</economic_impact_severity>"
+    user_query += f" <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity>"
+    user_query += f" <security_impact_severity>{event.security_impact.severity}</security_impact_severity>"
+    user_query += f" <diplomatic_impact_severity>{event.diplomatic_impact.severity}</diplomatic_impact_severity>"
 
     for _ in range(5):
         try:
@@ -90,6 +99,4 @@ async def get_justification(event: Event) -> Event:
             event.security_impact.justification = output.security_impact_justification
             break
     
-    # ! This fails silently if the first 5 attempts don't succeed. This is part of why it's important to transition to the ChatHistory Class
-
     return event
