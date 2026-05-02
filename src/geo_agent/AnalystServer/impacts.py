@@ -50,10 +50,37 @@ class EventJustificationOutput(BaseModel):
     diplomatic_impact_justification: str
 
 
-# TODO Need to implement impact scoring routine.
+# Assume articles and claims are populated.
 async def event_impact_serverity(event: Event) -> Event:
+    assert (event.source_articles != None)
+
+    all_related_claims = []
+
+    for article in event.source_articles:
+        assert (article.claims != None)
+
+        all_related_claims += article.claims
+
+    economic_impact_severity = _Severity.no_impact
+    financial_market_impact_severity = _Severity.no_impact
+    security_impact_severity = _Severity.no_impact
+    diplomatic_impact_severity = _Severity.no_impact
+
+    # TODO: extract structured indicators from article titles and claims using an LLM:
     raise NotImplementedError()
 
+
+    # TODO: rules based system to these indicators to get an overall severity ranking:
+    raise NotImplementedError()
+
+
+    # set severity values
+    event.economic_impact.severity = economic_impact_severity
+    event.financial_market_impact.severity = financial_market_impact_severity
+    event.security_impact.severity = security_impact_severity
+    event.diplomatic_impact.severity = diplomatic_impact_severity
+
+    return event
 
 # ! This fails silently if the first 5 attempts don't succeed. This is part of why it's important to transition to the ChatHistory Class
 # TODO The below should be updated to use the ChatHistory class, instead of calling ollama directly
