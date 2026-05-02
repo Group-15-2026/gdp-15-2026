@@ -2,7 +2,7 @@ from ..Entities.Article import Article
 from ..Entities.Actors import Actor
 from ..Entities.Events import Event, _Impact, _Severity
 
-from .impacts import event_impact_serverity, get_justification
+from .impacts import impact_serverities, impact_justifications
 
 import asyncio
 from mcp.server.fastmcp import FastMCP
@@ -27,11 +27,8 @@ async def analyse_events(events: list[Event]) -> list[Event]:                   
     the 'summariser' mcp server, NOT events that have already been processed.
     '''
         
-    analysed_events = []
-    for event in events:
-        scored_event = await event_impact_serverity(event)
-        completed_event = await get_justification(scored_event)
-        analysed_events.append(completed_event)
+    # scored_events = await impact_serverities(events)
+    analysed_events = await impact_justifications(events)
 
     return analysed_events
 

@@ -1,11 +1,19 @@
+from ..config import config
 from ..Entities.Article import Article
 from ..Entities.Actors import Actor
 from ..Entities.Events import Event, _Impact, _Severity
+from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
 
 from ollama import AsyncClient
-from pydantic import BaseModel
+import itertools
+import logging
+from pydantic import TypeAdapter, BaseModel, Field
 import asyncio
 
+logger = logging.getLogger(__name__)
+
+
+# Ollama LLM Setup
 ollama_client = None
 system_prompt_event_classification = """
 Role: You are a Senior Geopolitical Risk Analyst and Event Classification Agent.
@@ -42,88 +50,128 @@ Categories:
     Diplomatic: Shifts in formal alliances, international organization responses (UN, NATO, EU, etc.), and the likelihood of new multilateral sanctions.
 """
 
-# TODO This should probably use the event class directly
+# ? should this use the event class directly
 class EventJustificationOutput(BaseModel):
     economic_impact_justification: str
     financial_market_impact_justification: str
     security_impact_justification: str
     diplomatic_impact_justification: str
 
+JustificationBatchResponse = TypeAdapter(list[EventJustificationOutput])
 
-# Assume articles and claims are populated.
-async def event_impact_serverity(event: Event) -> Event:
-    assert (event.source_articles != None)
+# Class that evaluates the validity of the classification-LLM 's response
+class EventJustificationResponseMarker(BaseResponseMarker):
+    def __init__(self):
+        self.valid_names = set()
+        self.validEvents = []
 
-    all_related_claims = []
+    def mark(self, response: str) -> str | None:
+        message = None
 
-    for article in event.source_articles:
-        assert (article.claims != None)
-
-        all_related_claims += article.claims
-
-    economic_impact_severity = _Severity.no_impact
-    financial_market_impact_severity = _Severity.no_impact
-    security_impact_severity = _Severity.no_impact
-    diplomatic_impact_severity = _Severity.no_impact
-
-    # TODO: extract structured indicators from article titles and claims using an LLM:
-    raise NotImplementedError()
-
-
-    # TODO: rules based system to these indicators to get an overall severity ranking:
-    raise NotImplementedError()
-
-
-    # set severity values
-    event.economic_impact.severity = economic_impact_severity
-    event.financial_market_impact.severity = financial_market_impact_severity
-    event.security_impact.severity = security_impact_severity
-    event.diplomatic_impact.severity = diplomatic_impact_severity
-
-    return event
-
-# ! This fails silently if the first 5 attempts don't succeed. This is part of why it's important to transition to the ChatHistory Class
-# TODO The below should be updated to use the ChatHistory class, instead of calling ollama directly
-# Assume impact scores already populated in events.
-async def get_justification(event: Event) -> Event:
-    global ollama_client
-    if ollama_client is None:
-        ollama_client = AsyncClient()
-
-    user_query = f"<event>{event.event}</event>"
-    user_query += f" <economic_impact_severity>{event.economic_impact.severity}</economic_impact_severity>"
-    user_query += f" <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity>"
-    user_query += f" <security_impact_severity>{event.security_impact.severity}</security_impact_severity>"
-    user_query += f" <diplomatic_impact_severity>{event.diplomatic_impact.severity}</diplomatic_impact_severity>"
-
-    for _ in range(5):
         try:
-            response = await ollama_client.chat(
-                model='gemma4:e4b',
-                messages=[
-                    {'role': 'system', 'content': system_prompt_event_classification},
-                    {'role': 'user', 'content': user_query}
-                ],
-                format=EventJustificationOutput.model_json_schema(),
-            )
-
-            output = EventJustificationOutput.model_validate_json(response.message.content or "")
-        except:
-            response = await ollama_client.chat(
-                model='gemma4:e4b',
-                messages=[
-                    {'role': 'system', 'content': system_prompt_event_classification},
-                    {'role': 'user', 'content': user_query}
-                ],
-                format=EventJustificationOutput.model_json_schema(),
-            )
-
-            output = EventJustificationOutput.model_validate_json(response.message.content or "")
+            output_obj = JustificationBatchResponse.validate_json(response)
+        except Exception as e:
+            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
+            f"based off of the following error: {e}."
         else:
+            # TODO: perform further validation on output_obj and if it fails set a meaningful message
+            for ej in output_obj:
+                self.validEvents.append(ej)
+
+        
+
+        return message
+    
+    def get_correct(self) -> str:
+        response = JustificationBatchResponse.dump_json(self.validEvents).decode("utf-8")
+        self.validEvents = []
+        return response
+    
+    def reset(self):
+        self.valid_names.clear()
+
+
+
+
+# Assume impact scores already populated in events.
+async def impact_justifications(events: list[Event]) -> list[Event]:
+    global ollama_client
+    # setup link to LLM
+    if ollama_client is None:
+        logger.info("Attempting to set up new Ollama AsyncClient.")
+        ollama_client = AsyncClient()
+        logger.info("Ollama AsyncClient created successfully.")
+
+    response_marker = EventJustificationResponseMarker()
+    chat_history = ChatHistory(
+        ollama_client, 
+        model = config.MODEL,
+        system_prompt = system_prompt_event_classification,
+        json = JustificationBatchResponse.json_schema(),
+        context = config.CONTEXT,
+        tools = [ollama_client.web_search, ollama_client.web_fetch], # ? should this be here
+        allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
+        response_marker = response_marker
+    )
+    
+
+    processed_events: list[Event] = []
+    # process events in batches
+    for batch in itertools.batched(events, config.A_EVE_BATCH_SIZE):
+        processed_batch = []
+        for event in batch:            
+            user_query = f"<event>{event.event}</event>"
+            user_query += f" <economic_impact_severity>{event.economic_impact.severity}</economic_impact_severity>"
+            user_query += f" <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity>"
+            user_query += f" <security_impact_severity>{event.security_impact.severity}</security_impact_severity>"
+            user_query += f" <diplomatic_impact_severity>{event.diplomatic_impact.severity}</diplomatic_impact_severity>"
+
+            processed_batch.append(user_query)
+        output = await chat_history.chat(f"Event severity values: {processed_batch}")
+        output_obj: list[EventJustificationOutput] = JustificationBatchResponse.validate_json(output)
+
+        logger.info("test.")
+        logger.info(output)
+
+        for (event, output) in zip(batch, output_obj):
+
             event.economic_impact.justification = output.economic_impact_justification
             event.diplomatic_impact.justification = output.diplomatic_impact_justification
             event.financial_market_impact.justification = output.financial_market_impact_justification
             event.security_impact.justification = output.security_impact_justification
-            break
-    
-    return event
+            processed_events.append(event)
+    return processed_events
+
+
+# Assume articles and claims are populated.
+async def impact_serverities(events: list[Event]) -> list[Event]:
+    for event in events:
+        assert (event.source_articles != None)
+
+        all_related_claims = []
+
+        for article in event.source_articles:
+            assert (article.claims != None)
+
+            all_related_claims += article.claims
+
+        economic_impact_severity = _Severity.no_impact
+        financial_market_impact_severity = _Severity.no_impact
+        security_impact_severity = _Severity.no_impact
+        diplomatic_impact_severity = _Severity.no_impact
+
+        # TODO: extract structured indicators from article titles and claims using an LLM:
+        raise NotImplementedError()
+
+
+        # TODO: rules based system to these indicators to get an overall severity ranking:
+        raise NotImplementedError()
+
+
+        # set severity values
+        event.economic_impact.severity = economic_impact_severity
+        event.financial_market_impact.severity = financial_market_impact_severity
+        event.security_impact.severity = security_impact_severity
+        event.diplomatic_impact.severity = diplomatic_impact_severity
+
+    return events

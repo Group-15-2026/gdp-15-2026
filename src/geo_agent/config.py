@@ -11,6 +11,7 @@ class Settings(BaseSettings):
 
     # Control the batch size sent to LLM. Larger values should lead to better performance, but will be more error prone (especially with smaller LLMs with reduced context)
     S_ACT_BATCH_SIZE : int = 10
+    A_EVE_BATCH_SIZE : int = 4
 
 # Instantiate the settings globally
 config = Settings()
