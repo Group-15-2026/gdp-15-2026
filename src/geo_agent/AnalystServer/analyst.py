@@ -27,10 +27,9 @@ async def analyse_events(events: list[Event]) -> list[Event]:
     the 'summariser' mcp server, NOT events that have already been processed.
     '''
     
-    # TODO: Implement this funciton
     scored_events = await impact_serverities(events)
     
-    analysed_events = await impact_justifications(events)
+    analysed_events = await impact_justifications(scored_events)
 
     return analysed_events
 

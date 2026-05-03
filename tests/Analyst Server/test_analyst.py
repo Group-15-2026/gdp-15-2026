@@ -15,7 +15,10 @@ async def main():
     loader = TypeAdapter(list[Event])
     result: list[Event]
     with open(r"tests\Analyst Server\SampleEventsOutputProcessed.txt", encoding='utf-8') as fp:
-        result = loader.validate_json(fp.read().replace("\n", "").replace('\\\'', '\''))
+        f = fp.read()
+        result = loader.validate_json(f)
+
+    # small_sample = result[:3]
 
     [processed_events] = await asyncio.gather(
         analyse_events(result)

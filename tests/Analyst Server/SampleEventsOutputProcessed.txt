@@ -1,11 +1,11 @@
 [
   {
-    "event": "Trump questions Iran\'s new peace plan, expressing dissatisfaction.",
+    "event": "Trump questions Iran's new peace plan, expressing dissatisfaction.",
     "actors": null,
     "themes": null,
     "source_articles": [
       {
-        "article_title": "The latest: Trump says he\'s \'not satisfied\' with Iran\'s new peace plan",
+        "article_title": "The latest: Trump says he's 'not satisfied' with Iran's new peace plan",
         "publication_time": "2026-05-01T12:14:37Z",
         "source": {
           "source_name": "Yahoo Entertainment"
@@ -13,8 +13,8 @@
         "initial_categories": null,
         "claims": [
           {
-            "claim": "Trump is dissatisfied with Iran\'s peace plan.",
-            "opinion": 8.0
+            "claim": "Trump is dissatisfied with Iran's peace plan.",
+            "opinion": 8
           }
         ],
         "themes": null
@@ -53,11 +53,11 @@
         "claims": [
           {
             "claim": "Geopolitics is rewriting the rules of global shipping.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "Global shipping is the new global battleground.",
-            "opinion": 9.0
+            "opinion": 9
           }
         ],
         "themes": null
@@ -90,13 +90,13 @@
         "article_title": "GM bets on trucks and keeps writing down EVs, amid war and trade unease",
         "publication_time": "2026-05-01T09:10:00Z",
         "source": {
-          "source_name": "Ward\'s Auto"
+          "source_name": "Ward's Auto"
         },
         "initial_categories": null,
         "claims": [
           {
             "claim": "Automakers should bet on trucks and SUVs.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -121,7 +121,7 @@
     }
   },
   {
-    "event": "Vessels targeted in hijackings off Somalia\'s coast.",
+    "event": "Vessels targeted in hijackings off Somalia's coast.",
     "actors": null,
     "themes": null,
     "source_articles": [
@@ -135,11 +135,11 @@
         "claims": [
           {
             "claim": "Piracy is resurging off Somalia.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "The Iran war might be responsible for rising piracy.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -164,7 +164,7 @@
     }
   },
   {
-    "event": "Indianapolis Colts declines option on Anthony Richardson\'s contract",
+    "event": "Indianapolis Colts declines option on Anthony Richardson's contract",
     "actors": null,
     "themes": null,
     "source_articles": [
@@ -177,12 +177,12 @@
         "initial_categories": null,
         "claims": [
           {
-            "claim": "The Colts will not activate Anthony Richardson\'s fifth-year option.",
-            "opinion": 9.0
+            "claim": "The Colts will not activate Anthony Richardson's fifth-year option.",
+            "opinion": 9
           },
           {
-            "claim": "Anthony Richardson\'s time with the Colts will be short.",
-            "opinion": 7.0
+            "claim": "Anthony Richardson's time with the Colts will be short.",
+            "opinion": 7
           }
         ],
         "themes": null
@@ -241,7 +241,7 @@
     }
   },
   {
-    "event": "Trump threatens to reduce pressure on Russia\'s global partners.",
+    "event": "Trump threatens to reduce pressure on Russia's global partners.",
     "actors": null,
     "themes": null,
     "source_articles": [
@@ -255,15 +255,15 @@
         "claims": [
           {
             "claim": "Trump aims to reduce US pressure on certain countries.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "Reducing US pressure might induce Russia to make deals.",
-            "opinion": 7.0
+            "opinion": 7
           },
           {
             "claim": "Russia could lose many international partners.",
-            "opinion": 6.0
+            "opinion": 6
           }
         ],
         "themes": null
@@ -302,7 +302,7 @@
         "claims": [
           {
             "claim": "Denver Nuggets might have to trade Jamal Murray.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -341,7 +341,7 @@
         "claims": [
           {
             "claim": "India and UK plan to boost trade ties.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -380,7 +380,7 @@
         "claims": [
           {
             "claim": "India-UAE trade pact boosted bilateral trade over $100 billion.",
-            "opinion": 9.0
+            "opinion": 9
           }
         ],
         "themes": null
@@ -418,12 +418,12 @@
         "initial_categories": null,
         "claims": [
           {
-            "claim": "U.S. trade officials\' Section 301 case is incoherent and indefensible.",
-            "opinion": 9.0
+            "claim": "U.S. trade officials' Section 301 case is incoherent and indefensible.",
+            "opinion": 9
           },
           {
-            "claim": "The USTR\'s formula justifying tariffs is mocked globally.",
-            "opinion": 8.0
+            "claim": "The USTR's formula justifying tariffs is mocked globally.",
+            "opinion": 8
           }
         ],
         "themes": null
@@ -462,11 +462,11 @@
         "claims": [
           {
             "claim": "US restrictions undermine China-US trade stability.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "US measures target countries lacking special agreements.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -505,11 +505,11 @@
         "claims": [
           {
             "claim": "US restrictions undermine China-US trade stability.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "US measures target countries lacking special agreements.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -548,7 +548,7 @@
         "claims": [
           {
             "claim": "The EU-Mercosur trade deal provisionally entered into force.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -587,15 +587,15 @@
         "claims": [
           {
             "claim": "Global trade is slowing down significantly.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "Friendshoring may help keep global trade active.",
-            "opinion": 7.0
+            "opinion": 7
           },
           {
             "claim": "US-China trade tension is a major concern.",
-            "opinion": 9.0
+            "opinion": 9
           }
         ],
         "themes": null
@@ -634,11 +634,11 @@
         "claims": [
           {
             "claim": "EU and Mercosur signed a large trade deal.",
-            "opinion": 7.0
+            "opinion": 7
           },
           {
-            "claim": "The trade deal\'s legality faces a potential court challenge.",
-            "opinion": -8.0
+            "claim": "The trade deal's legality faces a potential court challenge.",
+            "opinion": -8
           }
         ],
         "themes": null
@@ -677,7 +677,7 @@
         "claims": [
           {
             "claim": "Izmir has an 8,500-year trade history.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -702,7 +702,7 @@
     }
   },
   {
-    "event": "United States taking action to disrupt Iran\'s illicit oil trade",
+    "event": "United States taking action to disrupt Iran's illicit oil trade",
     "actors": null,
     "themes": null,
     "source_articles": [
@@ -715,12 +715,12 @@
         "initial_categories": null,
         "claims": [
           {
-            "claim": "Iran\'s oil trade funds terrorism and regional destabilization.",
-            "opinion": 10.0
+            "claim": "Iran's oil trade funds terrorism and regional destabilization.",
+            "opinion": 10
           },
           {
-            "claim": "US takes decisive action to disrupt Iran\'s oil trade.",
-            "opinion": 9.0
+            "claim": "US takes decisive action to disrupt Iran's oil trade.",
+            "opinion": 9
           }
         ],
         "themes": null
@@ -759,15 +759,15 @@
         "claims": [
           {
             "claim": "The war in Iran will change the global future unpredictably.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
-            "claim": "Iran\'s war triggers a fresh energy shock.",
-            "opinion": 7.0
+            "claim": "Iran's war triggers a fresh energy shock.",
+            "opinion": 7
           },
           {
             "claim": "Inflation and supply disruptions could slow clean energy adoption.",
-            "opinion": 6.0
+            "opinion": 6
           }
         ],
         "themes": null
@@ -797,7 +797,7 @@
     "themes": null,
     "source_articles": [
       {
-        "article_title": "Oilers\' trade clock is officially ticking with Connor McDavid",
+        "article_title": "Oilers' trade clock is officially ticking with Connor McDavid",
         "publication_time": "2026-05-01T10:54:59Z",
         "source": {
           "source_name": "Sporting News"
@@ -806,7 +806,7 @@
         "claims": [
           {
             "claim": "Edmonton will eventually have to make a trade decision.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -845,7 +845,7 @@
         "claims": [
           {
             "claim": "Tigers acquired Zack Short from the Nationals.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -884,7 +884,7 @@
         "claims": [
           {
             "claim": "Green Bay Packers need to acquire a new quarterback.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -923,15 +923,15 @@
         "claims": [
           {
             "claim": "China restricts rare earth mineral exports via strict controls.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "China is weaponizing its dominant rare earth market share.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "The rare earth controls target Western defense and tech.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -970,7 +970,7 @@
         "claims": [
           {
             "claim": "India and the UK discussed boosting bilateral trade.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -1009,15 +1009,15 @@
         "claims": [
           {
             "claim": "May 1, 2026, will not be a state pageant event.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "May 1, 2026 returns to labor movement roots.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "Labor actions will focus on the streets, not state venues.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -1056,15 +1056,15 @@
         "claims": [
           {
             "claim": "Eswatini government banned a May Day rally.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "Banning the rally will cause labor unrest.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "Labour union heads plan legal action against the government.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -1103,15 +1103,15 @@
         "claims": [
           {
             "claim": "Eswatini government banned a May Day rally.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "Banning the rally will cause labor unrest.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "Labour union heads plan legal action against the government.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -1150,15 +1150,15 @@
         "claims": [
           {
             "claim": "African workers are concerned about rising economic inequality.",
-            "opinion": 8.0
+            "opinion": 8
           },
           {
             "claim": "The wealth of billions of Africans is disappearing.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "Elite control is diminishing the livelihoods of African workers.",
-            "opinion": 7.0
+            "opinion": 7
           }
         ],
         "themes": null
@@ -1197,15 +1197,15 @@
         "claims": [
           {
             "claim": "China implemented zero tariffs for 53 African countries.",
-            "opinion": 10.0
+            "opinion": 10
           },
           {
             "claim": "The tariff reduction aims to deepen trade ties with Africa.",
-            "opinion": 9.0
+            "opinion": 9
           },
           {
             "claim": "These measures expand market access for African exports.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
@@ -1244,7 +1244,7 @@
         "claims": [
           {
             "claim": "Australian government should nationalize the Darwin Port.",
-            "opinion": 8.0
+            "opinion": 8
           }
         ],
         "themes": null
