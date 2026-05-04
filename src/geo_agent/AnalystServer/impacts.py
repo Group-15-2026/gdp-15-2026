@@ -16,6 +16,9 @@ logger = logging.getLogger(__name__)
 # Ollama LLM Setup
 ollama_client = None
 
+# ------------------------------- Severity ----------------------------- #
+
+# TODO: switch to using a better rule based system
 
 system_prompt_event_impact_severity = """
 Role: You are a Senior Geopolitical Risk Analyst and Event Classification Agent.
