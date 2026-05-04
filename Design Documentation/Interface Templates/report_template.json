@@ -1,0 +1,35 @@
+{
+    "events": [
+        {
+            "event": "%event%",
+            "summary": "%3-5 sentence summary",
+            "controversy": 0.0,
+            "source_links": [
+                "%link1%",
+                "%link2%",
+                "%link3%"
+            ],
+            "economic_impact": {
+                "severity": "%low%",
+                "justification": "%single sentence justification%"
+            },
+            "financial_market_impact": {
+                "severity": "%medium%",
+                "justification": "%single sentence justification%"
+            },
+            "security_impact": {
+                "severity": "%high%",
+                "justification": "%single sentence justification%"
+            },
+            "diplomatic_impact": {
+                "severity": "%low%",
+                "justification": "%single sentence justification%"
+            }
+        }
+    ],
+    "themes": [
+        "%theme1%",
+        "%theme2%",
+        "%theme3%"
+    ]
+}

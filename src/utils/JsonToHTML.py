@@ -1,265 +1,104 @@
 import json
 import html
+import re
 import sys
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-
-def esc(value: Any) -> str:
-    """Escape values for safe HTML output."""
-    return html.escape("" if value is None else str(value))
-
-
-def severity_badge(severity: Optional[str]) -> str:
-    """Render a small badge for low/medium/high severity."""
-    sev = (severity or "").strip().lower()
-    css_class = {
-        "low": "sev-low",
-        "medium": "sev-medium",
-        "high": "sev-high",
-    }.get(sev, "sev-unknown")
-    label = sev if sev else "unknown"
-    return f'<span class="badge {css_class}">{esc(label.title())}</span>'
+_RAW_FULL = (Path(__file__).parent.parent / "Templates" / "report_template.html").read_text(encoding="utf-8")
+_T = {m.group(1): m.group(2).strip() for m in re.finditer(r'<template id="(\w+)">(.*?)</template>', _RAW_FULL, re.DOTALL)}
+_RAW = re.sub(r'\n\s*<template id="\w+">.*?</template>', '', _RAW_FULL, flags=re.DOTALL)
 
 
-def format_number(value: Any, decimals: int = 1) -> str:
-    """Format numeric values safely."""
+def esc(v: Any) -> str:
+    return html.escape("" if v is None else str(v))
+
+
+def fmt(v: Any, d: int = 1) -> str:
     try:
-        return f"{float(value):.{decimals}f}"
+        return f"{float(v):.{d}f}"
     except (TypeError, ValueError):
         return "N/A"
 
 
-def render_actor_summary(actor: Dict[str, Any]) -> str:
-    """Render actor update summary section."""
-    linked_themes = actor.get("linked_themes") or []
-    themes_html = ""
-    if linked_themes:
-        themes_html = "".join(
-            f'<li>{esc(theme)}</li>' for theme in linked_themes
-        )
-    else:
-        themes_html = "<li>None</li>"
-
-    return f"""
-    <section class="card">
-      <h2>Actor Update Summary</h2>
-      <div class="grid two-col">
-        <div><strong>Name</strong><br>{esc(actor.get("name", "N/A"))}</div>
-        <div><strong>Actor Type</strong><br>{esc(actor.get("actor_type", "N/A"))}</div>
-        <div><strong>Impact</strong><br>{format_number(actor.get("impact"))}</div>
-        <div><strong>Public Opinion</strong><br>{format_number(actor.get("public_opinion"))}</div>
-        <div><strong>Controversy</strong><br>{format_number(actor.get("controversy"))}</div>
-        <div><strong>Mentions Weight</strong><br>{int(actor.get("mentions_weight"))}%</div>
-      </div>
-
-      <div class="subsection">
-        <h3>Linked Themes</h3>
-        <ul>{themes_html}</ul>
-      </div>
-    </section>
-    """
+def fill(name: str, **kwargs) -> str:
+    t = _T[name]
+    for k, v in kwargs.items():
+        t = t.replace(f"<!--{k}-->", v)
+    return t
 
 
-def render_impact_block(title: str, impact: Dict[str, Any]) -> str:
-    """Render one event impact block."""
-    severity = impact.get("severity")
-    justification = impact.get("justification", "No material impact identified.")
-    return f"""
-    <div class="impact-block">
-      <div class="impact-header">
-        <h4>{esc(title)}</h4>
-        {severity_badge(severity)}
-      </div>
-      <p>{esc(justification)}</p>
-    </div>
-    """
+def render_badge(severity: Optional[str]) -> str:
+    sev = (severity or "").strip().lower()
+    css = {"low": "sev-low", "medium": "sev-medium", "high": "sev-high"}.get(sev, "sev-unknown")
+    return fill("badge", CSS_CLASS=css, LABEL=esc(sev.title() if sev else "unknown"))
 
 
-def render_event_summary(event: Dict[str, Any]) -> str:
-    """Render event summary section."""
-    return f"""
-    <section class="card">
-      <h2>Event Summary</h2>
-      <div class="grid one-col">
-        <div><strong>Event</strong><br>{esc(event.get("event", "N/A"))}</div>
-        <div><strong>Controversy</strong><br>{format_number(event.get("controversy"))}</div>
-      </div>
-
-      <div class="subsection">
-        <h3>Impact Assessment</h3>
-        {render_impact_block("Economic Impact", event.get("economic_impact", {}))}
-        {render_impact_block("Financial Market Impact", event.get("financial_market_impact", {}))}
-        {render_impact_block("Security Impact", event.get("security_impact", {}))}
-        {render_impact_block("Diplomatic Impact", event.get("diplomatic_impact", {}))}
-      </div>
-    </section>
-    """
+def render_impact(title: str, impact: Dict[str, Any]) -> str:
+    return fill("impact_block",
+        TITLE=esc(title),
+        BADGE=render_badge(impact.get("severity")),
+        JUSTIFICATION=esc(impact.get("justification", "No material impact identified.")))
 
 
-def detect_payload_type(data: Dict[str, Any]) -> Dict[str, Optional[Dict[str, Any]]]:
-    """
-    Detect whether input is:
-    - actor only
-    - event only
-    - combined wrapper with actor_update_summary / event_summary
-    """
-    actor = None
-    event = None
+def render_event(event: Dict[str, Any]) -> str:
+    summary = event.get("summary")
+    links = event.get("source_links") or []
+    source_items = "".join(fill("source_item", HREF=esc(l), LABEL=esc(l)) for l in links)
+    impacts = "".join(render_impact(title, event.get(key, {})) for title, key in [
+        ("Economic Impact",         "economic_impact"),
+        ("Financial Market Impact", "financial_market_impact"),
+        ("Security Impact",         "security_impact"),
+        ("Diplomatic Impact",       "diplomatic_impact"),
+    ])
+    return fill("event_card",
+        EVENT=esc(event.get("event", "N/A")),
+        CONTROVERSY=fmt(event.get("controversy")),
+        SUMMARY_BLOCK=fill("summary_block", SUMMARY=esc(summary)) if summary else "",
+        SOURCES_BLOCK=fill("sources_block", ITEMS=source_items) if links else "",
+        IMPACTS=impacts)
 
-    if "actor_update_summary" in data:
-        actor = data["actor_update_summary"]
-    elif {"name", "actor_type", "impact", "public_opinion", "controversy", "mentions_weight"}.issubset(data.keys()):
-        actor = data
 
-    if "event_summary" in data:
-        event = data["event_summary"]
-    elif {"event", "controversy", "economic_impact", "financial_market_impact", "security_impact", "diplomatic_impact"}.issubset(data.keys()):
-        event = data
+# def render_actor(actor: Dict[str, Any]) -> str:
+#     themes = actor.get("linked_themes") or []
+#     theme_items = "".join(fill("list_item", TEXT=esc(t)) for t in themes) or fill("list_item", TEXT="None")
+#     return fill("actor_card",
+#         NAME=esc(actor.get("name", "N/A")),
+#         ACTOR_TYPE=esc(actor.get("actor_type", "N/A")),
+#         IMPACT=fmt(actor.get("impact")),
+#         PUBLIC_OPINION=fmt(actor.get("public_opinion")),
+#         CONTROVERSY=fmt(actor.get("controversy")),
+#         MENTIONS_WEIGHT=str(int(actor.get("mentions_weight"))),
+#         THEME_ITEMS=theme_items)
 
-    return {"actor": actor, "event": event}
+
+def render_themes(themes: List[str]) -> str:
+    if not themes:
+        return ""
+    return fill("themes_card", ITEMS="".join(fill("list_item", TEXT=esc(t)) for t in themes))
 
 
 def json_to_html(data: Dict[str, Any], title: str = "Analyst Report") -> str:
-    """Convert supported JSON payload into a complete HTML document."""
-    payload = detect_payload_type(data)
-    actor = payload["actor"]
-    event = payload["event"]
+    if "events" in data and isinstance(data["events"], list):
+        sections = [render_event(e) for e in data["events"]]
+        sections.append(render_themes(data.get("themes") or []))
+        body = "\n".join(sections)
+    else:
+        raise ValueError("Unsupported JSON structure.")
 
-    sections: List[str] = []
-
-    if actor:
-        sections.append(render_actor_summary(actor))
-    if event:
-        sections.append(render_event_summary(event))
-
-    if not sections:
-        raise ValueError(
-            "Unsupported JSON structure. Expected actor summary, event summary, or combined object."
-        )
-
-    body = "\n".join(sections)
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{esc(title)}</title>
-  <style>
-    body {{
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 24px;
-      background: #f5f7fb;
-      color: #1f2937;
-    }}
-    .container {{
-      max-width: 960px;
-      margin: 0 auto;
-    }}
-    h1 {{
-      margin-bottom: 24px;
-    }}
-    .card {{
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }}
-    .grid {{
-      display: grid;
-      gap: 16px;
-    }}
-    .two-col {{
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }}
-    .one-col {{
-      grid-template-columns: 1fr;
-    }}
-    .subsection {{
-      margin-top: 20px;
-    }}
-    ul {{
-      margin: 8px 0 0 20px;
-    }}
-    .impact-block {{
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 12px;
-      background: #fafafa;
-    }}
-    .impact-header {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }}
-    .impact-header h4 {{
-      margin: 0;
-    }}
-    .badge {{
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: bold;
-    }}
-    .sev-low {{
-      background: #dcfce7;
-      color: #166534;
-    }}
-    .sev-medium {{
-      background: #fef3c7;
-      color: #92400e;
-    }}
-    .sev-high {{
-      background: #fee2e2;
-      color: #991b1b;
-    }}
-    .sev-unknown {{
-      background: #e5e7eb;
-      color: #374151;
-    }}
-    .footer-note {{
-      margin-top: 24px;
-      font-size: 13px;
-      color: #6b7280;
-    }}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>{esc(title)}</h1>
-    {body}
-    
-  </div>
-</body>
-</html>
-"""
+    return _RAW.replace("<!--TITLE-->", esc(title)).replace("<!--BODY-->", body)
 
 
 def convert_json_file_to_html(input_json_path: str, output_html_path: str, title: str = "Analyst Report") -> None:
-    """Read JSON file and write HTML file."""
     with open(input_json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-
-    html_output = json_to_html(data, title=title)
-
     with open(output_html_path, "w", encoding="utf-8") as f:
-        f.write(html_output)
+        f.write(json_to_html(data, title=title))
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python JsonToHTML.py input.json output.html")
         sys.exit(1)
-
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
-
-    convert_json_file_to_html(input_file, output_file)    
-
+    convert_json_file_to_html(sys.argv[1], sys.argv[2])
     print("HTML written to", sys.argv[2])
