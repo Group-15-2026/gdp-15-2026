@@ -1,0 +1,116 @@
+region_to_sectors:
+  "Middle East":
+    - energy
+    - oil_gas
+    - defence
+    - tanker_shipping
+  "Eastern Europe":
+    - commodities
+    - defence
+    - wheat
+    - natural_gas
+  "East Asia":
+    - semiconductors
+    - tech
+    - shipping 
+    - rare_earths
+    - consumer_electronics
+  "South Asia":
+    - textiles 
+    - IT_services
+    - agriculture
+  "Southeast Asia":
+    - shipping
+    - palm_oil
+    - tourism
+  "Sub-Saharan Africa":
+    - mining
+    - agriculture
+  "North Africa":
+    - energy
+    - tourism
+    - EM_debt
+  "Latin America":
+    - mining
+    - agriculture
+    - lithium 
+    - EM_FX
+  "Central Asia":
+    - natural_gas
+  "Western Europe":
+    - DM_equities
+    - EUR_FX
+    - sovereign_debt
+  "North America":
+    - USD
+    - tech
+  "Global":
+    - gold
+    - USD
+    - oil 
+
+event_type_to_asset_class:
+  military_escalation:
+    - equities_defence
+    - gold
+    - USD
+    - oil 
+  sanctions:
+    - FX 
+    - sovereign_debt
+    - commodities
+  trade_dispute:
+    - equities_export_heavy
+    - FX
+    - shipping_rates
+  election:
+    - sovereign_debt
+    - FX 
+    - domestic equities
+  natural_disaster:
+    - agriculture
+    - insurance
+  energy_shock:
+    - oil_gas
+    - utilities
+    - airlines
+    - petrochemicals
+  coup_or_instability:
+    - sovereign_debt
+    - FX
+    - gold
+  diplomatic_change:
+    - commodities
+    - EM_equities 
+    - USD
+
+commodity_to_sectors:
+  oil:
+    - energy
+    - airlines
+    - petrochemicals
+    - plastics
+  natural_gas:
+    - utilities
+    - industrial_chemicals
+    - heating_costs
+  wheat:
+    - food_production
+    - consumer_staples
+    - EM_inflation
+  semiconductors:
+    - tech
+    - auto
+    - consumer_electronics
+    - defence_electronics
+  lithium:
+    - EV 
+    - batteries
+    - mining
+  gold:
+    - jewellery
+    - central_bank_reserves
+  copper:
+    - construction
+    - EV
+    - industrial_manufacturing   
