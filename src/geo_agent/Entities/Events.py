@@ -8,13 +8,21 @@ from pydantic import ConfigDict, Field
 
 # pydantic is used to allow use of objects in mcp tools
 
-class _ActorEntry(BaseModel):
+class ActorEntry(BaseModel):
     # Ensure validation is carried out when details are added later
     model_config = ConfigDict(validate_assignment=True)
 
     name: str = Field(frozen=True)
     actor_type: ActorType = Field(frozen=True)
     occurences: Count = 1
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, ActorEntry):
+            return self.name == other.name and self.actor_type == other.actor_type
+        return False
+
+    def __hash__(self) -> int:
+        return hash((self.name, self.actor_type))
 
     def inc_count(self, amt: int | None = None) -> None:
         if amt is None: amt = 1
@@ -39,15 +47,24 @@ class Event(BaseModel):
     event: str = Field(frozen=True)
 
     # Fields to be filled in later
-    actors: list[_ActorEntry] | None = None
+    actors: list[ActorEntry] | None = None
     themes: list[str] | None = None
     source_articles: list[Article] | None = None
+    source_events: list[str] | None = None  # This is a list of all events which got merged into this single event
 
     controversy: Between10p | None = None
     economic_impact: Impact | None = None
     financial_market_impact: Impact | None = None
     security_impact: Impact | None = None
     diplomatic_impact: Impact | None = None
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Event):
+            return self.event == other.event
+        return False
+
+    def __hash__(self) -> int:
+        return hash(self.event)
 
     # TODO may need breaking up into different methods for filling in at different times
     def set_impacts(self,
@@ -67,7 +84,7 @@ class Event(BaseModel):
     def set_actors(self, actors: list[tuple[Actor, int]]) -> None:
         self.actors = []
         for actor, count in actors:
-            self.actors.append(_ActorEntry(
+            self.actors.append(ActorEntry(
                 name = actor.name, 
                 actor_type = actor.actor_type, 
                 occurences = count
