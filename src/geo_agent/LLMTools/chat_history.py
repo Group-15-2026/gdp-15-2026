@@ -42,7 +42,6 @@ class ChatHistory:
 
             json: JsonSchemaValue | None = None,
             context: int | None = None,
-            tools: list[Callable] | None = None,
 
             allowed_attempts: int | Literal["inf"] = 1,
             response_marker: BaseResponseMarker | None = None
@@ -61,8 +60,6 @@ class ChatHistory:
             self.config["options"] = {
                 "num_ctx": context
             }
-        if tools:
-            self.config["tools"] = tools
 
         logger.info(f"LLM interface template setup with config: \"{self.config}\"")
 
@@ -91,8 +88,6 @@ class ChatHistory:
         logger.info("Entering multi-attempt LLM validation call loop...")
         while True:
             output = await self.chat_single(prompt, record_response=True)
-
-            # TODO add support for tool calling here if the model attempts to call a tool
 
             error_message = self.response_marker.mark(output)
             if error_message is None:

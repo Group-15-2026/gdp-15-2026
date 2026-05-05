@@ -110,7 +110,6 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         system_prompt = classification_system_prompt,
         json = ActorClassBatchResponse.json_schema(),
         context = config.CONTEXT,
-        #tools = [ollama_client.web_search, ollama_client.web_fetch],
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker
     )
@@ -130,8 +129,3 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
             actor_lookup[actor.name] = actor
             
     return [(actor.to_full(), actors[name]) for name, actor in actor_lookup.items()]
-
-
-# ------------------------------- article classification (theme tagging) ----------------------------- #
-
-# TODO Implement the article classification using chat_history
