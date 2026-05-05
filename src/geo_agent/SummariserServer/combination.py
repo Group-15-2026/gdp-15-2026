@@ -111,7 +111,8 @@ class EventCombineResponseMarker(BaseResponseMarker):
                     "events VERBATIM in the source_events field. Rewrite the following combination attempts " \
                     "using the verbatim event names listed previously in the source_events fields: " \
                     f"{renamed_events}. DO NOT rewrite any of the other merges from your last prompt. Only " \
-                    "correct the merge-attempts in this message to use the correct source event names."
+                    "correct the merge-attempts in this message to use the correct source event names. The " \
+                    f"events that you can reference as source_events are: {list(self.events_by_names.keys())}."
 
         return message
     
