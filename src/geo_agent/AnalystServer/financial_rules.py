@@ -35,7 +35,7 @@ EVENT_TYPE_KEYWORDS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "trade dispute",
+        "trade_dispute",
         [
             "tariff", "trade war", "import duty", "trade deal",
             "wto", "protectionism", "trade barrier", "counter-tariff",
@@ -235,3 +235,5 @@ def _build_narrative_prompt(
         "Write one concise sentence describing the likely financial market implication" \
         ". Do not add new sectors or asset classes not listed above."
     )
+    return " ".join(parts)
+    
