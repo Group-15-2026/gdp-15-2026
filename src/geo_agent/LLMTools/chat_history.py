@@ -53,7 +53,7 @@ class ChatHistory:
             self.messages.append(format_message("system", system_prompt))
 
         self.config: dict[str, Any] = {"model": model}
-        if think:
+        if think is not None:
             self.config["think"] = think
         if json:
             self.config["format"] = json
@@ -121,6 +121,9 @@ class ChatHistory:
     
     # Keep LLM client config, but clear the message record 
     def clear_history(self):
-        self.messages = []
+        system_prompt = self.messages[0] if len(self.messages) > 0 else None
+        if system_prompt and system_prompt["role"] != "system":
+            system_prompt = None
+        self.messages = [system_prompt] if system_prompt else []
         if self.allowed_attempts != 1:
             self.response_marker.reset()
