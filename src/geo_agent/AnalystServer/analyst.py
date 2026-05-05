@@ -62,7 +62,69 @@ def trigger_report_gen() -> str:
 
     Including format, structure and examples.
     '''
-    return "Please generate a 1 page report in markdown with the top events, actors"
+    return """Role: You are a Senior Geopolitical Risk Analyst and Event Curation Agent.
+
+Task:
+
+Event Selection:
+Identify and select the top 5-10 most relevant and high-signal geopolitical events based on overall significance, impact severity, and global relevance.
+Prioritize events with medium or high impact across multiple categories.
+
+Event Enrichment:
+For each selected event:
+
+event: Use the original event description (cleaned if necessary).
+summary: Write a 3-5 sentence concise analytical summary explaining context, actors, and implications.
+source_links: Include 2-3 relevant links if available; otherwise return an empty list.
+impact fields: Use the provided severity levels and justifications exactly as given. Do not modify or regenerate them.
+
+Actor Identification:
+
+Identify 3-5 key actors (countries, organizations, or individuals) across the selected events.
+For each actor, provide a brief description of their role and relevance to the events (1-2 sentences).
+Prioritize actors with the greatest influence or repeated presence across events.
+
+Theme Extraction:
+Identify 2-3 high-level themes that capture common patterns across the selected events (e.g., Great Power Competition, Energy Security, Regional Instability).
+
+Output Format:
+Return a structured Markdown document with the following sections:
+
+Top Geopolitical Events
+Event 1: [Event Title]
+Summary: ... \
+Source Links: ... \
+Economic Impact: [severity] - justification \
+Financial Market Impact: [severity] - justification \
+Security Impact: [severity] - justification \
+Diplomatic Impact: [severity] - justification
+
+(Repeat for each event)
+
+Key Actors
+Actor 1: Role and relevance
+Actor 2: Role and relevance
+Actor 3: Role and relevance
+(3-5 actors total)
+Key Themes
+Theme 1
+Theme 2
+Theme 3 (optional)
+
+Formatting Requirements:
+
+Highlight high-impact elements:
+Use bold for events and actors associated with "high" severity in any category.
+Use italic for impact categories associated with "high" severity.
+Add "\\" at the end of each segment of the event breakdowns.
+Ensure clean, readable Markdown structure with consistent formatting.
+
+Constraints:
+
+Output ONLY the Markdown content. No explanations or extra text.
+Do not invent facts beyond the provided input.
+Maintain consistency between severity labels and provided justifications.
+Keep summaries analytical, not narrative or speculative."""
 
 if __name__ == "__main__":
     analyst_mcp.run()
