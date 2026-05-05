@@ -76,12 +76,13 @@ class EventCombineResponseMarker(BaseResponseMarker):
         self.events_by_names = events_by_names
         self.validEventCombs = []
 
-    def is_disjoint(self, event_comb: CombineEventForm) -> bool:
-        events = set()
-        for source in event_comb.source_events:
-            if source in events:
-                return False
-            events.add(source)
+    def is_disjoint(self, event_combs: list[CombineEventForm]) -> bool:
+        events = set(event for comb in self.validEventCombs for event in comb.source_events)
+        for event_comb in event_combs:
+            for source in event_comb.source_events:
+                if source in events:
+                    return False
+                events.add(source)
         return True
 
     def mark(self, response: str) -> str | None:
@@ -93,24 +94,24 @@ class EventCombineResponseMarker(BaseResponseMarker):
             message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
             f"based off of the following error: {e}."
         else:
-            non_disjoint = []
-            renamed_events = []
-            for event_comb in output_obj:
-                if not self.is_disjoint(event_comb):
-                    non_disjoint.append(event_comb)
-                elif any(event not in self.events_by_names for event in event_comb.source_events):
-                    renamed_events.append(event_comb)
-                else:
-                    self.validEventCombs.append(event_comb)  # extract correct objects
-            if len(non_disjoint) > 0:   # prioritise fixing 'disjointness' first
+            if not self.is_disjoint(output_obj):
                 message = f"Your previous response failed to adhere to the instruction that a single event " \
                 "should not be merged into different target events. The CombineEventForm objects should have " \
-                "pairwise disjoint 'source_events' fields. Rewrite your last response to correct this issue."
-            elif len(renamed_events) > 0:
-                message = f"\nYour previous response failed to adhere to the strict instruction to copy " \
-                "events VERBATIM in the source_events field. The following combination attempts suffered " \
-                f"from this issue: {renamed_events}. Rewrite them using the true verbatim event names listed " \
-                "previously."
+                "pairwise disjoint 'source_events' fields. Rewrite your last response to correct this issue. " \
+                "Do not use reuse any events that you have previously merged!"
+            else:
+                renamed_events = []
+                for event_comb in output_obj:
+                    if any(event not in self.events_by_names for event in event_comb.source_events):
+                        renamed_events.append(event_comb)
+                    else:
+                        self.validEventCombs.append(event_comb)  # extract correct objects
+                if len(renamed_events) > 0:
+                    message = f"\nYour previous response failed to adhere to the strict instruction to copy " \
+                    "events VERBATIM in the source_events field. Rewrite the following combination attempts " \
+                    "using the verbatim event names listed previously in the source_events fields: " \
+                    f"{renamed_events}. DO NOT rewrite any of the other merges from your last prompt. Only " \
+                    "correct the merge-attempts in this message to use the correct source event names."
 
         return message
     
@@ -134,8 +135,12 @@ share some of the same words. For example, "The USD devalues", and "The GBP deva
 and should NOT be merged. However "Today the US did X", and "The US did X today" SHOULD be merged, because
 they are about the same event, they are simply worded differently.
 
-Do not include any '```json' tags in your output, and make sure to return ONLY a JSON list (no enclosing 
-'{{}}', or initial filler text).
+When constructing the 'new_event' labels, do not simply concatenate the source events - instead produce 
+a single, flowing event description which combines the narratives of each source event into one, complete
+picture.
+
+Finally, do not include any '```json' tags in your output, and make sure to return ONLY a JSON list (no 
+enclosing '{{}}', or initial filler text). Always check this before producing your response.
 '''.replace("\n", " ")
 
 # Given all events, identify which ones can be combined. 'combine_dup_events' is then be used to actually perform this merging
