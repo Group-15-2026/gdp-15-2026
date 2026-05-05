@@ -33,10 +33,15 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 
     return analysed_events
 
-# TODO : The LLM should be instructed to produce a report in the desired output format (e.g. JSON / HTML)
-@analyst_mcp.prompt()
-def gen_report() -> str:
-    raise NotImplementedError()
+# TODO : The LLM should be instructed to produce a report in the desired output format
+@analyst_mcp.tool()
+def trigger_report_gen() -> str:
+    '''
+    Provides instructions on how the orchestrator MCP client should generate the final report.
+
+    Including format, structure and examples.
+    '''
+    return "Please generate a 1 page report in markdown with the top events, actors"
 
 if __name__ == "__main__":
     analyst_mcp.run()
