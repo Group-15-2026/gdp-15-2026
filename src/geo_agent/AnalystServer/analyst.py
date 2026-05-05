@@ -26,8 +26,29 @@ async def analyse_events(events: list[Event]) -> list[Event]:
     You should only pass in event objects that have been outputted by the 'extract_events' tool in 
     the 'summariser' mcp server, NOT events that have already been processed.
     '''
+    from .financial_rules import classify_financial_impact
+    from ..Entities.Events import Severity
     
     scored_events = await impact_serverities(events)
+
+    for event in scored_events:
+        classification = classify_financial_impact("Global", event.event)
+        event_type = classification["event_type"]
+        
+        high_types = {"military_escalation", "energy_shock", "sanctions"}
+        med_types = {"trade_dispute", "coup_or_instability", "diplomatic_change"}
+        
+        if event_type in high_types:
+            rule_severity = Severity.high
+        elif event_type in med_types:
+            rule_severity = Severity.medium
+        elif event_type is not None:
+            rule_severity = Severity.low
+        else:
+            rule_severity = Severity.no_impact
+            
+        if event.financial_market_impact:
+            event.financial_market_impact.severity = rule_severity 
     
     analysed_events = await impact_justifications(scored_events)
 
