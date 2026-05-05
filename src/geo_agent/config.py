@@ -12,6 +12,11 @@ class Settings(BaseSettings):
     # Control the batch size sent to LLM. Larger values should lead to better performance, but will be more error prone (especially with smaller LLMs with reduced context)
     S_ACT_BATCH_SIZE : int = 10
     A_EVE_BATCH_SIZE : int = 5
+    S_EVENT_MERGE_BATCH_SIZE: int = 25
+
+    # Control the number of words in an event or claim
+    CLAIM_SIZE : int = 20
+    EVENT_SIZE : int = 20
 
 # Instantiate the settings globally
 config = Settings()

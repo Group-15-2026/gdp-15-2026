@@ -113,7 +113,6 @@ async def impact_serverities(events: list[Event]) -> list[Event]:
         system_prompt = system_prompt_event_impact_severity,
         json = SeverityBatchResponse.json_schema(),
         context = config.CONTEXT,
-        tools = [ollama_client.web_search, ollama_client.web_fetch], # ? should this be here
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker
     )
@@ -229,7 +228,6 @@ async def impact_justifications(events: list[Event]) -> list[Event]:
         system_prompt = system_prompt_event_impact_justification,
         json = JustificationBatchResponse.json_schema(),
         context = config.CONTEXT,
-        tools = [ollama_client.web_search, ollama_client.web_fetch], # ? should this be here
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker
     )

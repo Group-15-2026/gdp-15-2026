@@ -1,0 +1,6283 @@
+{
+  "actors": [
+    {
+      "name": "New Mexico",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Raúl Torrez",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Meta",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Metas",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NewsFeed",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the United States-Is",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Sabine Siebold",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Andreas Rinke",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "BERLIN",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Reuters",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "U.S.",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Germany",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "German",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Boris Pi",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Alex Jones",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Schlaaang",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Onion",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Infowars",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Tim Heidecker",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Sanae Takaichi",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnam",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Hanoi",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japans",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnamese",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Le Minh Hung",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Conduent Business Services",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "U.S.",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Texas",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Ken Paxton",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Americans",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Apple",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Verizon",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Somalia",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Yemens Coast Guard",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Yemens",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Shabw",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Sean Duffy",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Spirit Airlines",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Michael Porter Jr.",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jorge Besada",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Mises Institute",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Reserve Bank",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Sanjay Malhotra",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Buffalo Rumblings",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Buffalo Bills",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "vivo",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "KeepPremium",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Ukraine",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Odessa",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Trade Union",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Odessa",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "anti-Maidan",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Ukraine",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russia",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Donbass",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Donetsk",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russia",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russian",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russia",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russian",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Washington",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Asian",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Apple",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Garmin",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Samsung",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Nifty",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Quant Mutual Fund",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "McDavid",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Edmonton Oilers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Leon Draisaitl",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Türkiye",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Ömer Bolat",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "ANKARA",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japan",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russia",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "U.S.-Israeli",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russian",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Donald Trump",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "US",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iranian",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Golden State Warriors",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Draymond Green",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Golden State Warriors",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Draymond Green",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Denver Nuggets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Tarik Skubal",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Detroit Tigers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Major League Baseball",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "San Francisco 49ers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Kyle Shanahan",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mac Jones",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Freddy Peralta",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "MLB",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Cincinnati Bengals",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Joe Burrow",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bitwarden",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bleeding Cool",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Dan Quintana",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "DC Comics",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Heavy Mental Comics",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Dropgate",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bitget",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Polymarket",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bitget Wallet",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "CCI",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "U.S.",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Thom Tillis",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "R",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "N.C.",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Angela Alsobrooks",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "D",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Md.",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NFL",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Pittsburgh Steelers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mason Rudolph",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Aaron Rodgers",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Edmonton",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Edmonton Oilers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Connor Murphy",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bengals",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "TJ Slaton",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Cincinnati Bengals",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Dexter Lawrence",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Dallas Cowboys",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NFL Draft",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jerry Jones",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NFL",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Chris Ballard",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Anthony Richardson",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Indianapolis Colts",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "nVent Electric PLC",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Polymarket",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Golden State Warriors",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Tampa Bay Buccaneers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Cleveland Browns",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Falcons",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Kevin Durant",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Golden State Warriors",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jimmy Butler",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Houston Rockets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mark Cuban",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mavericks",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Adelson",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Atlanta Hawks",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Trae Young",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jalen Johnson",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "John Roberts",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Donald Trump",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "U.S.",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the European Union",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Germany",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "AP",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Michael Probst",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mariners",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Matt Brash",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Royals",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Seattle",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Josh Simpson",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Triple-A Tacoma",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Tigers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bryce Harper",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Detroit",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Zachary D. Rymer",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bleacher Report",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Detroit Tigers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Philadelphia Phillies",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Detroits",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mark Cuban",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mavericks",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Adelsons",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Luka Doncic",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NBA",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jeanie Buss",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Luka Doncic",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mark Cuban",
+      "actor_type": "ceo",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Lakers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "DeVonta Smith",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "A.J. Brown",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Allentown",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Pennsylvania",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Nigeria",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Reuters",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Delta",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Utorogun",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vanguard News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Akpokona Omafuaire",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Utorogun Independent",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "BTS",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Seoul",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Shekinah Yawra",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Disney World",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "AllEars",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "AllEarsNet, LLC",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "AllEars® Newsletter",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Walt Disney Company",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Pentagon",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "US",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Germany",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Trum",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Defense",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Pete Hegseth",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "United States",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Israel",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the U.S. Office of …",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Paradigm",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Bitcoin",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Satoshi",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Nazism",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Russian Foreign Ministry",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Odessa",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Kiev",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Moscow",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Ukraine",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Russian",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Brooklyn Nets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Orlando Magic",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Paolo Banchero",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "MLB",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Twins",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Joe Ryan",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Boston Red Sox",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jarren Duran",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Giants",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "MLB",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "San Francisco Giants",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Golden State Warriors",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Los Angeles Lakers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Dallas Mavericks",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "David Peterson",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Tampa Bay Buccaneers",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "ESPNs",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Jenna Laine",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Phillies",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "AL",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Zack Wheeler",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Nationals",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NBA",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Boston Celtics",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Royals",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "MLB",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Kansas City",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Los Angeles Lakers",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Anthony Davis",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Braves",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Raisel Iglesias",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Robert Suarez",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "MLB",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mike Trout",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Angels",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Sporting News",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japan",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnam",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "China",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japan",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnam",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "HANOI",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Sanae Takaichi",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnamese",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Hanoi",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Slovak",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Robert Fico",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Donald Trump",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "US",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Iran",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Texas Attorney General's Office",
+      "actor_type": "government",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Houston",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "De’Ai Postpartum Care Center",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Paxton",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Chinese",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the United States",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Cowboys",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "NFL",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Chinese Communist Party",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "ICIJ",
+      "actor_type": "news outlet",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "China",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Scilla Aleccivia",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Trump",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "China",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Takaichi",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Beijing",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "US",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japan",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Taiwan",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Lagos",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Obafemi Hamzat",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the State Nigerian Labour Congress",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Trade Union Congress",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Olasunkanmi Akoni",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Lagos State",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Andrew Berry",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Dawand Jones",
+      "actor_type": "celebrity",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "The Cleveland Browns",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Spencer Fano",
+      "actor_type": "other",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Spirit Airlines",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Mets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Best Buy",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Xbox",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Apple",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Google",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Houston",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "the Houston Rockets",
+      "actor_type": "company",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japanese",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnamese",
+      "actor_type": "political party",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "To Lam",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Vietnam",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Hanoi",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Japan",
+      "actor_type": "country",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    },
+    {
+      "name": "Sanae Takaichi",
+      "actor_type": "politician",
+      "impact": null,
+      "public_opinion": null,
+      "controversy": null,
+      "mentions_weight": null,
+      "linked_themes": null
+    }
+  ],
+  "events": [
+    {
+      "event": "New Mexico court penalizes Meta for child safety violations",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Meta’s historic loss in court could cost a lot more than $375 million",
+          "publication_time": "2026-05-02T18:24:39Z",
+          "source": {
+            "source_name": "The Verge"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "State courts can force global tech companies to change operations.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Social media regulation is moving beyond simple fines.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Child safety rules will transform the internet industry.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "US court rulings will influence global digital policy.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US state initiates proceedings to restructure Meta operations",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Meta’s historic loss in court could cost a lot more than $375 million",
+          "publication_time": "2026-05-02T18:24:39Z",
+          "source": {
+            "source_name": "The Verge"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "State courts can force global tech companies to change operations.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Social media regulation is moving beyond simple fines.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Child safety rules will transform the internet industry.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "US court rulings will influence global digital policy.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "International labor unions conduct coordinated May Day protests",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Rallies under way as workers gather for International Labour Day",
+          "publication_time": "2026-05-02T12:39:15Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "International labor protests effectively challenge global economic inequality.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Worldwide worker mobilizations expose failures in international labor standards.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Cross-border trade union cooperation strengthens geopolitical worker solidarity.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US plans withdrawal of 5,000 troops from Germany",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Germany says US troop drawdown should spur Europe, but top Republicans worried",
+          "publication_time": "2026-05-02T15:55:20Z",
+          "source": {
+            "source_name": "Yahoo Entertainment"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Withdrawing US troops from Germany will compel Europe to improve its defenses.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "American Republicans fear that reducing US troops in Europe weakens Western security.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Europe currently relies too heavily on American military presence for its protection.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Germany urges European defense capability enhancement",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Germany says US troop drawdown should spur Europe, but top Republicans worried",
+          "publication_time": "2026-05-02T15:55:20Z",
+          "source": {
+            "source_name": "Yahoo Entertainment"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Withdrawing US troops from Germany will compel Europe to improve its defenses.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "American Republicans fear that reducing US troops in Europe weakens Western security.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Europe currently relies too heavily on American military presence for its protection.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US Republican lawmakers oppose planned military drawdown",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Germany says US troop drawdown should spur Europe, but top Republicans worried",
+          "publication_time": "2026-05-02T15:55:20Z",
+          "source": {
+            "source_name": "Yahoo Entertainment"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Withdrawing US troops from Germany will compel Europe to improve its defenses.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "American Republicans fear that reducing US troops in Europe weakens Western security.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Europe currently relies too heavily on American military presence for its protection.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US media asset ownership transferred to satirical network",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Adult Swim Legend Tim Heidecker Debuts Infowars Takeover With The Onion",
+          "publication_time": "2026-05-02T19:00:38Z",
+          "source": {
+            "source_name": "Kotaku"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Legal pressures successfully dismantle influential conspiracy media networks.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Satire is replacing extremist conspiracy programming in the United States.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The collapse of Infowars weakens right-wing information warfare.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Conspiracy information platform leadership formally replaced",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Adult Swim Legend Tim Heidecker Debuts Infowars Takeover With The Onion",
+          "publication_time": "2026-05-02T19:00:38Z",
+          "source": {
+            "source_name": "Kotaku"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Legal pressures successfully dismantle influential conspiracy media networks.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Satire is replacing extremist conspiracy programming in the United States.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The collapse of Infowars weakens right-wing information warfare.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan pledges deeper energy cooperation with Vietnam",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan’s Takaichi pledges deeper energy cooperation with Vietnam",
+          "publication_time": "2026-05-02T09:16:49Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan prioritizes Vietnam to secure critical mineral supply chains.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Deepening Japan-Vietnam energy cooperation strengthens regional economic stability.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Expanding diplomatic ties with Vietnam secures Japan's strategic economic interests.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan signs six bilateral agreements with Vietnam",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan’s Takaichi pledges deeper energy cooperation with Vietnam",
+          "publication_time": "2026-05-02T09:16:49Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan prioritizes Vietnam to secure critical mineral supply chains.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Deepening Japan-Vietnam energy cooperation strengthens regional economic stability.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Expanding diplomatic ties with Vietnam secures Japan's strategic economic interests.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan and Vietnam expand critical mineral cooperation",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan’s Takaichi pledges deeper energy cooperation with Vietnam",
+          "publication_time": "2026-05-02T09:16:49Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan prioritizes Vietnam to secure critical mineral supply chains.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Deepening Japan-Vietnam energy cooperation strengthens regional economic stability.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Expanding diplomatic ties with Vietnam secures Japan's strategic economic interests.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Conduent suffers massive data breach exposing millions of records",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "DIY identity protection vs paid services: What works in 2026",
+          "publication_time": "2026-05-02T18:15:47Z",
+          "source": {
+            "source_name": "Fox News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Government outsourcing of citizen data creates severe national security vulnerabilities.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Large-scale data breaches demonstrate systemic failures in U.S. cybersecurity policy.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Reliance on individual digital protection is inadequate against state-level cyber risks.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Texas AG declares incident largest U.S. data breach",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "DIY identity protection vs paid services: What works in 2026",
+          "publication_time": "2026-05-02T18:15:47Z",
+          "source": {
+            "source_name": "Fox News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Government outsourcing of citizen data creates severe national security vulnerabilities.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Large-scale data breaches demonstrate systemic failures in U.S. cybersecurity policy.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Reliance on individual digital protection is inadequate against state-level cyber risks.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Hijacking of oil tanker M/T Eureka off Yemen coast",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Yemen reports hijacked oil tanker headed for Somalia",
+          "publication_time": "2026-05-02T17:10:29Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Vessel hijackings near Somalia are increasing.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Hijacked ships are deliberately routed toward Somalia.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Yemen cannot prevent maritime piracy in its waters.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Maritime security near Yemen and Somalia is deteriorating.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US Transportation Secretary rejects broader airline bailout",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Budget Airlines Are in Trouble. What’s the Outlook for a $2.5 Billion Bailout?",
+          "publication_time": "2026-05-02T15:24:44Z",
+          "source": {
+            "source_name": "Skift"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Spirit Airlines will liquidate due to financial insolvency.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The US government will likely reject a budget airline bailout.",
+              "opinion": 6.0
+            },
+            {
+              "claim": "Federal intervention in the aviation sector is economically unnecessary.",
+              "opinion": 5.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US low-cost carrier Spirit Airlines faces liquidation",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Budget Airlines Are in Trouble. What’s the Outlook for a $2.5 Billion Bailout?",
+          "publication_time": "2026-05-02T15:24:44Z",
+          "source": {
+            "source_name": "Skift"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Spirit Airlines will liquidate due to financial insolvency.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The US government will likely reject a budget airline bailout.",
+              "opinion": 6.0
+            },
+            {
+              "claim": "Federal intervention in the aviation sector is economically unnecessary.",
+              "opinion": 5.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US evaluates $2.5 billion airline industry bailout",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Budget Airlines Are in Trouble. What’s the Outlook for a $2.5 Billion Bailout?",
+          "publication_time": "2026-05-02T15:24:44Z",
+          "source": {
+            "source_name": "Skift"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Spirit Airlines will liquidate due to financial insolvency.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The US government will likely reject a budget airline bailout.",
+              "opinion": 6.0
+            },
+            {
+              "claim": "Federal intervention in the aviation sector is economically unnecessary.",
+              "opinion": 5.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "RBI Governor warns of rising geo-economic fragmentation",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "RBI Governor Malhotra flags rising global economic risks",
+          "publication_time": "2026-05-02T06:02:04Z",
+          "source": {
+            "source_name": "The Indian Express"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Geo-economic fragmentation disrupts global capital flows.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Supply chains are being reshaped by geopolitical shifts.",
+              "opinion": 7.5
+            },
+            {
+              "claim": "Global economic risks are currently increasing.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Economic fragmentation disrupts global capital flows",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "RBI Governor Malhotra flags rising global economic risks",
+          "publication_time": "2026-05-02T06:02:04Z",
+          "source": {
+            "source_name": "The Indian Express"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Geo-economic fragmentation disrupts global capital flows.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Supply chains are being reshaped by geopolitical shifts.",
+              "opinion": 7.5
+            },
+            {
+              "claim": "Global economic risks are currently increasing.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Chinese smartphone manufacturer launches new flagship device",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "vivo X300 FE Review: The Compact Flagship That Earns Its Keep",
+          "publication_time": "2026-05-02T15:20:20Z",
+          "source": {
+            "source_name": "Yanko Design"
+          },
+          "initial_categories": null,
+          "claims": [],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "May 2 2014 Odessa trade union building massacre occurs.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "12 Years Later, Still No Justice: Remembering May 2 Odessa Massacre",
+          "publication_time": "2026-05-02T07:06:00Z",
+          "source": {
+            "source_name": "Sputnikglobe.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The West has silenced coverage of the 2014 Odessa massacre.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Ukraine has erased the Odessa massacre from its official history.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "No justice has been achieved for the victims of the Odessa massacre.",
+              "opinion": 10.0
+            },
+            {
+              "claim": "The 2014 Odessa Trade Union building fire was a massacre.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Russia initiates special military operation in Ukraine",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Special Military Operation Success Will Guarantee Justice for Those Killed in Odessa — MFA Spox",
+          "publication_time": "2026-05-02T08:01:13Z",
+          "source": {
+            "source_name": "Sputnikglobe.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Ukrainian nationalists caused the Odessa Trade Unions House fire.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The 2014 Ukrainian political transition was a coup.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Russia's operation aims to liberate the Donbass region.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Russian military success will bring justice for Odessa victims.",
+              "opinion": 10.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Ukrainian nationalists burn Odessa Trade Unions House",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Special Military Operation Success Will Guarantee Justice for Those Killed in Odessa — MFA Spox",
+          "publication_time": "2026-05-02T08:01:13Z",
+          "source": {
+            "source_name": "Sputnikglobe.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Ukrainian nationalists caused the Odessa Trade Unions House fire.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The 2014 Ukrainian political transition was a coup.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Russia's operation aims to liberate the Donbass region.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Russian military success will bring justice for Odessa victims.",
+              "opinion": 10.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Iran war triggers Strait of Hormuz blockade",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Why Russia's Northern Sea Route, the shortest maritime route between Asia and Europe, is a risk for global trade — and the environment",
+          "publication_time": "2026-05-02T19:43:00Z",
+          "source": {
+            "source_name": "DW (English)"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Northern Sea Route poses major risks to global trade.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Expanding the Northern Sea Route threatens the Arctic environment.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Political obstacles will severely limit the Northern Sea Route's commercial viability.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Russia promotes Northern Sea Route for global trade",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Why Russia's Northern Sea Route, the shortest maritime route between Asia and Europe, is a risk for global trade — and the environment",
+          "publication_time": "2026-05-02T19:43:00Z",
+          "source": {
+            "source_name": "DW (English)"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Northern Sea Route poses major risks to global trade.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Expanding the Northern Sea Route threatens the Arctic environment.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Political obstacles will severely limit the Northern Sea Route's commercial viability.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Iran war disrupts regional maritime security",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Why Russia’s Northern Sea Route remains a risky bet for global shipping",
+          "publication_time": "2026-05-02T19:43:00Z",
+          "source": {
+            "source_name": "DW (English)"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Russia's Northern Sea Route faces significant political and environmental obstacles.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The Arctic shipping lane remains a risky venture for global commerce.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Iran conflicts are driving global interest in alternative shipping routes.",
+              "opinion": 6.0
+            },
+            {
+              "claim": "Russia will struggle to establish the Northern Sea Route as a major trade artery.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Strait of Hormuz blockade restricts global shipping",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Why Russia’s Northern Sea Route remains a risky bet for global shipping",
+          "publication_time": "2026-05-02T19:43:00Z",
+          "source": {
+            "source_name": "DW (English)"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Russia's Northern Sea Route faces significant political and environmental obstacles.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The Arctic shipping lane remains a risky venture for global commerce.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Iran conflicts are driving global interest in alternative shipping routes.",
+              "opinion": 6.0
+            },
+            {
+              "claim": "Russia will struggle to establish the Northern Sea Route as a major trade artery.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Russia promotes Northern Sea Route for trade",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Why Russia’s Northern Sea Route remains a risky bet for global shipping",
+          "publication_time": "2026-05-02T19:43:00Z",
+          "source": {
+            "source_name": "DW (English)"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Russia's Northern Sea Route faces significant political and environmental obstacles.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The Arctic shipping lane remains a risky venture for global commerce.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Iran conflicts are driving global interest in alternative shipping routes.",
+              "opinion": 6.0
+            },
+            {
+              "claim": "Russia will struggle to establish the Northern Sea Route as a major trade artery.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Escalation in Iran drives regional economic instability.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Asia is being hammered by the Iran conflict’s economic fallout. The U.S. has the playbook to help—and every reason to",
+          "publication_time": "2026-05-02T09:00:00Z",
+          "source": {
+            "source_name": "Fortune"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Iran conflict is severely damaging Asian economies",
+              "opinion": 10.0
+            },
+            {
+              "claim": "The United States must change its trade agenda to assist Asia",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Global energy price increases are a direct result of the Iran conflict",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Washington has both the ability and motivation to aid Asian economic recovery",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Global energy prices surge amid Iran conflict.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Asia is being hammered by the Iran conflict’s economic fallout. The U.S. has the playbook to help—and every reason to",
+          "publication_time": "2026-05-02T09:00:00Z",
+          "source": {
+            "source_name": "Fortune"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Iran conflict is severely damaging Asian economies",
+              "opinion": 10.0
+            },
+            {
+              "claim": "The United States must change its trade agenda to assist Asia",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Global energy price increases are a direct result of the Iran conflict",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Washington has both the ability and motivation to aid Asian economic recovery",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Asian economies face severe growth forecast downgrades.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Asia is being hammered by the Iran conflict’s economic fallout. The U.S. has the playbook to help—and every reason to",
+          "publication_time": "2026-05-02T09:00:00Z",
+          "source": {
+            "source_name": "Fortune"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Iran conflict is severely damaging Asian economies",
+              "opinion": 10.0
+            },
+            {
+              "claim": "The United States must change its trade agenda to assist Asia",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Global energy price increases are a direct result of the Iran conflict",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Washington has both the ability and motivation to aid Asian economic recovery",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Fertilizer supply chains face widespread regional shortages.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Asia is being hammered by the Iran conflict’s economic fallout. The U.S. has the playbook to help—and every reason to",
+          "publication_time": "2026-05-02T09:00:00Z",
+          "source": {
+            "source_name": "Fortune"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Iran conflict is severely damaging Asian economies",
+              "opinion": 10.0
+            },
+            {
+              "claim": "The United States must change its trade agenda to assist Asia",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Global energy price increases are a direct result of the Iran conflict",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Washington has both the ability and motivation to aid Asian economic recovery",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Quant Mutual Fund advises aggressive portfolio rebalancing",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Quant Mutual Fund sees ideal time to rebalance portfolios, remains heavily deployed on attractive valuations",
+          "publication_time": "2026-05-02T06:11:34Z",
+          "source": {
+            "source_name": "Economictimes.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Current market conditions are improving enough to warrant aggressive rebalancing.",
+              "opinion": 8.5
+            },
+            {
+              "claim": "Asset valuations are currently attractive for heavy capital deployment.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Strong liquidity conditions support expansive financial market participation.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Energy and infrastructure sectors currently provide the best investment prospects.",
+              "opinion": 7.5
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Fund maintains heavy deployment on attractive equity valuations",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Quant Mutual Fund sees ideal time to rebalance portfolios, remains heavily deployed on attractive valuations",
+          "publication_time": "2026-05-02T06:11:34Z",
+          "source": {
+            "source_name": "Economictimes.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Current market conditions are improving enough to warrant aggressive rebalancing.",
+              "opinion": 8.5
+            },
+            {
+              "claim": "Asset valuations are currently attractive for heavy capital deployment.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Strong liquidity conditions support expansive financial market participation.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Energy and infrastructure sectors currently provide the best investment prospects.",
+              "opinion": 7.5
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Türkiye April exports rise 22.3 percent year-on-year",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Türkiye’s exports rise 22.3 percent in April",
+          "publication_time": "2026-05-02T09:39:01Z",
+          "source": {
+            "source_name": "Hurriyet Daily News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Türkiye's economy is stabilizing due to rising exports.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Turkish trade growth increases its regional geopolitical leverage.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Current government policies are driving Turkish export success.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "U.S. and Israel strike Iran",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan to procure Russian oil for 1st time since U.S.-Israeli strikes on Iran",
+          "publication_time": "2026-05-02T21:00:57Z",
+          "source": {
+            "source_name": "Japan Today"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "U.S. and Israeli strikes on Iran closed the Strait of Hormuz.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Japan will resume buying Russian crude oil.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Middle East instability forces Japan to rely on Russian energy.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Strait of Hormuz effectively closes",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan to procure Russian oil for 1st time since U.S.-Israeli strikes on Iran",
+          "publication_time": "2026-05-02T21:00:57Z",
+          "source": {
+            "source_name": "Japan Today"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "U.S. and Israeli strikes on Iran closed the Strait of Hormuz.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Japan will resume buying Russian crude oil.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Middle East instability forces Japan to rely on Russian energy.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan resumes Russian crude oil imports",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan to procure Russian oil for 1st time since U.S.-Israeli strikes on Iran",
+          "publication_time": "2026-05-02T21:00:57Z",
+          "source": {
+            "source_name": "Japan Today"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "U.S. and Israeli strikes on Iran closed the Strait of Hormuz.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Japan will resume buying Russian crude oil.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Middle East instability forces Japan to rely on Russian energy.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US military seizes Iranian vessels near Strait of Hormuz",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Trump likens US forces seizing Iranian ships to pirates",
+          "publication_time": "2026-05-02T03:04:38Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States has imposed a naval blockade on Iran.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "American forces captured Iranian ships in the Strait of Hormuz.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The US blockade of Iran affects international oil prices.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "United States enforces naval blockade on Iranian ports",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Trump likens US forces seizing Iranian ships to pirates",
+          "publication_time": "2026-05-02T03:04:38Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States has imposed a naval blockade on Iran.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "American forces captured Iranian ships in the Strait of Hormuz.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The US blockade of Iran affects international oil prices.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Prediction markets expanded into political outcome tracking",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Prediction markets are ditching the 'casino' label to become a regular part of how people track the news",
+          "publication_time": "2026-05-02T13:00:00Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Prediction markets are becoming a standard tool for tracking political news.",
+              "opinion": 8.5
+            },
+            {
+              "claim": "Retail participation drives the expansion of political forecasting markets.",
+              "opinion": 7.5
+            },
+            {
+              "claim": "Political prediction platforms are transitioning away from gambling associations.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Retail investors increased political betting volume",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Prediction markets are ditching the 'casino' label to become a regular part of how people track the news",
+          "publication_time": "2026-05-02T13:00:00Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Prediction markets are becoming a standard tool for tracking political news.",
+              "opinion": 8.5
+            },
+            {
+              "claim": "Retail participation drives the expansion of political forecasting markets.",
+              "opinion": 7.5
+            },
+            {
+              "claim": "Political prediction platforms are transitioning away from gambling associations.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Bitget and Polymarket released market analysis report",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Prediction markets are ditching the 'casino' label to become a regular part of how people track the news",
+          "publication_time": "2026-05-02T13:00:00Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Prediction markets are becoming a standard tool for tracking political news.",
+              "opinion": 8.5
+            },
+            {
+              "claim": "Retail participation drives the expansion of political forecasting markets.",
+              "opinion": 7.5
+            },
+            {
+              "claim": "Political prediction platforms are transitioning away from gambling associations.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "U.S. senators publish compromise text on digital asset regulation.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Crypto industry backs CLARITY Act yield compromise, pushes Senate Banking for markup",
+          "publication_time": "2026-05-02T16:01:01Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The crypto industry supports the CLARITY Act compromise.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The CLARITY Act compromise restricts cryptocurrency yield programs.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Industry groups criticize the CLARITY Act compromise for broad prohibitions.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Cryptocurrency industry endorses market structure legislative compromise.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Crypto industry backs CLARITY Act yield compromise, pushes Senate Banking for markup",
+          "publication_time": "2026-05-02T16:01:01Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The crypto industry supports the CLARITY Act compromise.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The CLARITY Act compromise restricts cryptocurrency yield programs.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Industry groups criticize the CLARITY Act compromise for broad prohibitions.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Trade groups pressure Senate Banking Committee for bill markup.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Crypto industry backs CLARITY Act yield compromise, pushes Senate Banking for markup",
+          "publication_time": "2026-05-02T16:01:01Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The crypto industry supports the CLARITY Act compromise.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The CLARITY Act compromise restricts cryptocurrency yield programs.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Industry groups criticize the CLARITY Act compromise for broad prohibitions.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Pittsburgh Steelers consider trading quarterback Mason Rudolph",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Aaron Rodgers' return could force Steelers to trade Mason Rudolph",
+          "publication_time": "2026-05-02T15:19:19Z",
+          "source": {
+            "source_name": "USA Today"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Steelers will trade Mason Rudolph if Aaron Rodgers returns.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Mason Rudolph is a valuable asset in the current trade market.",
+              "opinion": 7.5
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US data center sector bolsters corporate profits",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "nVent (NVT) Hits All-Time High as Data Center Sector Bolsters Profits",
+          "publication_time": "2026-05-02T03:41:41Z",
+          "source": {
+            "source_name": "Yahoo Entertainment"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Data center sector growth strengthens national technological infrastructure.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Rising corporate profits in electrical infrastructure boost economic resilience.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Tech infrastructure expansion indicates favorable long-term geopolitical economic trends.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Increased data center investment reflects strategic national digital priorities.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "International Workers' Day observed as public holiday globally",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Fox Host Pretends May Day Only Celebrated In Communist Countries",
+          "publication_time": "2026-05-02T00:00:01Z",
+          "source": {
+            "source_name": "Crooksandliars.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "May Day is widely celebrated outside of communist countries.",
+              "opinion": 9.5
+            },
+            {
+              "claim": "International Workers' Day is the most globally observed holiday.",
+              "opinion": 10.0
+            },
+            {
+              "claim": "The United States wrongly associates May Day exclusively with communism.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "United States announces tariffs on European Union automobiles",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Trump says will raise US tariffs on EU cars to 25 pct",
+          "publication_time": "2026-05-02T07:25:02Z",
+          "source": {
+            "source_name": "Hurriyet Daily News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The US will raise tariffs on European cars to 25 percent.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The EU is not following an earlier US trade deal.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Tariffs are an effective tool for US trade policy.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Washington accuses Brussels of violating trade pact",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Trump says will raise US tariffs on EU cars to 25 pct",
+          "publication_time": "2026-05-02T07:25:02Z",
+          "source": {
+            "source_name": "Hurriyet Daily News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The US will raise tariffs on European cars to 25 percent.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The EU is not following an earlier US trade deal.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Tariffs are an effective tool for US trade policy.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US-European trade tensions escalate over auto duties",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Trump says will raise US tariffs on EU cars to 25 pct",
+          "publication_time": "2026-05-02T07:25:02Z",
+          "source": {
+            "source_name": "Hurriyet Daily News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The US will raise tariffs on European cars to 25 percent.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "The EU is not following an earlier US trade deal.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Tariffs are an effective tool for US trade policy.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US basketball franchise traded Slovenian national Luka Doncic.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Did Mark Cuban try to reclaim Mavericks? The answer might shock everyone",
+          "publication_time": "2026-05-02T18:47:48Z",
+          "source": {
+            "source_name": "Sporting News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Mark Cuban regrets selling the Dallas Mavericks.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Cross-border capital flows significantly impact American sports markets.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "NBA ownership changes reflect shifting billionaire economic priorities.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Iran conflict disrupts global commodity supply chains",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "How to Trade Gold as Supply Chain Disruptions Push Commodity Prices Closer to Fresh Records",
+          "publication_time": "2026-05-02T18:45:08Z",
+          "source": {
+            "source_name": "Vanguard"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Iran war is destabilizing global commodity markets.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Supply chain disruptions are driving gold prices to new highs.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Nigeria is acutely vulnerable to international trade disruptions.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Geopolitical conflicts will increasingly dictate financial market trends.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Supply chain disruptions impact Nigerian gold markets",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "How to Trade Gold as Supply Chain Disruptions Push Commodity Prices Closer to Fresh Records",
+          "publication_time": "2026-05-02T18:45:08Z",
+          "source": {
+            "source_name": "Vanguard"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Iran war is destabilizing global commodity markets.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Supply chain disruptions are driving gold prices to new highs.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Nigeria is acutely vulnerable to international trade disruptions.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Geopolitical conflicts will increasingly dictate financial market trends.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Utorogun power project stalls amid funding disputes.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Delta: Stakeholders trade blame over Utorogun IPP failure seven years after",
+          "publication_time": "2026-05-02T08:09:45Z",
+          "source": {
+            "source_name": "Vanguard"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Stakeholder infighting delays Nigerian energy infrastructure projects.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Insufficient funding caused the Utorogun power plant to stall.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Bureaucratic blame shifting hinders Delta State energy development.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Nigeria struggles to complete announced power generation projects.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Delta state energy infrastructure development delayed.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Delta: Stakeholders trade blame over Utorogun IPP failure seven years after",
+          "publication_time": "2026-05-02T08:09:45Z",
+          "source": {
+            "source_name": "Vanguard"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Stakeholder infighting delays Nigerian energy infrastructure projects.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Insufficient funding caused the Utorogun power plant to stall.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Bureaucratic blame shifting hinders Delta State energy development.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Nigeria struggles to complete announced power generation projects.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "South Korea leverages K-pop for global soft power.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "K-pop’s BTS comeback tour rallies South Korea’s global ‘soft power’ drive",
+          "publication_time": "2026-05-02T02:25:22Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "South Korea strategically uses K-pop to expand global soft power.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Cultural exports are highly effective tools for national geopolitical influence.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "International tourism demand heavily depends on pop culture phenomena.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Korean lifestyle products benefit directly from entertainment industry success.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "BTS concerts drive surge in South Korean cultural exports.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "K-pop’s BTS comeback tour rallies South Korea’s global ‘soft power’ drive",
+          "publication_time": "2026-05-02T02:25:22Z",
+          "source": {
+            "source_name": "Al Jazeera English"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "South Korea strategically uses K-pop to expand global soft power.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Cultural exports are highly effective tools for national geopolitical influence.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "International tourism demand heavily depends on pop culture phenomena.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Korean lifestyle products benefit directly from entertainment industry success.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "United States orders withdrawal of 5000 troops from Germany",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "US to withdraw 5,000 soldiers from Germany",
+          "publication_time": "2026-05-02T03:12:04Z",
+          "source": {
+            "source_name": "The Punch"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States is reducing its military presence in Germany.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Trade disputes are straining transatlantic security alliances.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Foreign policy disagreements are weakening US-European relations.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Transatlantic security posture faces US military realignment",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "US to withdraw 5,000 soldiers from Germany",
+          "publication_time": "2026-05-02T03:12:04Z",
+          "source": {
+            "source_name": "The Punch"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States is reducing its military presence in Germany.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Trade disputes are straining transatlantic security alliances.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Foreign policy disagreements are weakening US-European relations.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "U.S. threatens sanctions over Iran Strait of Hormuz tolls.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "U.S. warns shipping firms they could face sanctions over paying Iran's Strait of Hormuz tolls",
+          "publication_time": "2026-05-02T09:41:47Z",
+          "source": {
+            "source_name": "CBC News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States sanctions firms paying Iran for safe passage.",
+              "opinion": 10.0
+            },
+            {
+              "claim": "Iran has effectively closed the Strait of Hormuz to normal traffic.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "U.S. and Israeli military actions provoked Iranian attacks on shipping.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Paying Iran tolls violates United States foreign policy objectives.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Iran attacks merchant vessels to block Strait of Hormuz.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "U.S. warns shipping firms they could face sanctions over paying Iran's Strait of Hormuz tolls",
+          "publication_time": "2026-05-02T09:41:47Z",
+          "source": {
+            "source_name": "CBC News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States sanctions firms paying Iran for safe passage.",
+              "opinion": 10.0
+            },
+            {
+              "claim": "Iran has effectively closed the Strait of Hormuz to normal traffic.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "U.S. and Israeli military actions provoked Iranian attacks on shipping.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Paying Iran tolls violates United States foreign policy objectives.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "U.S. and Israel launch military conflict on Feb. 28.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "U.S. warns shipping firms they could face sanctions over paying Iran's Strait of Hormuz tolls",
+          "publication_time": "2026-05-02T09:41:47Z",
+          "source": {
+            "source_name": "CBC News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The United States sanctions firms paying Iran for safe passage.",
+              "opinion": 10.0
+            },
+            {
+              "claim": "Iran has effectively closed the Strait of Hormuz to normal traffic.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "U.S. and Israeli military actions provoked Iranian attacks on shipping.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Paying Iran tolls violates United States foreign policy objectives.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Paradigm proposes Bitcoin quantum resistance protocol",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "New Bitcoin quantum proposal offers Satoshi Nakamoto a way to prove control without moving BTC",
+          "publication_time": "2026-05-02T06:24:06Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Quantum computing capabilities threaten global digital asset security.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "State actors could exploit quantum vulnerabilities to seize cryptocurrency reserves.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Proactive cryptographic measures are necessary to secure vulnerable Bitcoin holdings.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Satoshi Nakamoto's static Bitcoin address creates a systemic security risk.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Legacy Bitcoin reserves face quantum decryption risk",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "New Bitcoin quantum proposal offers Satoshi Nakamoto a way to prove control without moving BTC",
+          "publication_time": "2026-05-02T06:24:06Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Quantum computing capabilities threaten global digital asset security.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "State actors could exploit quantum vulnerabilities to seize cryptocurrency reserves.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Proactive cryptographic measures are necessary to secure vulnerable Bitcoin holdings.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Satoshi Nakamoto's static Bitcoin address creates a systemic security risk.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Digital asset infrastructure adopts preemptive security measures",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "New Bitcoin quantum proposal offers Satoshi Nakamoto a way to prove control without moving BTC",
+          "publication_time": "2026-05-02T06:24:06Z",
+          "source": {
+            "source_name": "CoinDesk"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Quantum computing capabilities threaten global digital asset security.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "State actors could exploit quantum vulnerabilities to seize cryptocurrency reserves.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Proactive cryptographic measures are necessary to secure vulnerable Bitcoin holdings.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Satoshi Nakamoto's static Bitcoin address creates a systemic security risk.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Russia ties Odessa justice to Ukraine conflict victory",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Only Russian victory will guarantee justice for Odessa massacre victims – Moscow",
+          "publication_time": "2026-05-02T13:53:42Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Europe traditionally supports Nazism.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Ukraine will not prosecute Odessa massacre perpetrators.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Only a Russian victory ensures justice for Odessa victims.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Moscow accuses European nations of supporting Nazism",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Only Russian victory will guarantee justice for Odessa massacre victims – Moscow",
+          "publication_time": "2026-05-02T13:53:42Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Europe traditionally supports Nazism.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Ukraine will not prosecute Odessa massacre perpetrators.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Only a Russian victory ensures justice for Odessa victims.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Atlanta Braves negotiate acquisition of international personnel",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Braves predicted to trade for $13.3M flamethrower to form trio with Raisel Iglesias, Robert Suarez",
+          "publication_time": "2026-05-02T19:13:18Z",
+          "source": {
+            "source_name": "Sporting News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Atlanta Braves will trade for a high-paid pitcher.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "The Braves bullpen will become the best in baseball.",
+              "opinion": 7.5
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan vows to strengthen free and open Indo-Pacific strategy",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "In Vietnam, Takaichi vows more effort to keep Asia 'free and open'",
+          "publication_time": "2026-05-02T21:00:23Z",
+          "source": {
+            "source_name": "Japan Today"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan supports a free and open Indo-Pacific region.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "China is displeased by Japan's Indo-Pacific strategy.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Japan views Vietnam as a key regional security partner.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan PM meets top Vietnamese leaders in Hanoi",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan PM Sanae Takaichi meets top Vietnam leaders in Hanoi",
+          "publication_time": "2026-05-02T02:14:00Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan maintains a strategically vital economic partnership with Vietnam.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Takaichi's diplomatic visit expands Japan's regional geopolitical influence.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Development aid serves as a key Japanese foreign policy instrument.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan and Vietnam sign multiple bilateral agreements",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japan PM Sanae Takaichi meets top Vietnam leaders in Hanoi",
+          "publication_time": "2026-05-02T02:14:00Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan maintains a strategically vital economic partnership with Vietnam.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Takaichi's diplomatic visit expands Japan's regional geopolitical influence.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Development aid serves as a key Japanese foreign policy instrument.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Trump administration considers new Iran policy options.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Oil prices now determined by Trump’s mood – Fico",
+          "publication_time": "2026-05-02T12:13:26Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Global oil prices are determined by Donald Trump's personal mood.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "United States foreign policy directly dictates international energy markets.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Slovakia opposes unilateral American economic influence.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Slovak Prime Minister comments on US influence over energy markets.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Oil prices now determined by Trump’s mood – Fico",
+          "publication_time": "2026-05-02T12:13:26Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Global oil prices are determined by Donald Trump's personal mood.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "United States foreign policy directly dictates international energy markets.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Slovakia opposes unilateral American economic influence.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Global oil prices react to Washington diplomatic signals.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Oil prices now determined by Trump’s mood – Fico",
+          "publication_time": "2026-05-02T12:13:26Z",
+          "source": {
+            "source_name": "RT"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Global oil prices are determined by Donald Trump's personal mood.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "United States foreign policy directly dictates international energy markets.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Slovakia opposes unilateral American economic influence.",
+              "opinion": 6.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Texas sues Chinese birth tourism facilitation center",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Texas Targets Houston-Based 'Birth Tourism Center' Focuses on Chinese Citizens",
+          "publication_time": "2026-05-02T11:45:12Z",
+          "source": {
+            "source_name": "Breitbart News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Texas authorities are actively prosecuting Chinese birth tourism facilitation.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Chinese citizens are exploiting US birthright citizenship through Texas clinics.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Facilitating Chinese birth tourism violates Texas state law.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "US state targets unauthorized Chinese border crossings",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Texas Targets Houston-Based 'Birth Tourism Center' Focuses on Chinese Citizens",
+          "publication_time": "2026-05-02T11:45:12Z",
+          "source": {
+            "source_name": "Breitbart News"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Texas authorities are actively prosecuting Chinese birth tourism facilitation.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Chinese citizens are exploiting US birthright citizenship through Texas clinics.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Facilitating Chinese birth tourism violates Texas state law.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "China targets ICIJ network with cyber espionage",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Articles On: China, Authoritarianism, Sanctions, EU Trade, Xi Jinping, Russia Relations, Iran, AI Deals, Taiwan, Ports, Global Order, and Espionage",
+          "publication_time": "2026-05-02T00:00:00Z",
+          "source": {
+            "source_name": "Hoover.org"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "China severely limits personal freedom and political liberty.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "China targets independent journalists and whistleblowers using cyber espionage.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "China exploits trade truces to mask expansionist geopolitical actions.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "China expands strategic initiatives under US trade truce",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Articles On: China, Authoritarianism, Sanctions, EU Trade, Xi Jinping, Russia Relations, Iran, AI Deals, Taiwan, Ports, Global Order, and Espionage",
+          "publication_time": "2026-05-02T00:00:00Z",
+          "source": {
+            "source_name": "Hoover.org"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "China severely limits personal freedom and political liberty.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "China targets independent journalists and whistleblowers using cyber espionage.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "China exploits trade truces to mask expansionist geopolitical actions.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "China restricts domestic political and personal freedoms",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Articles On: China, Authoritarianism, Sanctions, EU Trade, Xi Jinping, Russia Relations, Iran, AI Deals, Taiwan, Ports, Global Order, and Espionage",
+          "publication_time": "2026-05-02T00:00:00Z",
+          "source": {
+            "source_name": "Hoover.org"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "China severely limits personal freedom and political liberty.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "China targets independent journalists and whistleblowers using cyber espionage.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "China exploits trade truces to mask expansionist geopolitical actions.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan vows to keep Asia free and open",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "In Vietnam, Japan PM Sanae Takaichi vows more effort to keep Asia 'free and open'",
+          "publication_time": "2026-05-02T10:01:26Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan may militarily intervene to prevent China from seizing Taiwan.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Japan is committed to maintaining a free and open Asia.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Asian nations should prioritize self-determination over external influence.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "China opposes Japan's strategic initiatives in the Asia-Pacific.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan urges Asian nations to cultivate strategic resilience",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "In Vietnam, Japan PM Sanae Takaichi vows more effort to keep Asia 'free and open'",
+          "publication_time": "2026-05-02T10:01:26Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan may militarily intervene to prevent China from seizing Taiwan.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Japan is committed to maintaining a free and open Asia.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Asian nations should prioritize self-determination over external influence.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "China opposes Japan's strategic initiatives in the Asia-Pacific.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "China rebukes Japan over potential Taiwan military intervention",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "In Vietnam, Japan PM Sanae Takaichi vows more effort to keep Asia 'free and open'",
+          "publication_time": "2026-05-02T10:01:26Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan may militarily intervene to prevent China from seizing Taiwan.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Japan is committed to maintaining a free and open Asia.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Asian nations should prioritize self-determination over external influence.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "China opposes Japan's strategic initiatives in the Asia-Pacific.",
+              "opinion": 8.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Nigerian labor unions endorse Lagos deputy governor's 2027 campaign.",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "2027: Lagos NLC, TUC back Hamzat’s gov’ship bid",
+          "publication_time": "2026-05-02T12:55:24Z",
+          "source": {
+            "source_name": "Vanguard"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Lagos labor unions support Obafemi Hamzat's gubernatorial bid",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Labor union backing significantly influences Nigerian political campaigns",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Obafemi Hamzat will improve Lagos's developmental trajectory",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Spirit Airlines ceases United States commercial operations",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Spirit Airlines Is Dead after 34 Years, They Shut Down at 3 a.m. On May 2, 2026",
+          "publication_time": "2026-05-02T12:58:09Z",
+          "source": {
+            "source_name": "Thoughtcatalog.com"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Spirit Airlines attracted customers with artificially low base fares.",
+              "opinion": 9.0
+            },
+            {
+              "claim": "Spirit Airlines became infamous for charging excessive ancillary fees.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "The permanent shutdown of Spirit Airlines is a regrettable economic loss.",
+              "opinion": 7.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Houston Rockets eliminated from national championship series",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Rockets drop series with 98-78 loss to Lakers in Game 6",
+          "publication_time": "2026-05-02T12:20:19Z",
+          "source": {
+            "source_name": "The Dream Shake"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "The Houston Rockets season ended following their loss to the Lakers.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "The Rockets performed poorly in their final playoff game.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "The Los Angeles Lakers advanced by defeating Houston in Game 6.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan PM holds diplomatic talks in Vietnam",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japanese PM Sanae Takaichi to meet top Vietnam leaders in Hanoi",
+          "publication_time": "2026-05-02T02:14:00Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan and Vietnam are prioritizing improved bilateral relations.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Japanese investment flows to Vietnam have recently decreased.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Japan firmly supports a free and open Indo-Pacific strategy.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan and Vietnam negotiate bilateral investment ties",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japanese PM Sanae Takaichi to meet top Vietnam leaders in Hanoi",
+          "publication_time": "2026-05-02T02:14:00Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan and Vietnam are prioritizing improved bilateral relations.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Japanese investment flows to Vietnam have recently decreased.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Japan firmly supports a free and open Indo-Pacific strategy.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    },
+    {
+      "event": "Japan PM promotes Indo-Pacific strategy during Hanoi visit",
+      "actors": null,
+      "themes": null,
+      "source_articles": [
+        {
+          "article_title": "Japanese PM Sanae Takaichi to meet top Vietnam leaders in Hanoi",
+          "publication_time": "2026-05-02T02:14:00Z",
+          "source": {
+            "source_name": "CNA"
+          },
+          "initial_categories": null,
+          "claims": [
+            {
+              "claim": "Japan and Vietnam are prioritizing improved bilateral relations.",
+              "opinion": 8.0
+            },
+            {
+              "claim": "Japanese investment flows to Vietnam have recently decreased.",
+              "opinion": 7.0
+            },
+            {
+              "claim": "Japan firmly supports a free and open Indo-Pacific strategy.",
+              "opinion": 9.0
+            }
+          ],
+          "themes": null
+        }
+      ],
+      "controversy": null,
+      "economic_impact": null,
+      "financial_market_impact": null,
+      "security_impact": null,
+      "diplomatic_impact": null
+    }
+  ]
+}

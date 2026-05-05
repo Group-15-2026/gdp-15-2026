@@ -42,7 +42,6 @@ class ChatHistory:
 
             json: JsonSchemaValue | None = None,
             context: int | None = None,
-            tools: list[Callable] | None = None,
 
             allowed_attempts: int | Literal["inf"] = 1,
             response_marker: BaseResponseMarker | None = None
@@ -53,7 +52,7 @@ class ChatHistory:
             self.messages.append(format_message("system", system_prompt))
 
         self.config: dict[str, Any] = {"model": model}
-        if think:
+        if think is not None:
             self.config["think"] = think
         if json:
             self.config["format"] = json
@@ -61,8 +60,6 @@ class ChatHistory:
             self.config["options"] = {
                 "num_ctx": context
             }
-        if tools:
-            self.config["tools"] = tools
 
         logger.info(f"LLM interface template setup with config: \"{self.config}\"")
 
@@ -92,8 +89,6 @@ class ChatHistory:
         while True:
             output = await self.chat_single(prompt, record_response=True)
 
-            # TODO add support for tool calling here if the model attempts to call a tool
-
             error_message = self.response_marker.mark(output)
             if error_message is None:
                 if cull_mistakes:
@@ -121,6 +116,9 @@ class ChatHistory:
     
     # Keep LLM client config, but clear the message record 
     def clear_history(self):
-        self.messages = []
+        system_prompt = self.messages[0] if len(self.messages) > 0 else None
+        if system_prompt and system_prompt["role"] != "system":
+            system_prompt = None
+        self.messages = [system_prompt] if system_prompt else []
         if self.allowed_attempts != 1:
             self.response_marker.reset()

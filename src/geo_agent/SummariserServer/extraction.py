@@ -6,7 +6,7 @@ from ..LLMTools.chat_history import BaseResponseMarker, ChatHistory
 from collections import Counter
 import logging
 from ollama import AsyncClient
-from pydantic import TypeAdapter, BaseModel, Field
+from pydantic import BaseModel, TypeAdapter, Field
 import spacy
 
 logger = logging.getLogger(__name__)
@@ -74,12 +74,12 @@ class ExtractedEvent(BaseModel):
     def to_full(self):
         return Event(event=self.event)
 
-# type that represents the model's target output for extraction
+# Type that represents the model's target output for extraction
 EventExtractResponse = TypeAdapter(list[ExtractedEvent])
 
 # Class that evaluates the validity of the classification-LLM 's response
 class EventExtractResponseMarker(BaseResponseMarker):
-    max_word_count = 20
+    max_word_count = config.EVENT_SIZE
 
     def __init__(self):
         self.validEvents = []
@@ -90,7 +90,8 @@ class EventExtractResponseMarker(BaseResponseMarker):
         try:
             output_obj = EventExtractResponse.validate_json(response)
         except Exception as e:
-            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON."
+            message = "Your previous response failed to output correct JSON. Rewrite your previous response in valid JSON. " \
+            f"based off of the following error: {e}."
         else:
             too_long = []
             for event in output_obj:
@@ -141,12 +142,12 @@ async def extract_article_events(article: Article) -> list[Event]:
 
 # TODO Link the extracted claims to the actors that they reference (try and only pass the actors who are mentioned in the particular article in order to avoid overwhelming the AI). 
 
-# type that represents the model's target output for extraction
+# Type that represents the model's target output for extraction
 ClaimExtractResponse = TypeAdapter(list[ClaimEntry])
 
 # Class that evaluates the validity of the classification-LLM 's response
 class ClaimExtractResponseMarker(BaseResponseMarker):
-    max_word_count = 20
+    max_word_count = config.CLAIM_SIZE
 
     def __init__(self):
         self.validClaims = []
