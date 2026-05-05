@@ -6,6 +6,10 @@ from news import get_daily_articles, get_articles_about
 from datetime import datetime
 from mcp.server.fastmcp import FastMCP
 
+from utils import setup_server_logging
+
+setup_server_logging("collector")
+
 collector_mcp = FastMCP(name="Collector MCP Server")
 
 # Get more detailed news on a particular topic

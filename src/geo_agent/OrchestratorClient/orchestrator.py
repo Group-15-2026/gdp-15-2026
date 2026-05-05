@@ -7,10 +7,8 @@ from datetime import date, timedelta
 from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient, set_debug
 
-from utils.log_utils import MCP_logging_callback as logging_callback
-
 # Avoid printing messy logs
-set_debug(2)   # TODO trial removing to see compatibility with logging
+# set_debug(2)   # TODO trial removing to see compatibility with logging
 
 CONFIG = {
     "mcpServers": {
@@ -30,8 +28,7 @@ CONFIG = {
 }
 
 def create_mcp_client():
-    return MCPClient(config=CONFIG, logging_callback=logging_callback)
-    # return MCPClient.from_dict(CONFIG)
+    return MCPClient.from_dict(CONFIG)
 
 # TODO Remove the part of the prompt saying to ignore erroneous tool calls. This is just to allow the project to run whilst it is still under development
 # TODO Add more precise instructions on how to use tools to output the HTML / PDF report (once these tools have been implemented).

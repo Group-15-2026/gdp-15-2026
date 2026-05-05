@@ -9,6 +9,10 @@ import asyncio
 from mcp.server.fastmcp import FastMCP
 from pydantic import BaseModel
 
+from utils import setup_server_logging
+
+setup_server_logging("summariser")
+
 summariser_mcp = FastMCP(name="Summariser MCP Server")
 
 # TODO Implement remaining tools, and add informative docstrings to the tools

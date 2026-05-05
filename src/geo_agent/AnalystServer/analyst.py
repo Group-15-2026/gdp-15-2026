@@ -7,6 +7,10 @@ from .impacts import impact_serverities, impact_justifications
 import asyncio
 from mcp.server.fastmcp import FastMCP
 
+from utils import setup_server_logging
+
+setup_server_logging("analyst")
+
 analyst_mcp = FastMCP(name="Analyst MCP Server")
 
 
