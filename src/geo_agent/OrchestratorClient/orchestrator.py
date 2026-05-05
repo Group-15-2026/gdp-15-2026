@@ -28,6 +28,7 @@ CONFIG = {
 }
 
 def create_mcp_client():
+    # MCPClient(config=CONFIG, logging_callback=MCP_logging_callback)
     return MCPClient.from_dict(CONFIG)
 
 # TODO Remove the part of the prompt saying to ignore erroneous tool calls. This is just to allow the project to run whilst it is still under development
