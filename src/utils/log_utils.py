@@ -39,21 +39,21 @@ def setup_logging_to_files():
 
     _logger.info("Set up logging to files successfully.")
 
-def add_server_handlers(logger: Logger, name: String):
+def add_server_handlers(logger, name):
     LOGS_DIR = get_logs_dir()
     to_server_file = logging.FileHandler(LOGS_DIR / "server.log", mode="w", encoding="utf-8")
     to_name_file = logging.FileHandler(LOGS_DIR / f"{name}.log", mode="w", encoding="utf-8")
     logger.addHandler(to_server_file)
     logger.addHandler(to_server_file)
 
-async def MCP_logging_callback(message: LogMessage):
+async def MCP_logging_callback(message):
     # Forward MCP Server logs to Python's logging system.
     msg = message.data.get('msg')
     extra = message.data.get('extra')
     
     level = LOGGING_LEVEL_MAP.get(message.level.upper(), logging.INFO) # defaults to logging.INFO if level fetch fails
     server_logger = logging.getLogger("server_logger")
-    logger.log(level=level, msg=msg)
+    logger.log(level=level, msg="this is a message")
 
 def clear_archive():
     LOGS_DIR = get_logs_dir()
