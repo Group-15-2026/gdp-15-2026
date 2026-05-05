@@ -13,5 +13,9 @@ class Settings(BaseSettings):
     S_ACT_BATCH_SIZE : int = 10
     A_EVE_BATCH_SIZE : int = 5
 
+    # Control the number of words in an event or claim
+    CLAIM_SIZE : int = 20
+    EVENT_SIZE : int = 20
+
 # Instantiate the settings globally
 config = Settings()

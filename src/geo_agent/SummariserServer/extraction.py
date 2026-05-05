@@ -79,7 +79,7 @@ EventExtractResponse = TypeAdapter(list[ExtractedEvent])
 
 # Class that evaluates the validity of the classification-LLM 's response
 class EventExtractResponseMarker(BaseResponseMarker):
-    max_word_count = 20
+    max_word_count = config.EVENT_SIZE
 
     def __init__(self):
         self.validEvents = []
@@ -146,7 +146,7 @@ ClaimExtractResponse = TypeAdapter(list[ClaimEntry])
 
 # Class that evaluates the validity of the classification-LLM 's response
 class ClaimExtractResponseMarker(BaseResponseMarker):
-    max_word_count = 20
+    max_word_count = config.CLAIM_SIZE
 
     def __init__(self):
         self.validClaims = []
