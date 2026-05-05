@@ -3,6 +3,7 @@ from ..Entities.Actors import Actor
 from ..Entities.Events import Event
 
 from .classification import classify_article_actors
+from .combination import combine_all_events
 from .extraction import extract_actors, extract_article_events, extract_article_claims
 
 import asyncio
@@ -10,17 +11,6 @@ from mcp.server.fastmcp import FastMCP
 from pydantic import BaseModel
 
 summariser_mcp = FastMCP(name="Summariser MCP Server")
-
-# TODO Implement remaining tools, and add informative docstrings to the tools
-
-@summariser_mcp.tool()
-def summarise_batch(articles: list[Article]) -> list[Article]:
-    raise NotImplementedError()
-
-# TODO Integrate this into the extract_events tool as well
-#@summariser_mcp.tool()
-#def tag_article_categories(articles: list[Article]) -> list[Article]:
-#    raise NotImplementedError()
 
 class ExtractEventsResult(BaseModel):
     actors: list[Actor]
@@ -50,7 +40,6 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
     # Extract Actors + Events
     actors_by_article = extract_actors(articles)
     actors = []
-    # TODO Merge events between articles, and make sure the final events have the correct 'source_articles' field values
     events = []
     for article, actor_counter, actor_clss in actors_by_article:
         # Speed up processing by performing concurrent LLM calls
@@ -61,10 +50,14 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
         
         actors += [actor for actor, _ in classified_actors]
 
-        # TODO Link actors mentioned into the events
         for event in doc_events:
-            event.source_articles = [article]
+            event.source_articles = [article]   # This is expanded below when we merge duplicates
+
+            # TODO Link actors mentioned into the events
+            # event.actors = identify_event_actors(event, doc_actors) # doc_actors = [actor for actor, _ in classified_actors]
         events += doc_events
+
+    events = await combine_all_events(events)
 
     return ExtractEventsResult(actors=actors, events=events)
 
