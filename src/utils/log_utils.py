@@ -86,7 +86,7 @@ def setup_server_logging(server_name):
     setup_logging_basic(colour)
 
     to_latest = logging.FileHandler(LOGS_DIR / f"latest.{server_name}.log", mode="w", encoding="utf-8")
-    to_archive = logging.FileHandler(LOGS_DIR / f"archive{server_name}.log", mode="a", encoding="utf-8")
+    to_archive = logging.FileHandler(LOGS_DIR / f"archive.{server_name}.log", mode="a", encoding="utf-8")
 
     to_latest.setFormatter(logging.Formatter(fmt=FMT, datefmt=DATEFMT))
     to_archive.setFormatter(logging.Formatter(fmt=FMT, datefmt=DATEFMT))
