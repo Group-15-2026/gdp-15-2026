@@ -151,6 +151,8 @@ enclosing '{{}}', or initial filler text). Always check this before producing yo
 async def combine_all_events(events: list[Event]) -> list[Event]:
     global ollama_client
 
+    assert len(events) > 0, "Cannot combine an empty list of events"
+
     # setup link to LLM
     if ollama_client is None:
         logger.info("Attempting to set up new Ollama AsyncClient.")
