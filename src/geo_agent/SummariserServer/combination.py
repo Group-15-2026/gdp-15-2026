@@ -72,10 +72,10 @@ EventCombineResponse = TypeAdapter(list[CombineEventForm])
 class EventCombineResponseMarker(BaseResponseMarker):
     max_word_count = config.EVENT_SIZE
 
-    def __init__(self, events_by_names):
+    def __init__(self, events_by_names: dict[str, Event]):
         self.events_by_names = events_by_names
-        self.validEventCombs = []
-        self.cur_batch_events : list[str] = []
+        self.validEventCombs: list[CombineEventForm] = []
+        self.cur_batch_events: set[str] = set()
 
     def is_disjoint(self, event_combs: list[CombineEventForm]) -> bool:
         events = set(event for comb in self.validEventCombs for event in comb.source_events)
@@ -107,6 +107,8 @@ class EventCombineResponseMarker(BaseResponseMarker):
                         renamed_events.append(event_comb)
                     else:
                         self.validEventCombs.append(event_comb)  # extract correct objects
+                        for event in event_comb.source_events:
+                            self.cur_batch_events.remove(event)
                 if len(renamed_events) > 0:
                     message = f"\nYour previous response failed to adhere to the strict instruction to copy " \
                     "events VERBATIM in the source_events field. Rewrite the following combination attempts " \
@@ -174,7 +176,7 @@ async def combine_all_events(events: list[Event]) -> list[Event]:
         to_be_batched = list(response_marker.events_by_names.keys())
         random.shuffle(to_be_batched)   # shuffle randomly, to ensure we compare different events within a given batch
         for batch in itertools.batched(to_be_batched, final_batch_size or config.S_EVENT_MERGE_BATCH_SIZE):
-            response_marker.cur_batch_events = list(batch)
+            response_marker.cur_batch_events = set(batch)
             output = await chat_history.chat(
                 f"Output any mergeable events from the following list of events: {batch}, or any events " \
                 "that you have seen in a prior prompt, but not yet indicated to be merged. Don't be " \
