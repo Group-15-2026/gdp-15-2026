@@ -1,3 +1,7 @@
+from ..config import config
+
+from aiolimiter import AsyncLimiter
+import asyncio
 import logging
 from ollama import AsyncClient
 from pydantic.json_schema import JsonSchemaValue
@@ -32,6 +36,9 @@ class BaseResponseMarker:
 
 # Class to help maintain conversation context over multiple LLM 'turns'
 class ChatHistory:
+    limiter: AsyncLimiter | None = None
+    semaphore: asyncio.Semaphore | None = None
+
     def __init__(
             self, 
             ollama_client: AsyncClient,
@@ -51,6 +58,13 @@ class ChatHistory:
         if system_prompt is not None:
             self.messages.append(format_message("system", system_prompt))
 
+        if (":" in model) and "cloud" in model.split(":")[-1]:
+            if ChatHistory.limiter is None:
+                ChatHistory.limiter = AsyncLimiter(max_rate=config.CONC_CLOUD_RATE, time_period=1)
+        else:
+            if ChatHistory.semaphore is None:
+                ChatHistory.semaphore = asyncio.Semaphore(config.CONC_LOCAL_RATE)
+
         self.config: dict[str, Any] = {"model": model}
         if think is not None:
             self.config["think"] = think
@@ -68,10 +82,42 @@ class ChatHistory:
             assert response_marker is not None, "If model looping is allowed, a response assessing function must be provided" 
             self.response_marker = response_marker
     
+    async def _rate_limited_chat(self):
+        # Cloud model limiting
+        if ChatHistory.limiter:
+            delay = 1 # Start with 1s delay for retries
+            while True:
+                try:
+                    async with ChatHistory.limiter: # type: ignore
+                        response = await self.client.chat(
+                            messages=self.messages,
+                            **self.config
+                        )
+                        return response
+                        
+                except Exception as e:
+                    if "429" in str(e):
+                        logger.warning(f"Ollama-cloud rate limited (Error 429). Retrying in {delay} seconds...")
+                        await asyncio.sleep(delay)
+                        delay *= 2 # Exponential backoff
+                    else:
+                        raise e
+        # Local model limiting
+        else:
+            async with ChatHistory.semaphore: # type: ignore
+                response = await self.client.chat(
+                    messages=self.messages,
+                    **self.config
+                )
+        return response
+
     # Give the model a prompt, extract its response and record the interaction in the message history
     async def chat_single(self, prompt: str, record_response: bool = True) -> str:
         self.messages.append(format_message("user", prompt))
-        response = await self.client.chat(messages=self.messages, **self.config)
+
+        #response = await self.client.chat(messages=self.messages, **self.config)
+        response = await self._rate_limited_chat()
+
         output = response.message.content or ""
         logger.info(f"Received result \"{output}\" from LLM.")
 
