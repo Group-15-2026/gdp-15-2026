@@ -4,9 +4,6 @@ from datetime import date, timedelta
 from langchain_ollama.chat_models import ChatOllama
 from mcp_use import MCPAgent, MCPClient
 
-# Avoid printing messy logs
-# set_debug(2)   # TODO trial removing to see compatibility with logging
-
 CONFIG = {
     "mcpServers": {
         "collector": {

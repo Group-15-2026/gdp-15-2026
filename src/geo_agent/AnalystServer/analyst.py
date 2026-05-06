@@ -123,7 +123,6 @@ Do not invent facts beyond the provided input.
 Maintain consistency between severity labels and provided justifications.
 Keep summaries analytical, not narrative or speculative."""
 
-# TODO Implement the below tool using existing python libraries (make sure to save file to a sensible location)
 @analyst_mcp.tool()
 def format_final_report(report: str) -> str:
     '''

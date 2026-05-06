@@ -17,10 +17,6 @@ logger = logging.getLogger(__name__)
 nlp = None
 relevant_entity_labels = {"GPE", "LAW", "NORP", "ORG", "PERSON"}
 
-# TODO merge labels for duplicated actors (preferring anything other than 'other') across articles
-# |-> keep a single chat_history object live between function calls, and maintain inter-article context
-
-# TODO Process actors to remove things like possessive suffixes ('s)
 def extract_actors(articles: list[Article]) -> list[tuple[Article, Counter[str], dict[str, str]]]:
     global nlp
     
@@ -139,8 +135,6 @@ async def extract_article_events(article: Article) -> list[Event]:
     return [event.to_full() for event in events]
 
 # ----------------------------------------- claim extraction ----------------------------------------- #
-
-# TODO Link the extracted claims to the actors that they reference (try and only pass the actors who are mentioned in the particular article in order to avoid overwhelming the AI). 
 
 # Type that represents the model's target output for extraction
 ClaimExtractResponse = TypeAdapter(list[ClaimEntry])

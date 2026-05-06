@@ -1,8 +1,6 @@
 from dotenv import find_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-# TODO This needs expanding, and linking to the .env files
-
 class Settings(BaseSettings):
     # Load device/user specific settings from .env
     model_config = SettingsConfigDict(env_file=find_dotenv(), extra="ignore")

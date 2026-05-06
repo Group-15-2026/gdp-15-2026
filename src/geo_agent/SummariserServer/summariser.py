@@ -57,7 +57,7 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
         for event in doc_events:
             event.source_articles = [article]   # This is expanded below when we merge duplicates
 
-            # TODO Link actors mentioned into the events
+            # TODO Link actors mentioned into the events (may never be implemented - see combination.py)
             # event.actors = identify_event_actors(event, doc_actors) # doc_actors = [actor for actor, _ in classified_actors]
         events += doc_events
 
