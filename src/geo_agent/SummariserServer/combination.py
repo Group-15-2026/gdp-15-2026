@@ -65,7 +65,7 @@ class CombineEventForm(BaseModel):
     source_events: Annotated[list[str], AfterValidator(length_between(1, None))] = Field(frozen=True)
     new_event: str = Field(frozen=True)
 
-# type that represents the model's target output for combination
+# Type that represents the model's target output for combination
 EventCombineResponse = TypeAdapter(list[CombineEventForm])
 
 # Class that evaluates the validity of the combination-LLM 's response
@@ -75,6 +75,7 @@ class EventCombineResponseMarker(BaseResponseMarker):
     def __init__(self, events_by_names):
         self.events_by_names = events_by_names
         self.validEventCombs = []
+        self.cur_batch_events : list[str] = []
 
     def is_disjoint(self, event_combs: list[CombineEventForm]) -> bool:
         events = set(event for comb in self.validEventCombs for event in comb.source_events)
@@ -112,7 +113,7 @@ class EventCombineResponseMarker(BaseResponseMarker):
                     "using the verbatim event names listed previously in the source_events fields: " \
                     f"{renamed_events}. DO NOT rewrite any of the other merges from your last prompt. Only " \
                     "correct the merge-attempts in this message to use the correct source event names. The " \
-                    f"events that you can reference as source_events are: {list(self.events_by_names.keys())}."
+                    f"events that you can reference as source_events are: {self.cur_batch_events}."
 
         return message
     
@@ -173,6 +174,7 @@ async def combine_all_events(events: list[Event]) -> list[Event]:
         to_be_batched = list(response_marker.events_by_names.keys())
         random.shuffle(to_be_batched)   # shuffle randomly, to ensure we compare different events within a given batch
         for batch in itertools.batched(to_be_batched, final_batch_size or config.S_EVENT_MERGE_BATCH_SIZE):
+            response_marker.cur_batch_events = list(batch)
             output = await chat_history.chat(
                 f"Output any mergeable events from the following list of events: {batch}, or any events " \
                 "that you have seen in a prior prompt, but not yet indicated to be merged. Don't be " \
