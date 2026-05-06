@@ -6,7 +6,6 @@ from utils import setup
 import asyncio
 from pydantic import TypeAdapter
 
-# ! will throw NotImplementedError until impact_serverities gets an implementation
 async def main():
     setup()
 
