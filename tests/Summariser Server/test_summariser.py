@@ -5,7 +5,6 @@ from utils import setup
 
 import asyncio
 from datetime import datetime
-import types
 #import pytest
 
 # TODO: add unit tests. Currently just seeing if the code runs

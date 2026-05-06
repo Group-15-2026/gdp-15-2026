@@ -55,7 +55,6 @@ class Article(BaseModel):
     # Fields to be filled in later
     initial_categories: list[ArticleType] | None = None
     claims: list[ClaimEntry] | None = None
-    themes: list[str] | None = None
 
     def __eq__(self, other) -> bool:
         if isinstance(other, Article):

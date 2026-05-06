@@ -53,7 +53,6 @@ ActorClassBatchResponse = TypeAdapter(list[ClassifiedActor])
 # Class that evaluates the validity of the classification-LLM 's response
 class ActorClassResponseMarker(BaseResponseMarker):
     def __init__(self):
-        #self.valid_names = set()
         self.validActors = []
 
     def mark(self, response: str) -> str | None:
@@ -67,20 +66,7 @@ class ActorClassResponseMarker(BaseResponseMarker):
         # ! If the article has spelling mistakes, the LLM may never be able to output the mispelled actors. In general, the LLM does well enough that this anti-hallucination validation is not required at all, so it has been removed for now 
         else:
             for a in output_obj:
-                self.validActors.append(a)        
-        #else:
-        #    erroneous = []
-        #    for a in output_obj:
-        #        if a.name not in self.valid_names:
-        #            erroneous.append((a.name, a.actor_type.value, "Cannot invent new actor names!!!"))
-        #        else:
-        #            self.validActors.append(a)
-        #    if len(erroneous) > 0:
-        #        message = f"You cannot use the actor names {[name for (name, _, _) in erroneous]}, as they haven't appeared " \
-        #        "before in the article. Rename the following list of actor tuples of format (name, ai label, error): " \
-        #        f"{erroneous}, returning a JSON list of objects conforming to the output format defined in your system prompt. " \
-        #        "You may ONLY use actor names from the set of actor names " \
-        #        f"that have appeared so far, which is as follows: {self.valid_names}."
+                self.validActors.append(a)
         
         return message
     
@@ -88,9 +74,6 @@ class ActorClassResponseMarker(BaseResponseMarker):
         response = ActorClassBatchResponse.dump_json(self.validActors).decode("utf-8")
         self.validActors = []
         return response
-    
-    #def reset(self):
-    #    self.valid_names.clear()
 
 # This function uses an independent client to the same local Ollama instance as the orchestrator (saving memory)
 # It should be called on the complete set of raw actors for a single article (elements of 'extract_actors' output)
@@ -110,7 +93,6 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         system_prompt = classification_system_prompt,
         json = ActorClassBatchResponse.json_schema(),
         context = config.CONTEXT,
-        #tools = [ollama_client.web_search, ollama_client.web_fetch],
         allowed_attempts = "inf",       # we need a valid JSON output, so must allow for infinite attempts
         response_marker = response_marker
     )
@@ -122,7 +104,6 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         processed_batch = []
         for actor in batch:
             processed_batch.append((actor, article_actor_clss[actor]))
-            #response_marker.valid_names.add(actor)
         output = await chat_history.chat(f"(Actor, Label) pairs: {processed_batch}")
         output_obj: list[ClassifiedActor] = ActorClassBatchResponse.validate_json(output)
         for actor in output_obj:
@@ -130,8 +111,3 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
             actor_lookup[actor.name] = actor
             
     return [(actor.to_full(), actors[name]) for name, actor in actor_lookup.items()]
-
-
-# ------------------------------- article classification (theme tagging) ----------------------------- #
-
-# TODO Implement the article classification using chat_history

@@ -1,3 +1,7 @@
+from ..config import config
+
+from aiolimiter import AsyncLimiter
+import asyncio
 import logging
 from ollama import AsyncClient
 from pydantic.json_schema import JsonSchemaValue
@@ -32,6 +36,9 @@ class BaseResponseMarker:
 
 # Class to help maintain conversation context over multiple LLM 'turns'
 class ChatHistory:
+    limiter: AsyncLimiter | None = None
+    semaphore: asyncio.Semaphore | None = None
+
     def __init__(
             self, 
             ollama_client: AsyncClient,
@@ -42,7 +49,6 @@ class ChatHistory:
 
             json: JsonSchemaValue | None = None,
             context: int | None = None,
-            tools: list[Callable] | None = None,
 
             allowed_attempts: int | Literal["inf"] = 1,
             response_marker: BaseResponseMarker | None = None
@@ -52,8 +58,15 @@ class ChatHistory:
         if system_prompt is not None:
             self.messages.append(format_message("system", system_prompt))
 
+        if (":" in model) and "cloud" in model.split(":")[-1]:
+            if ChatHistory.limiter is None:
+                ChatHistory.limiter = AsyncLimiter(max_rate=config.CONC_CLOUD_RATE, time_period=1)
+        else:
+            if ChatHistory.semaphore is None:
+                ChatHistory.semaphore = asyncio.Semaphore(config.CONC_LOCAL_RATE)
+
         self.config: dict[str, Any] = {"model": model}
-        if think:
+        if think is not None:
             self.config["think"] = think
         if json:
             self.config["format"] = json
@@ -61,8 +74,6 @@ class ChatHistory:
             self.config["options"] = {
                 "num_ctx": context
             }
-        if tools:
-            self.config["tools"] = tools
 
         logger.info(f"LLM interface template setup with config: \"{self.config}\"")
 
@@ -71,10 +82,42 @@ class ChatHistory:
             assert response_marker is not None, "If model looping is allowed, a response assessing function must be provided" 
             self.response_marker = response_marker
     
+    async def _rate_limited_chat(self):
+        # Cloud model limiting
+        if ChatHistory.limiter:
+            delay = 1 # Start with 1s delay for retries
+            while True:
+                try:
+                    async with ChatHistory.limiter: # type: ignore
+                        response = await self.client.chat(
+                            messages=self.messages,
+                            **self.config
+                        )
+                        return response
+                        
+                except Exception as e:
+                    if "429" in str(e):
+                        logger.warning(f"Ollama-cloud rate limited (Error 429). Retrying in {delay} seconds...")
+                        await asyncio.sleep(delay)
+                        delay *= 2 # Exponential backoff
+                    else:
+                        raise e
+        # Local model limiting
+        else:
+            async with ChatHistory.semaphore: # type: ignore
+                response = await self.client.chat(
+                    messages=self.messages,
+                    **self.config
+                )
+        return response
+
     # Give the model a prompt, extract its response and record the interaction in the message history
     async def chat_single(self, prompt: str, record_response: bool = True) -> str:
         self.messages.append(format_message("user", prompt))
-        response = await self.client.chat(messages=self.messages, **self.config)
+
+        #response = await self.client.chat(messages=self.messages, **self.config)
+        response = await self._rate_limited_chat()
+
         output = response.message.content or ""
         logger.info(f"Received result \"{output}\" from LLM.")
 
@@ -91,8 +134,6 @@ class ChatHistory:
         logger.info("Entering multi-attempt LLM validation call loop...")
         while True:
             output = await self.chat_single(prompt, record_response=True)
-
-            # TODO add support for tool calling here if the model attempts to call a tool
 
             error_message = self.response_marker.mark(output)
             if error_message is None:
@@ -121,6 +162,9 @@ class ChatHistory:
     
     # Keep LLM client config, but clear the message record 
     def clear_history(self):
-        self.messages = []
+        system_prompt = self.messages[0] if len(self.messages) > 0 else None
+        if system_prompt and system_prompt["role"] != "system":
+            system_prompt = None
+        self.messages = [system_prompt] if system_prompt else []
         if self.allowed_attempts != 1:
             self.response_marker.reset()
