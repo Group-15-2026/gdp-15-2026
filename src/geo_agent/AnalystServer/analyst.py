@@ -4,6 +4,8 @@ from .financial_rules import classify_financial_impact
 from ..Entities.Article import Article
 from ..Entities.Events import Event, Severity
 
+from datetime import datetime
+from markdown_pdf import MarkdownPdf, Section
 from mcp.server.fastmcp import FastMCP
 
 from utils import setup_server_logging
@@ -11,7 +13,6 @@ from utils import setup_server_logging
 setup_server_logging("analyst")
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
-
 
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
@@ -54,7 +55,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
     return analysed_events
 
 @analyst_mcp.tool()
-def trigger_report_gen() -> str:
+def get_final_report_instructions() -> str:
     '''
     Provides instructions on how to generate the final report, including format, structure and examples.
     '''
@@ -124,11 +125,66 @@ Keep summaries analytical, not narrative or speculative."""
 
 # TODO Implement the below tool using existing python libraries (make sure to save file to a sensible location)
 @analyst_mcp.tool()
-def fomat_final_report(report: str) -> None:
+def format_final_report(report: str) -> str:
     '''
     Takes a markdown report string as input, and converts it into a final pdf report which is then saved, for human review.
     '''
-    raise NotImplementedError()
+    pdf = MarkdownPdf()
+    pdf.meta["title"] = "Daily Report"
+    pdf.meta["author"] = "APEX:E3 | Oxford CS"
+    
+    #css = "table, th, td {border: 1px solid black;}"
+    css = '''
+table {
+    border-collapse: collapse; 
+    width: 100%;
+    margin: 25px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    color: #222222;
+}
+
+th, td {
+    border-bottom: 1px solid #eeeeee; 
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #ffffff; 
+    color: #000000;
+    font-weight: 600;
+    border-bottom: 2px solid #333333; 
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+tr:last-of-type td {
+    border-bottom: 2px solid #dddddd;
+}
+
+h2 {
+    page-break-before: always;
+    break-before: page;
+}
+
+h2:first-of-type {
+    page-break-before: auto;
+    break-before: auto;
+    padding-top: 0;
+}
+
+'''
+    pdf.add_section(Section(report), user_css=css)
+
+    now = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
+    fullFileName = f"Reports/archive/Daily Summary ({now}).pdf"
+
+    pdf.save("Reports/Latest Report.pdf")
+    pdf.save(fullFileName)
+
+    return "Successfully generated and saved final pdf report"
 
 if __name__ == "__main__":
     analyst_mcp.run()

@@ -21,7 +21,10 @@
 # Article data #
 /data/**/*
 
-# Local files
+# Local files #
 *.DS_Store
 
 database.db
+
+# Final Reports #
+/Reports/*
