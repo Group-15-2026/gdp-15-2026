@@ -7,7 +7,7 @@ from utils import setup
 
 def get_sample_events() -> list[Event]:
     raw = ""
-    with open("tests/Summariser Server/SampleEventsOutputProcessed.json", "r", encoding="utf-8") as f:
+    with open("tests/SummariserServer/SampleEventsOutputProcessed.json", "r", encoding="utf-8") as f:
         for line in f:
             raw += line
     return ExtractEventsResult.model_validate_json(raw).events

@@ -66,7 +66,6 @@ class Event(BaseModel):
     def __hash__(self) -> int:
         return hash(self.event)
 
-    # TODO may need breaking up into different methods for filling in at different times
     def set_impacts(self,
                              e_sev: str, e_just: str,
                              f_sev: str, f_just: str,
@@ -76,7 +75,6 @@ class Event(BaseModel):
         self.financial_market_impact = Impact(severity=Severity(f_sev), justification=f_just)
         self.security_impact = Impact(severity=Severity(s_sev), justification=s_just)
         self.diplomatic_impact = Impact(severity=Severity(d_sev), justification=d_just)
-
 
     def set_controvercy(self, controversy: float) -> None:
         self.controversy = controversy

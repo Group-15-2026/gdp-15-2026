@@ -64,7 +64,6 @@ def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=config.CON
     llm = ChatOllama(
         model=config.MODEL, 
         base_url="http://localhost:11434",
-        # TODO: adjust this depending on hardware the system is running on (consider configuring in .env, and config.py)
         num_ctx=num_ctx,        # extend context to allow the model to work with many articles
         reasoning=True
     )

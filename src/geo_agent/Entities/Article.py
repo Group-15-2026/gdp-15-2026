@@ -64,17 +64,6 @@ class Article(BaseModel):
     def __hash__(self) -> int:
         return hash((self.article_title, self.publication_time, self.source.source_name))
 
-    # TODO may need breaking up into different methods for filling in at different times (see set_actors)
-    def set_processed_values(self,
-                             initial_categories: list[str],
-                             events: list[str],
-                             claims: list[tuple[str, float]],
-                             themes: list[str]) -> None:
-        self.initial_categories = [ArticleType(at) for at in initial_categories]
-        self.events = events
-        self.claims = [ClaimEntry(claim=c, opinion=o) for (c, o) in claims]
-        self.themes = themes
-
     def get_text_body(self) -> str:
         with Session(engine) as session:
             statement = select(ArticleDB).where(ArticleDB.article_title==self.article_title).where(ArticleDB.publication_time==self.publication_time).where(ArticleDB.source.has(source_name=self.source.source_name)) # type: ignore

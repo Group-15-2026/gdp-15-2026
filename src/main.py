@@ -9,9 +9,6 @@ async def main():
     logger = logging.getLogger(__name__)
     logger.info("Utilities setup successful.")
 
-    # TODO This is currently just test code to demonstrate execution of a simple prompt - may need updating
-    # |-> see the TASK_PROMPT in orchestrator.py for more details
-
     client = create_mcp_client()
     logger.info("MCP Servers created successfully")
 

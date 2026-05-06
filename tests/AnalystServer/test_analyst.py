@@ -13,7 +13,7 @@ async def main():
     # currently using SampleEventsOutputProcessed.txt 
     loader = TypeAdapter(list[Event])
     result: list[Event]
-    with open(r"tests\Analyst Server\SampleEventsOutputProcessed.txt", encoding='utf-8') as fp:
+    with open(r"tests\AnalystServer\SampleEventsOutputProcessed.txt", encoding='utf-8') as fp:
         f = fp.read()
         result = loader.validate_json(f)
 
