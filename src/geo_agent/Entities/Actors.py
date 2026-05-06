@@ -28,14 +28,16 @@ class Actor(BaseModel):
     name: str = Field(frozen=True)
     actor_type: ActorType = Field(frozen=True)
 
+    # TODO The below fields and method should likely be deleted, as they are not being used
     # Fields to be filled in later
-    impact: Between10 | None = None
-    public_opinion: Between10 | None = None
-    controversy: Between10 | None = None
-    mentions_weight: Percentage | None = None
+    #impact: Between10 | None = None
+    #public_opinion: Between10 | None = None
+    #controversy: Between10 | None = None
+    #mentions_weight: Percentage | None = None
     # TODO should be restricted to only themes found
-    linked_themes: str | None = None
+    #linked_themes: str | None = None
 
+    '''
     # TODO may need breaking up into different methods for filling in at different times
     def set_processed_values(self, 
                             impact: float, 
@@ -48,3 +50,4 @@ class Actor(BaseModel):
         self.controversy = controversy
         self.mentions_weight = mentions_weight
         self.linked_themes = linked_themes
+    '''

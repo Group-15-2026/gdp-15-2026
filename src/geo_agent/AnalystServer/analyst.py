@@ -1,10 +1,9 @@
-from ..Entities.Article import Article
-from ..Entities.Actors import Actor
-from ..Entities.Events import Event
-
 from .impacts import impact_serverities, impact_justifications
+from .financial_rules import classify_financial_impact
 
-import asyncio
+from ..Entities.Article import Article
+from ..Entities.Events import Event, Severity
+
 from mcp.server.fastmcp import FastMCP
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
@@ -13,8 +12,6 @@ analyst_mcp = FastMCP(name="Analyst MCP Server")
 @analyst_mcp.tool()
 def group_articles(articles: list[Article]) -> dict[str, list[Article]]:
     raise NotImplementedError()
-
-
 
 @analyst_mcp.tool()
 async def analyse_events(events: list[Event]) -> list[Event]:
@@ -26,9 +23,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
     You should only pass in event objects that have been outputted by the 'extract_events' tool in 
     the 'summariser' mcp server, NOT events that have already been processed.
     '''
-    from .financial_rules import classify_financial_impact
-    from ..Entities.Events import Severity
-    
+        
     scored_events = await impact_serverities(events)
 
     for event in scored_events:
@@ -54,13 +49,10 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 
     return analysed_events
 
-# TODO : The LLM should be instructed to produce a report in the desired output format
 @analyst_mcp.tool()
 def trigger_report_gen() -> str:
     '''
-    Provides instructions on how the orchestrator MCP client should generate the final report.
-
-    Including format, structure and examples.
+    Provides instructions on how to generate the final report, including format, structure and examples.
     '''
     return """Role: You are a Senior Geopolitical Risk Analyst and Event Curation Agent.
 
@@ -125,6 +117,14 @@ Output ONLY the Markdown content. No explanations or extra text.
 Do not invent facts beyond the provided input.
 Maintain consistency between severity labels and provided justifications.
 Keep summaries analytical, not narrative or speculative."""
+
+# TODO Implement the below tool using existing python libraries (make sure to save file to a sensible location)
+@analyst_mcp.tool()
+def fomat_final_report(report: str) -> None:
+    '''
+    Takes a markdown report string as input, and converts it into a final pdf report which is then saved, for human review.
+    '''
+    raise NotImplementedError()
 
 if __name__ == "__main__":
     analyst_mcp.run()
