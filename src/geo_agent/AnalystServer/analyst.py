@@ -57,7 +57,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 @analyst_mcp.tool()
 def get_final_report_instructions() -> str:
     '''
-    Provides instructions on how to generate the final report, including format, structure and examples.
+    Fetch instructions on how to generate the final report, including format, structure and examples.
     '''
     return """Role: You are a Senior Geopolitical Risk Analyst and Event Curation Agent.
 
@@ -126,7 +126,7 @@ Keep summaries analytical, not narrative or speculative."""
 @analyst_mcp.tool()
 def format_final_report(report: str) -> str:
     '''
-    Takes a markdown report string as input, and converts it into a final pdf report which is then saved, for human review.
+    Takes a final markdown report as input, and converts it into a final pdf report which is then saved for human review.
     '''
     pdf = MarkdownPdf()
     pdf.meta["title"] = "Daily Report"
