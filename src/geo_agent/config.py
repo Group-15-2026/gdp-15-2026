@@ -1,9 +1,14 @@
-from pydantic_settings import BaseSettings
+from dotenv import find_dotenv
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # TODO This needs expanding, and linking to the .env files
 
 class Settings(BaseSettings):
-    # TODO should ideally pick based off of system capabilities
+    # Load device/user specific settings from .env
+    model_config = SettingsConfigDict(env_file=find_dotenv(), extra="ignore")
+
+    # ! The below are the DEFAULT settings, but will be overwritten by any .env file
+
     MODEL : str = "gemma4:e4b"              # This model is the recommended local model (can also use gemma4:e2b)
     #//MODEL : str = "minimax-m2.5:cloud"      # This model is the recommended cloud model, however it uses a lot of the compute budget
 
