@@ -127,7 +127,7 @@ Formatting Requirements:
 
 Highlight high-impact elements:
 Use bold for all impacts and their severity ratings.
-Add "\\" at the end of each segment of the event breakdowns.
+Add line breaks at the end of each segment of the event breakdowns.
 Ensure clean, readable Markdown structure with consistent formatting.
 
 Constraints:
