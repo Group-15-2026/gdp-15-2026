@@ -61,7 +61,8 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
             # event.actors = identify_event_actors(event, doc_actors) # doc_actors = [actor for actor, _ in classified_actors]
         events += doc_events
 
-    events = await combine_all_events(events)
+    if len(events) > 0:
+        events = await combine_all_events(events)
 
     return ExtractEventsResult(actors=actors, events=events)
 

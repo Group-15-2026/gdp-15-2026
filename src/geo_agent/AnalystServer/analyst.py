@@ -5,12 +5,16 @@ from ..Entities.Article import Article
 from ..Entities.Events import Event, Severity
 
 from datetime import datetime
+import logging
 from markdown_pdf import MarkdownPdf, Section
 from mcp.server.fastmcp import FastMCP
+import os
 
 from utils import setup_server_logging
 
 setup_server_logging("analyst")
+
+logger = logging.getLogger(__name__)
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
 
@@ -55,7 +59,7 @@ async def analyse_events(events: list[Event]) -> list[Event]:
 @analyst_mcp.tool()
 def get_final_report_instructions() -> str:
     '''
-    Provides instructions on how to generate the final report, including format, structure and examples.
+    Fetch instructions on how to generate the final report, including format, structure and examples.
     '''
     return """Role: You are a Senior Geopolitical Risk Analyst and Event Curation Agent.
 
@@ -84,7 +88,7 @@ Theme Extraction:
 Identify 2-3 high-level themes that capture common patterns across the selected events (e.g., Great Power Competition, Energy Security, Regional Instability).
 
 Output Format:
-Return a structured Markdown document with the following sections:
+Call the 'format_final_report' tool with only the input of a structured Markdown document with the following sections:
 
 Top Geopolitical Events
 Event 1: [Event Title]
@@ -117,7 +121,7 @@ Ensure clean, readable Markdown structure with consistent formatting.
 
 Constraints:
 
-Output ONLY the Markdown content. No explanations or extra text.
+ONLY pass the Markdown content to 'format_final_report'. No explanations or extra text.
 Do not invent facts beyond the provided input.
 Maintain consistency between severity labels and provided justifications.
 Keep summaries analytical, not narrative or speculative."""
@@ -125,7 +129,7 @@ Keep summaries analytical, not narrative or speculative."""
 @analyst_mcp.tool()
 def format_final_report(report: str) -> str:
     '''
-    Takes a markdown report string as input, and converts it into a final pdf report which is then saved, for human review.
+    Takes a final markdown report as input, and converts it into a final pdf report which is then saved for human review.
     '''
     pdf = MarkdownPdf()
     pdf.meta["title"] = "Daily Report"
@@ -179,8 +183,24 @@ h2:first-of-type {
     now = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
     fullFileName = f"Reports/archive/Daily Summary ({now}).pdf"
 
+    # Specify the nested directory structure
+    nested_directory = "Reports/archive"
+
+    # Create nested directories
+    try:
+        os.makedirs(nested_directory)
+        logger.info(f"Nested directories '{nested_directory}' created successfully")
+    except FileExistsError:
+        logger.error(f"One or more directories in '{nested_directory}' already exist")
+    except PermissionError:
+        logger.error(f"Permission denied: Unable to create '{nested_directory}'")
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+
     pdf.save("Reports/Latest Report.pdf")
     pdf.save(fullFileName)
+
+    logger.info("Reports saved successfully")
 
     return "Successfully generated and saved final pdf report"
 
