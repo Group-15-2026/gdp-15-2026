@@ -72,6 +72,7 @@ event: Use the original event description (cleaned if necessary).
 summary: Write a 3-5 sentence concise analytical summary explaining context, actors, and implications.
 source_links: Include 2-3 relevant links if available; otherwise return an empty list.
 impact fields: Use the provided severity levels and justifications exactly as given. Do not modify or regenerate them.
+financial_rules_context: if a <financial_rules_context> tag is present, use the listed asset classes and sectors to add precision to the Financial Market Impact justification sentence
 
 Actor Identification:
 
