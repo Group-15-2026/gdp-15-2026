@@ -245,6 +245,19 @@ async def impact_justifications(events: list[Event]) -> list[Event]:
             user_query += f" <financial_market_impact_severity>{event.financial_market_impact.severity}</financial_market_impact_severity>"
             user_query += f" <security_impact_severity>{event.security_impact.severity}</security_impact_severity>"
             user_query += f" <diplomatic_impact_severity>{event.diplomatic_impact.severity}</diplomatic_impact_severity>"
+            
+            hint = getattr(event, "financial_rules_hint", None)
+            if hint:
+                user_query += " <financial_rules_context>"
+                if hint.get("event_type"):
+                    user_query += f"Detected event type: {hint['event_type']}. "
+                if hint.get("affected_sectors"):
+                    user_query += f"Potentially exposed sectors: {', '.join(hint['affected_sectors'][:4])}. "
+                if hint.get("affected_asset_classes"):
+                    user_query += f"Relevant asset classes: {', '.join(hint['affected_asset_classes'][:3])}. "
+                if hint.get("commodities_mentioned"):
+                    user_query += f"Commodities mentioned: {', '.join(hint['commodities_mentioned'])}. "
+                user_query += "</financial_rules_context>"
 
             processed_batch.append(user_query)
         output = await chat_history.chat(f"Event severity values: {processed_batch}")

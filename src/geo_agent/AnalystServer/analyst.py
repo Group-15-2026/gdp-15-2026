@@ -42,10 +42,8 @@ async def analyse_events(events: list[Event]) -> list[Event]:
             rule_severity = Severity.high
         elif event_type in med_types:
             rule_severity = Severity.medium
-        elif event_type is not None:
-            rule_severity = Severity.low
         else:
-            rule_severity = Severity.no_impact
+            event.financial_rules_hint = classification 
             
         if event.financial_market_impact:
             event.financial_market_impact.severity = rule_severity 

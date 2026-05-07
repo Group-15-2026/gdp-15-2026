@@ -55,6 +55,7 @@ class Event(BaseModel):
     controversy: Between10p | None = None
     economic_impact: Impact | None = None
     financial_market_impact: Impact | None = None
+    financial_rules_hint: dict | None = None 
     security_impact: Impact | None = None
     diplomatic_impact: Impact | None = None
 
