@@ -7,12 +7,15 @@ from .combination import combine_all_events
 from .extraction import extract_actors, extract_article_events, extract_article_claims
 
 import asyncio
+import logging
 from mcp.server.fastmcp import FastMCP
 from pydantic import BaseModel
 
 from utils import setup_server_logging
 
 setup_server_logging("summariser")
+
+logger = logging.getLogger(__name__)
 
 summariser_mcp = FastMCP(name="Summariser MCP Server")
 
@@ -64,7 +67,11 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
     if len(events) > 0:
         events = await combine_all_events(events)
 
-    return ExtractEventsResult(actors=actors, events=events)
+    output = ExtractEventsResult(actors=actors, events=events)
+
+    logger.info(f"Final extract_events output: {output.dump_json()}")
+
+    return output
 
 if __name__ == "__main__":
     summariser_mcp.run()

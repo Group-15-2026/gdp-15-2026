@@ -109,5 +109,7 @@ async def classify_article_actors(article_actors: Counter[str], article_actor_cl
         for actor in output_obj:
             actors[actor.name] += article_actors[actor.name]
             actor_lookup[actor.name] = actor
+
+    logger.info(f"Summariser classified the following actors: {[(actor.name, actor.actor_type) for actor in actor_lookup.values()]}")
             
     return [(actor.to_full(), actors[name]) for name, actor in actor_lookup.items()]

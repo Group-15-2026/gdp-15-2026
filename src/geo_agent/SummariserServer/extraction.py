@@ -132,6 +132,8 @@ async def extract_article_events(article: Article) -> list[Event]:
     output = await chat_history.chat(f"Extract the events in the article \"{article.article_title}\": {text_body}")
     events: list[ExtractedEvent] = EventExtractResponse.validate_json(output)
     
+    logger.info(f"Summariser extracted the following events from article '{article.article_title}': {[event.event for event in events]}")
+
     return [event.to_full() for event in events]
 
 # ----------------------------------------- claim extraction ----------------------------------------- #
@@ -213,5 +215,7 @@ async def extract_article_claims(article: Article) -> list[ClaimEntry]:
     text_body = article.get_text_body()
     output = await chat_history.chat(f"Extract the claims in the article \"{article.article_title}\": {text_body}")
     claims: list[ClaimEntry] = ClaimExtractResponse.validate_json(output)
+
+    logger.info(f"Summariser extracted the following claims from article '{article.article_title}': {[(claim.claim, claim.opinion) for claim in claims]}")
     
     return claims
