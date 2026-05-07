@@ -71,7 +71,6 @@ Prioritize events with medium or high impact across multiple categories.
 
 Event Enrichment:
 For each selected event:
-
 event: Use the original event description (cleaned if necessary).
 summary: Write a 3-5 sentence concise analytical summary explaining context, actors, and implications.
 source_links: Include 2-3 relevant links if available; otherwise return an empty list.
@@ -79,24 +78,32 @@ impact fields: Use the provided severity levels and justifications exactly as gi
 financial_rules_context: if a <financial_rules_context> tag is present, use the listed asset classes and sectors to add precision to the Financial Market Impact justification sentence
 
 Actor Identification:
-
 Identify 3-5 key actors (countries, organizations, or individuals) across the selected events.
 For each actor, provide a brief description of their role and relevance to the events (1-2 sentences).
 Prioritize actors with the greatest influence or repeated presence across events.
 
+Claim Extraction:
+Identify 3-5 opinionated claims linking to blame or causation, and list the source that they came from. Focus on claims that have very high (>8) or very low (<-8) opinion scores.
+
 Theme Extraction:
 Identify 2-3 high-level themes that capture common patterns across the selected events (e.g., Great Power Competition, Energy Security, Regional Instability).
+
+Summary:
+Give a concise summary of how all of the news on events and actors link together. 
 
 Output Format:
 Call the 'format_final_report' tool with only the input of a structured Markdown document with the following sections:
 
+News Overview / Introduction
+2-3 sentences on the main themes covered in the selected events
+
 Top Geopolitical Events
 Event 1: [Event Title]
-Summary: ... \
-Source Links: ... \
-Economic Impact: [severity] - justification \
-Financial Market Impact: [severity] - justification \
-Security Impact: [severity] - justification \
+Summary: ...
+Source Article Links: ...
+Economic Impact: [severity] - justification
+Financial Market Impact: [severity] - justification
+Security Impact: [severity] - justification
 Diplomatic Impact: [severity] - justification
 
 (Repeat for each event)
@@ -106,16 +113,20 @@ Actor 1: Role and relevance
 Actor 2: Role and relevance
 Actor 3: Role and relevance
 (3-5 actors total)
+
 Key Themes
 Theme 1
 Theme 2
 Theme 3 (optional)
 
+Major Claims
+
+[list of news sources referenced in the processed articles]
+
 Formatting Requirements:
 
 Highlight high-impact elements:
-Use bold for events and actors associated with "high" severity in any category.
-Use italic for impact categories associated with "high" severity.
+Use bold for all impacts and their severity ratings.
 Add "\\" at the end of each segment of the event breakdowns.
 Ensure clean, readable Markdown structure with consistent formatting.
 
