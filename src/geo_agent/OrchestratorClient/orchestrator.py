@@ -2,7 +2,9 @@ from ..config import config
 
 from datetime import date, timedelta
 from langchain_ollama.chat_models import ChatOllama
-from mcp_use import MCPAgent, MCPClient
+from mcp_use import MCPAgent, MCPClient, set_debug
+
+set_debug(2)
 
 CONFIG = {
     "mcpServers": {
@@ -60,12 +62,18 @@ required before returning your final response.
 # TODO Currently just a testing placeholder - will need to properly cultivate once completed
 today = date.today()
 yesterday = today - timedelta(days=1)
-TASK_PROMPT = f"What news can you find on the topic of 'trade' from the {yesterday} to the {today}? " \
-               "Extract the key actors, and all events from all relevant news articles. Display the actors alongside " \
-               "their classification, and the number of times that they are referenced in different articles. " \
-               "Follow this with a list of all events extracted from the articles, alongside the title of the " \
-               "articles that they were extracted from. Finally, output a list of all of the claims made by the different " \
-               "articles, as well as an indication of how many articles back up or disagree with each claim."
+#TASK_PROMPT = f"What news can you find on the topic of 'trade' from the {yesterday} to the {today}? " \
+#               "Extract the key actors, and all events from all relevant news articles. Display the actors alongside " \
+#               "their classification, and the number of times that they are referenced in different articles. " \
+#               "Follow this with a list of all events extracted from the articles, alongside the title of the " \
+#               "articles that they were extracted from. Finally, output a list of all of the claims made by the different " \
+#               "articles, as well as an indication of how many articles back up or disagree with each claim."
+
+TASK_PROMPT = f'''
+Create my morning briefing covering geopolitical events from {yesterday} to {today}, covering all major events
+and developments from articles released in the last 24hrs. Focus on topics with potential financial or 
+political impacts.
+'''
 
 def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=config.CONTEXT, max_steps=50):
     llm = ChatOllama(
@@ -81,6 +89,7 @@ def create_mcp_agent(mcp_client, system_prompt=SYSTEM_PROMPT, num_ctx=config.CON
         client=mcp_client, 
         system_prompt=system_prompt,
         max_steps=max_steps     # set the maximum number of tool calling steps the model can perform
+        #use_server_manager=True
     )
 
     return agent
