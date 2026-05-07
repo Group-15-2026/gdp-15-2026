@@ -85,7 +85,7 @@ Theme Extraction:
 Identify 2-3 high-level themes that capture common patterns across the selected events (e.g., Great Power Competition, Energy Security, Regional Instability).
 
 Output Format:
-Return a structured Markdown document with the following sections:
+Call the 'format_final_report' tool with only the input of a structured Markdown document with the following sections:
 
 Top Geopolitical Events
 Event 1: [Event Title]
@@ -118,7 +118,7 @@ Ensure clean, readable Markdown structure with consistent formatting.
 
 Constraints:
 
-Output ONLY the Markdown content. No explanations or extra text.
+ONLY pass the Markdown content to 'format_final_report'. No explanations or extra text.
 Do not invent facts beyond the provided input.
 Maintain consistency between severity labels and provided justifications.
 Keep summaries analytical, not narrative or speculative."""
