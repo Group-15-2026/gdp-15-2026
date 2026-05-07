@@ -78,8 +78,6 @@ def _fetch_from(index, api_access):
 
 def get_daily_articles():
     fetch_time = dt.date.today()
-    index = index_top_by_category(fetch_time)
-    raw = _fetch_from(index, _top_by_category)
 
     index = index_top_by_source(fetch_time)
     raw = _fetch_from(index, _top_by_source)
