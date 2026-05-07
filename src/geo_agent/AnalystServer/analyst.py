@@ -5,12 +5,16 @@ from ..Entities.Article import Article
 from ..Entities.Events import Event, Severity
 
 from datetime import datetime
+import logging
 from markdown_pdf import MarkdownPdf, Section
 from mcp.server.fastmcp import FastMCP
+import os
 
 from utils import setup_server_logging
 
 setup_server_logging("analyst")
+
+logger = logging.getLogger(__name__)
 
 analyst_mcp = FastMCP(name="Analyst MCP Server")
 
@@ -180,8 +184,24 @@ h2:first-of-type {
     now = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
     fullFileName = f"Reports/archive/Daily Summary ({now}).pdf"
 
+    # Specify the nested directory structure
+    nested_directory = "Reports/archive"
+
+    # Create nested directories
+    try:
+        os.makedirs(nested_directory)
+        logger.info(f"Nested directories '{nested_directory}' created successfully")
+    except FileExistsError:
+        logger.error(f"One or more directories in '{nested_directory}' already exist")
+    except PermissionError:
+        logger.error(f"Permission denied: Unable to create '{nested_directory}'")
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+
     pdf.save("Reports/Latest Report.pdf")
     pdf.save(fullFileName)
+
+    logger.info("Reports saved successfully")
 
     return "Successfully generated and saved final pdf report"
 
