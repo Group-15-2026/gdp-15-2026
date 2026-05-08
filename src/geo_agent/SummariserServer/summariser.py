@@ -69,7 +69,7 @@ async def extract_events(articles: list[Article]) -> ExtractEventsResult:
 
     output = ExtractEventsResult(actors=actors, events=events)
 
-    logger.info(f"Final extract_events output: {output.dump_json()}")
+    logger.info(f"Final extract_events output: {output.model_dump_json()}")
 
     return output
 
