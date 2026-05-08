@@ -43,14 +43,14 @@ async def analyse_events(events: list[Event]) -> list[Event]:
         med_types = {"trade_dispute", "coup_or_instability", "diplomatic_change"}
         
         if event_type in high_types:
-            rule_severity = Severity.high
+            if event.financial_market_impact:
+                rule_severity = Severity.high
         elif event_type in med_types:
-            rule_severity = Severity.medium
+            if event.financial_market_impact:
+                rule_severity = Severity.medium
         else:
             event.financial_rules_hint = classification 
             
-        if event.financial_market_impact:
-            event.financial_market_impact.severity = rule_severity 
     
     analysed_events = await impact_justifications(scored_events)
 
