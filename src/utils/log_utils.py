@@ -59,6 +59,7 @@ def setup_logging_basic(colour="yellow"):
 def setup_logging_to_files():
     # Early logs created, caught by to_console only
     LOGS_DIR = get_logs_dir()
+    LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
     to_latest = logging.FileHandler(LOGS_DIR / "latest.orchestrator.log", mode="w", encoding="utf-8")
     to_archive = logging.FileHandler(LOGS_DIR / "archive.orchestrator.log", mode="a", encoding="utf-8")
@@ -73,6 +74,7 @@ def setup_logging_to_files():
 
 def setup_server_logging(server_name):
     LOGS_DIR = get_logs_dir()
+    LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
     colour = ""
     match server_name:
