@@ -73,7 +73,7 @@ Event Enrichment:
 For each selected event:
 event: Use the original event description (cleaned if necessary).
 summary: Write a 3-5 sentence concise analytical summary explaining context, actors, and implications.
-source_links: Include 2-3 relevant links if available; otherwise return an empty list.
+source_links: Include 2-3 relevant article links if available. 
 impact fields: Use the provided severity levels and justifications exactly as given. Do not modify or regenerate them.
 financial_rules_context: if a <financial_rules_context> tag is present, use the listed asset classes and sectors to add precision to the Financial Market Impact justification sentence
 
@@ -128,6 +128,7 @@ Formatting Requirements:
 Highlight high-impact elements:
 Use bold for all impacts and their severity ratings.
 Add line breaks at the end of each segment of the event breakdowns.
+Embed article urls as hyperlinks to the article titles.
 Ensure clean, readable Markdown structure with consistent formatting.
 
 Constraints:
@@ -176,18 +177,6 @@ th {
 tr:last-of-type td {
     border-bottom: 2px solid #dddddd;
 }
-
-h2 {
-    page-break-before: always;
-    break-before: page;
-}
-
-h2:first-of-type {
-    page-break-before: auto;
-    break-before: auto;
-    padding-top: 0;
-}
-
 '''
     pdf.add_section(Section(report), user_css=css)
 
