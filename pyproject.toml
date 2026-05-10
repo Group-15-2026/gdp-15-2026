@@ -27,6 +27,9 @@ dependencies = [
 [tool.hatch.build.targets.wheel]
 packages = ["src/geo_agent"]
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
 [tool.uv.workspace]
 members = [
     ".",
