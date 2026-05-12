@@ -181,7 +181,7 @@ tr:last-of-type td {
     pdf.add_section(Section(report), user_css=css)
 
     now = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
-    fullFileName = f"Reports/archive/Daily Summary ({now}).pdf"
+    fullFileName = f"Reports/archive/Daily Summary ({now})"
 
     # Specify the nested directory structure
     nested_directory = "Reports/archive"
@@ -198,7 +198,9 @@ tr:last-of-type td {
         logger.error(f"An error occurred: {e}")
 
     pdf.save("Reports/Latest Report.pdf")
-    pdf.save(fullFileName)
+    with open(fullFileName + ".md", "w", encoding="utf-8") as f:
+        f.write(report)
+    pdf.save(fullFileName + ".pdf")
 
     logger.info("Reports saved successfully")
 
